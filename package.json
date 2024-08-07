@@ -8,13 +8,13 @@
     "url": "git+https://github.com/undeadway/bluewater.git"
   },
   "dependencies": {
+    "chinese-traditional-color" : "git+https://gitee.com/undeadway/chinese-traditional-color",
     "secure-ls": "^1.2.6",
     "sm-crypto": "^0.3.11",
     "core-js": "^3.6.5",
     "dayjs": "^1.11.11"
   },
   "devDependencies": {
-    "chinese-traditional-color" : "git+https://gitee.com/undeadway/chinese-traditional-color",
     "vue": "^2.6.11",
     "jsconst": "0.0.5",
     "vuex": "^3.4.0"
