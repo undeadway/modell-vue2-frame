@@ -9,10 +9,10 @@ import input from "./input/index";
 import search from "./input/search";
 import password from "./input/password";
 import button from "./button";
-import progress from "./progress";
 import $message from "./message";
 import alert from "./alert";
 import tag from "./tag";
+import percent from "./percent";
 
 export default {
 	mount: (Vue) => {
@@ -27,7 +27,7 @@ export default {
 		Vue.component("MdlSearch", search);
 		Vue.component("MdlInputPassword", password);
 		Vue.component("MdlButton", button);
-		Vue.component("MdlProgress", progress);
+		Vue.component("MdlPercent", percent);
 		Vue.component("MdlAlert", alert);
 		Vue.component("MdlTag", tag);
 
