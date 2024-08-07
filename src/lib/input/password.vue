@@ -56,9 +56,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mdl-input-password-apend-btn-eye-on {
-	background-image: url(../../../assets/icons/eye-on.svg);
+	// src\lib\input\password.vue
+	background-image: url(../../assets/icons/eye-on.svg);
 }
 .mdl-input-password-apend-btn-eye-hide {
-	background-image: url(../../../assets/icons/eye-hide.svg);
+	background-image: url(../../assets/icons/eye-hide.svg);
 }
 </style>

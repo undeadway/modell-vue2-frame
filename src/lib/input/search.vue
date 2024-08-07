@@ -29,6 +29,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mdl-input-append-btn-search-bg {
-	background-image: url(../../../assets/icons/search.svg);
+	background-image: url(../../assets/icons/search.svg);
 }
 </style>
