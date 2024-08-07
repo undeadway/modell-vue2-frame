@@ -9,7 +9,7 @@
 	</div>
 </template>
 <script>
-import CloseBox from "../close-box";
+import CloseBox from "../../components/close-box";
 
 export default {
 	components: {
