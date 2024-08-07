@@ -4,6 +4,7 @@
 </template>
 <script>
 export default {
+	name: "MdlTag",
 	props: {
 		type: {
 			type: String,

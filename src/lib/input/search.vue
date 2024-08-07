@@ -10,6 +10,7 @@
 <script>
 import mdlinput from "./index";
 export default {
+	name: "MdlSearch",
 	components: {
 		mdlinput
 	},

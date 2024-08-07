@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+	name: "MdlButton",
 	props: {
 		type: {
 			type: String,

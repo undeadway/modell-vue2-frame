@@ -17,6 +17,7 @@
 </template>
 <script>
 export default {
+	name: "MdlInput",
 	inject: [ "mdlForm", "mdlFormItem" ],
 	props: {
 		placeholder: {

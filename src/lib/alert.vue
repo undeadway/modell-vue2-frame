@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+	name: "MdlAlert",
 	props: {
 		effect: {
 			type: String,

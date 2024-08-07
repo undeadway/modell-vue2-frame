@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+	name: "MdlPercent",
 	props: {
 		percent: {
 			type: Number,

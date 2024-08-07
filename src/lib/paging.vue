@@ -52,6 +52,7 @@
 </template>
 <script>
 export default {
+	name: "MdlPaging",
 	props: {
 		data: {
 			type: Object,

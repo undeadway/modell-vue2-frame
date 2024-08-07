@@ -25,6 +25,7 @@
 </template>
 <script>
 export default {
+	name: "MdlLoading",
 	data () {
 		return {
 			loading: false,
