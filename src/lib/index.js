@@ -17,20 +17,20 @@ import percent from "./percent";
 import $message from "./message";
 
 components = [
-	loading,
-	table,
-	paging,
-	tree,
-	dialog,
 	form,
 	formItem,
 	input,
-	search,
 	password,
-	button,
+	search,
 	alert,
+	button,
+	dialog,
+	loading,
+	paging,
+	percent,
+	table,
 	tag,
-	percent
+	tree
 ];
 
 export default {
