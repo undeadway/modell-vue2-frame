@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "chinese-traditional-color" : "git+https://gitee.com/undeadway/chinese-traditional-color",
+    "jsconst": "0.0.5",
     "secure-ls": "^1.2.6",
     "sm-crypto": "^0.3.11",
     "core-js": "^3.6.5",
@@ -16,7 +17,6 @@
   },
   "devDependencies": {
     "vue": "^2.6.11",
-    "jsconst": "0.0.5",
     "vuex": "^3.4.0"
   },
   "scripts": {
