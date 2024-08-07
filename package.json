@@ -16,11 +16,13 @@
     "dayjs": "^1.11.11"
   },
   "devDependencies": {
+    "sass": "^1.77.2",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },
   "scripts": {
     "build": " test/index.js",
+    "build:css": "node ./build/css.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "description": "A Node.js based database interface adapter, an database-agnostic interface library, designed to bridge the usage discrepancies caused by diverse database driver syntaxes.",

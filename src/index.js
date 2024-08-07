@@ -11,6 +11,8 @@ import Password from "./lib/input/password";
 import Button from "./lib/button";
 import Alert from "./lib/alert";
 import Tag from "./lib/tag";
+import TabGroup from "./lib/tabs/group";
+import TabItem from "./lib/tabs/item";
 import Percent from "./lib/percent";
 
 import $message from "./lib/message";
@@ -29,14 +31,17 @@ const PAGE_COMPONENTS = [
 	Percent,
 	Table,
 	Tag,
-	Tree
+	Tree,
+	TabGroup,
+	TabItem
 ];
 const PROTOTYPE_COMPONENTS = [
     $message
 ];
 
-const mount =  (Vue) => {
+const install =  (Vue) => {
 	PAGE_COMPONENTS.forEach(component => {
+		console.log(component.name);
 		Vue.component(component.name, component);
 	});
 
@@ -46,8 +51,12 @@ const mount =  (Vue) => {
 	
 }
 
+if (typeof window !== 'undefined' && window.Vue) {
+	install(window.Vue);
+}
+
 export default {
-	mount,
+	install,
 	Form,
 	FormItem,
 	Input,
@@ -61,5 +70,7 @@ export default {
 	Percent,
 	Table,
 	Tag,
-	Tree
+	Tree,
+	TabGroup,
+	TabItem
 }
