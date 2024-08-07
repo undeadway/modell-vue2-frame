@@ -1,0 +1,33 @@
+<template>
+	<div :class="`mdl-alert-box mdl-text-align__${align} mdl-effect__${effect} 
+	mdl-effect__${type}-${effect} mdl_border_${type}
+	`"><slot></slot></div>
+</template>
+<script>
+export default {
+	props: {
+		effect: {
+			type: String,
+			default: "light" // light、dark
+		},
+		type: {
+			type: String,
+			default: "info" // info、success、warning、danger
+		},
+		align: {
+			type: String,
+			default: "left" // left、center、right、justify
+		}
+	}
+}
+</script>
+<style lang="scss" scoped>
+.mdl-alert-box {
+	padding:5px;
+	margin: 5px 10px;
+	font-size: 18px;
+	border-radius: 10px;
+	border-width: 1px;
+	border-style: solid;
+}
+</style>
