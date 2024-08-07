@@ -1,5 +1,5 @@
 import Vue from 'vue';
 
-import components from "./components";
+import lib from "./lib";
 
-components.mount(Vue);
+lib.mount(Vue);
