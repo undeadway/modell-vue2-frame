@@ -1,0 +1,87 @@
+.mdl-text-align__left {
+    text-align: left;
+}
+
+.mdl-text-align__right {
+    text-align: right;
+}
+
+.mdl-text-align__justify {
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.mdl-text-align__center {
+    text-align: center;
+}
+
+.mdl-background__info {
+	background: $c_info;
+}
+.mdl-background__success {
+	background: $c_success;
+}
+.mdl-background__warning {
+	background: $c_warning;
+}
+.mdl-background__danger {
+	background: $c_warning;
+}
+
+.mdl_border_text {
+	border:1px solid $c_text;
+}
+.mdl_border_info {
+	border:1px solid $c_info;
+}
+.mdl_border_success {
+	border:1px solid $c_success;
+}
+.mdl_border_warning {
+	border:1px solid $c_warning;
+}
+.mdl_border_danger {
+	border:1px solid $c_danger;
+}
+
+
+/////////////// ↓ 字体颜色 ↓ ///////////////
+.mdl-effect__dark {
+	color: var(--c_white);
+}
+.mdl-effect__info-light {
+	color: $c_info;
+}
+.mdl-effect__text-light {
+	color: $c_text;
+}
+.mdl-effect__success-light {
+	color: $c_success;
+}
+.mdl-effect__warning-light {
+	color: $c_warning;
+}
+.mdl-effect__danger-light {
+	color: $c_danger;
+}
+
+/////////////// ↓ 背景颜色 ↓ ///////////////
+.mdl-effect__light {
+	background: $c_light_info;
+}
+
+.mdl-effect__info-dark {
+	background: $c_info;
+}
+.mdl-effect__text-dark {
+	background: $c_text;
+}
+.mdl-effect__success-dark {
+	background: $c_success;
+}
+.mdl-effect__warning-dark {
+	background: $c_success;
+}
+.mdl-effect__danger-dark {
+	background: $c_danger;
+}

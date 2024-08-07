@@ -1,0 +1,55 @@
+@import "chinese-traditional-color/dist/chinese-traditional-color.scss";
+
+$c_primary: $CTC_PureBrightness_ningyezi;
+$c_list_odd: $CTC_GreaterHeat_shaoai;
+$c_list_even: $CTC_GreaterHeat_congqing;
+$c_list_hover: $CTC_GreaterHeat_cuizun;
+$c_text: $CTC_WhiteDew_jiaoyue;
+$c_info: $CTC_HeatEnd_tianshuibi;
+$c_success: $CTC_SummerBeginning_shuilongyin;
+$c_warning: $CTC_RainWater_kujin; // success
+$c_danger: $CTC_LesserSnow_hedinghong; // danger
+$c_earth_yellow: $CTC_SringBeginning_songhua;
+$c_red: $CTC_SummerBeginning_danji;
+$c_a: $CTC_HeatEnd_facui;
+$c_a_hover: $CTC_AutumnBeginning_cangcang;
+$c_bgcolor: $CTC_SummerSolstice_yuping;
+$c_border: $CTC_SummerBeginning_shaoyi;
+$c_gray: $CTC_SpringEquinox_shaofen;
+$c_dark_gray: $CTC_SummerSolstice_leiyuchui;
+$c_blue: $CTC_AutumnEquinox_kongquelan;
+$c_light_blue:$CTC_LesserSnow_xinglang;
+$c_dark_blue: $CTC_ColdDew_ganyu;
+$c_light_info: $CTC_WhiteDew_ningzhi;
+$c_white: $CTC_SpringEquinox_jiaoyu;
+
+$c_pure_white: #FFFFFF;
+$c_pure_black: #000000;
+$v_golden_ratio: 0.618;
+
+:export {
+	c_primary: $c_primary;
+	c_list_odd: $c_list_odd;
+	c_list_even: $c_list_even;
+	c_text: $c_text;
+	c_info: $c_info;
+	c_success: $c_success;
+	c_warning: $c_warning; // success
+	c_danger: $c_danger; // danger
+	c_earth_yellow: $c_earth_yellow;
+	c_list_hover: $c_list_hover;
+	c_a: $c_a;
+	c_a_hover: $c_a_hover;
+	c_bgcolor: $c_bgcolor;
+	c_border: $c_border;
+	c_white: $c_white;
+	c_red: $c_red;
+	c_gray: $c_gray;
+	c_dark_gray: $c_dark_gray;
+	c_blue: $c_blue;
+	c_dark_blue: $c_dark_blue;
+	c_light_info: $c_light_info;
+	c_pure_white: $c_pure_white;
+	c_pure_black: $c_pure_black;
+	v_golden_ratio: $v_golden_ratio;
+}
