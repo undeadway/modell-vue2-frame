@@ -12,6 +12,7 @@
 import CloseBox from "../../components/close-box";
 
 export default {
+	name: "MdlMessage",
 	components: {
 		CloseBox
 	},
