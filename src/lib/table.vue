@@ -1,7 +1,7 @@
 <template>
 	<div class="mdl-table">
 		<table>
-			<thead>
+			<thead v-if="showHead">
 				<tr>
 					<td v-for="(column, index) in _columns" :key="index"
 						:style="column.style + headStyleStr"
@@ -42,7 +42,11 @@ export default {
 			type: Object,
 			default: {}
 		},
-		height: undefined
+		height: undefined,
+		showHead: {
+			type: Boolean,
+			default: true
+		}
 	},
 	data () {
 		return {
