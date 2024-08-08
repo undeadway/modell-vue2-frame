@@ -69,7 +69,7 @@ export default {
 			background: #00acfe;
 		}
 
-		background: #5decea;
+		background: #D5EBE1;
 	}
 }
 
