@@ -1,5 +1,5 @@
 <template>
-	<div class="mdl-page-box">
+	<div class="mdl-paging-box">
 		<!--
 			如果不到 10 页，则全部显示出来
 			[1,2,3,4,5,6,7,8,9,10]
@@ -92,7 +92,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-page-box {
+.mdl-paging-box {
 	margin-top: 10px;
 	>div {
 		>div {
