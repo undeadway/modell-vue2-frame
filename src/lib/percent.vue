@@ -58,7 +58,6 @@ export default {
 	>div {
 		display: inline-block;
 		vertical-align: middle;
-		color: #FFFFFF;
 		font-size: 26px;
 	}
 
