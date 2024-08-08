@@ -107,10 +107,10 @@ export default {
 				background: $c_list_even;
 			}
 			>div:hover {
-				background: $c_list_hover;
+				background: $c_list_odd;
 			}
 			.mdl-is-now {
-				background: $c_list_odd;
+				background: $c_list_hover;
 			}
 		}
 	}
