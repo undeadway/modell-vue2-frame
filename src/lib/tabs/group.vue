@@ -81,4 +81,12 @@ export default {
 	}
 }
 
+.mdl-tabs-group-positon-top {
+	.mdl-tab-label-list {
+		>div {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+}
 </style>
