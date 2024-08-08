@@ -2,7 +2,7 @@ import Loading from "./lib/loading";
 import Table from "./lib/table";
 import Paging from "./lib/paging";
 import Tree from "./lib/tree";
-import Dialog from "./lib/dialog";
+import Modal from "./lib/modal";
 import Form from "./lib/form/index";
 import FormItem from "./lib/form/item";
 import Input from "./lib/input/index";
@@ -25,7 +25,7 @@ const PAGE_COMPONENTS = [
 	Search,
 	Alert,
 	Button,
-	Dialog,
+	Modal,
 	Loading,
 	Paging,
 	Percent,

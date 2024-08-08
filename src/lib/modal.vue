@@ -1,0 +1,136 @@
+<template>
+	<div v-if="modalVisible">
+		<div class="mdl-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
+		<!-- 主体 -->
+		<div class="mdl-modal-box" :style="`z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop}; width: ${modalWidth}; height:${modalHeight};`">
+			<div class="mdl-modal-title-box">{{title}}</div>
+			<div class="mdl-close-box mdl-modal-close-box" @click="onClose">
+				<close-box />
+			</div>
+			<div class="mdl-modal-content-box">
+				<slot></slot>
+			</div>
+		</div>
+	</div>
+</template>
+<script>
+import CloseBox from "../components/close-box";
+export default {
+	name: "MdlModal",
+	components: {
+		CloseBox
+	},
+	props: {
+		title: {
+			type: String,
+			default: ""
+		},
+		visible: {
+			type: Boolean,
+			default: false
+		},
+		width: {
+			type: String,
+			default: "800px",
+		},
+		height: {
+			type: String,
+			default: ""
+		},
+		appendToBody: {
+			type: Boolean,
+			default: false
+		}
+	},
+	data () {
+		return {
+			zIndex: 100,
+			modalVisible: false,
+			modalLeft: "0px",
+			modalTop: "0px",
+			modalWidth: "0px",
+			modalHeight: "0px"
+		}
+	},
+	watch: {
+		"visible": function(v1, v2) {
+			this.modalVisible = v1;
+
+			if (this.appendToBody) {
+				document.body.appendChild(this.$el);
+			}
+		}
+	},
+	created () {
+		this.modalVisible = this.visible;
+		this.modalWidth = parseInt(this.width);
+
+		if (this.height) {
+			this.modalHeight = parseInt(this.height);
+			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
+		} else {
+			this.modalTop = document.body.scrollHeight / 3;
+		}
+
+		this.modalLeft = (document.body.scrollWidth - this.modalWidth )/ 2;
+
+		if (this.modalHeight > document.body.scrollHeight * 0.9) {
+			this.modalHeight = document.body.scrollHeight * 0.9;
+			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
+		}
+
+		if (this.modalWidth > document.body.scrollWidth * 0.9) {
+			this.modalLeft = (document.body.scrollWidth - this.modalWidth )/ 2;
+			this.modalWidth = document.body.scrollWidth * 0.9;
+		}
+
+		this.modalWidth = `${this.modalWidth}px`;
+		this.modalHeight = `${this.modalHeight}px`;
+		this.modalLeft = `${this.modalLeft}px`;
+		this.modalTop = `${this.modalTop}px`;
+
+		if (this.appendToBody) {
+			this.zIndex += 2;
+		}
+	},
+	methods: {
+		onClose () {
+			this.modalVisible = false;
+			this.$emit("close-modal");
+		}
+	}
+}
+</script>
+<style lang="scss" scoped>
+.mdl-mask-layer-box {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	background: rgba($color: $c_pure_black, $alpha: $v_golden_ratio);
+}
+
+.mdl-modal-box {
+	position: absolute;
+	background: $c_bgcolor;
+	border: 1px solid $c_border;
+	padding-bottom: 20px;
+
+	.mdl-modal-title-box {
+		margin: 20px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.mdl-modal-content-box {
+		margin: 10px 20px;
+	}
+
+	.mdl-modal-close-box {
+		position: absolute;
+		right: 10px;
+		top: 0px;
+	}
+}
+</style>
