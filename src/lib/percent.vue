@@ -1,24 +1,28 @@
 <template>
 	<div class="percent-box">
-		<div class="percent-name-box"></div>
-		<div class="percent-bg-box">
+		<div class="percent-name-box" :style="`width: ${labelWidth}`">{{ label }}</div>
+		<div class="percent-bg-box" :style="`width:calc(100% - ${labelWidth} - 110px);`">
 			<div :style="`background-color:${color}; width: ${value}%;`"></div>
 			<div></div>
 		</div>
-		<div class="percent-val-box">%</div>
+		<div class="percent-val-box">{{ (value).toFixed(2) }}%</div>
 	</div>
 </template>
 <script>
 export default {
 	name: "MdlPercent",
 	props: {
+		label: {
+			type: String,
+			default: ""
+		},
+		labelWidth: {
+			type: String,
+			default: "80px"
+		},
 		percent: {
 			type: Number,
 			default: 0
-		},
-		name: {
-			type: String,
-			default: ""
 		},
 		color: {
 			type: String,
@@ -61,12 +65,7 @@ export default {
 		font-size: 26px;
 	}
 
-	.percent-name-box {
-		width: 74px;
-	}
-
 	.percent-bg-box {
-		width: calc(100% - 184px);
 		border-radius: 10px;
 		position: relative;
 			>div {
