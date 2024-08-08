@@ -41,12 +41,11 @@ const PROTOTYPE_COMPONENTS = [
 
 const install =  (Vue) => {
 	PAGE_COMPONENTS.forEach(component => {
-		console.log(component.name);
 		Vue.component(component.name, component);
 	});
 
     PROTOTYPE_COMPONENTS.forEach(component => {
-        Vue.prototype[`${component.name}`] = component;
+        Vue.prototype[`$${component.name}`] = component;
     })
 	
 }
