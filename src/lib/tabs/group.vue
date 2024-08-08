@@ -1,6 +1,6 @@
 <template>
 	<div :class="`mdl-tabs-group mdl-tabs-group-positon-${tabPosition}`">
-		<div class="mdl-tab-label-list">
+		<div class="mdl-tab-label-list" :style="`width:${width}px`">
 			<div :class="activeName === tab.name ? 'active-name-box' : ''" v-for="tab in tabs" @click="onTabClick(tab.name)">{{ tab.label }}</div>
 		</div>
 		<div>
@@ -18,11 +18,15 @@ export default {
     },
 	props: {
 		tabPosition: {
-			type: "String",
+			type: String,
 			default: "left"
 		},
 		activeName: String,
-		value: String
+		value: String,
+		width: {
+			type: String,
+			default: ""
+		}
 	},
 	watch: {
 		activeName: function (v1) {
