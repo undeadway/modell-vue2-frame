@@ -63,7 +63,7 @@ export default {
 	Search,
 	Alert,
 	Button,
-	Dialog,
+	Modal,
 	Loading,
 	Paging,
 	Percent,
