@@ -20,12 +20,12 @@ export default {
 			if (!style.width) {
 				style.width = "100%";
 			}
-	
+
 			const arr = [];
 			for (const key in style) {
 				arr.push(`${key}: ${style[key]};`);
 			}
-	
+
 			this.style = arr.join(" ");
 		}
 	}

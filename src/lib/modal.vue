@@ -122,17 +122,14 @@ export default {
 	background: $c_bgcolor;
 	border: 1px solid $c_border;
 	padding-bottom: 20px;
-
 	.mdl-modal-title-box {
 		margin: 20px;
 		font-size: 20px;
 		font-weight: bold;
 	}
-
 	.mdl-modal-content-box {
 		margin: 10px 20px;
 	}
-
 	.mdl-modal-close-box {
 		position: absolute;
 		right: 10px;

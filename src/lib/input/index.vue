@@ -166,7 +166,6 @@ export default {
 		vertical-align: middle;
 	}
 	.mdl-input-obj {
-		width: 100%;
 		.mdl-input-obj-input {
 			height: 24px;
 			padding:6px 10px;
@@ -177,9 +176,17 @@ export default {
 		.mdl-input-obj-input:focus {
 			border: 1px solid $c_dark-blue;
 		}
+		width: 100%;
 	}
-
 	.mdl-slot-box {
+		.mdl-input-append-btn {
+			background-position-x: 0px;
+			background-position-y: 0px;
+			background-repeat: no-repeat;
+			background-size: 20px;
+			width: 18px;
+			height: 20px;
+		}
 		width: 1px;
 		background: $c_gray;
 		white-space: nowrap;
@@ -192,15 +199,6 @@ export default {
 		border-top-right-radius: 6px;
 		border-bottom-right-radius: 6px;
 		cursor: pointer;
-
-		.mdl-input-append-btn {
-			background-position-x: 0px;
-			background-position-y: 0px;
-			background-repeat: no-repeat;
-			background-size: 20px;
-			width: 18px;
-			height: 20px;
-		}
 	}
 }
 </style>

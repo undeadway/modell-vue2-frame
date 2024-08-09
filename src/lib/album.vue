@@ -225,7 +225,6 @@ export default {
 					}
 				}
 			}
-	
 			.empty-data-box {
 				>div {
 					cursor: default !important;

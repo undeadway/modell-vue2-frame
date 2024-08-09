@@ -98,10 +98,8 @@ export default {
 	margin: auto;
 	margin-top: 5vh;
 	text-align: center;
-
 	.mdl-btn-box {
 		margin-top: 1vh;
-
 		.mdl-btn {
 			cursor: pointer;
 			border: none;

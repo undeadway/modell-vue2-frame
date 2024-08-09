@@ -58,13 +58,11 @@ export default {
 	width: 100%;
 	position: relative;
 	margin: 8px 0px;
-
 	>div {
 		display: inline-block;
 		vertical-align: middle;
 		font-size: 26px;
 	}
-
 	.percent-bg-box {
 		border-radius: 10px;
 		position: relative;
@@ -73,7 +71,6 @@ export default {
 			position: absolute;
 			border-radius: 10px;
 			height: 10px;
-
 			&:first-child {
 				z-index: 100;
 			}
@@ -83,7 +80,6 @@ export default {
 			}
 		}
 	}
-
 	.percent-val-box {
 		width: 110px;
 		text-align: right;

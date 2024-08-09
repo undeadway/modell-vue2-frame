@@ -187,28 +187,24 @@ export default {
 .mdl-table {
 	overflow: hidden;
 	width: 100%;
-
 	table {
 		width: 100%;
 		border-spacing: 0;
 		border-collapse: 0;
-	}
-
-	table tbody {
-		display: block;
-		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
-	}
-
-	table thead tr, table tbody tr, table tfoot tr {
-		box-sizing: border-box;
-		table-layout: fixed;
-		vertical-align: middle;
-		display: table;
-		width: 100%;
+		tbody {
+			display: block;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		thead tr, tbody tr, tfoot tr {
+			box-sizing: border-box;
+			table-layout: fixed;
+			vertical-align: middle;
+			display: table;
+			width: 100%;
+		}
 	}
 }
-
 .mdl-table-body {
 	tr:nth-child(even) {
 		background: $c_list_even;
