@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<form :style="styles">
+		<form :style="style">
 			<slot></slot>
 		</form>
 	</div>

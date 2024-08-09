@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="mdl-album-detail-big-box" :style="styles">
+		<div class="mdl-album-detail-big-box" :style="style">
 			<!--
 				循环的时候，把所有内容全部循环到
 				但只展示 [first, first + 3) 之间的内容

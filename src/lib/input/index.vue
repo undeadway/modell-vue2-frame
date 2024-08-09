@@ -1,5 +1,5 @@
 <template>
-	<div class="mdl-input-box" :style="styles">
+	<div class="mdl-input-box" :style="style">
 		<div v-if="append === 'before'" class="slot-box" :style="beforeStyles">
 			<slot name="before"></slot>
 		</div>

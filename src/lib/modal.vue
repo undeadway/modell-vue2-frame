@@ -2,7 +2,7 @@
 	<div v-if="modalVisible">
 		<div class="mdl-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<div class="mdl-modal-box" :style="`${styles} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
+		<div class="mdl-modal-box" :style="`${style} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
 			<div class="mdl-modal-title-box">{{title}}</div>
 			<div class="mdl-close-box mdl-modal-close-box" @click="onClose">
 				<close-box />
@@ -57,7 +57,7 @@ export default {
 	created () {
 		this.modalVisible = this.visible;
 
-		const tmp = this.style;
+		const tmp = this.styles;
 		
 		const modalWidth = (tmp.width) ? parseInt(tmp.width) : 800;
 		let modalHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
@@ -91,7 +91,7 @@ export default {
 			newStyle.height =  `${modalHeight}px`;
 		}
 
-		this.style = newStyle;
+		this.styles = newStyle;
 
 		this.initStyle();
 
