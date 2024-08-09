@@ -6,11 +6,11 @@
 	</div>
 </template>
 <script>
-import mixin from '../../utils/mixin';
+import StyleMixin from '../../utils/style-mixin';
 
 export default {
 	name: "MdlForm",
-	mixins: [ mixin ],
+	mixins: [ StyleMixin ],
 	provide : function() {
 		return {
 			mdlForm: this

@@ -29,11 +29,11 @@
 	</div>
 </template>
 <script>
-import mixin from '../utils/mixin';
+import StyleMixin from '../utils/style-mixin';
 
 export default {
 	name: "MdlAlbum",
-	mixins: [ mixin ],
+	mixins: [ StyleMixin ],
 	props: {
 		itemsCount: {
 			type: Number,

@@ -2,7 +2,7 @@
 	<div v-if="modalVisible">
 		<div class="mdl-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<div class="mdl-modal-box" :style="`${styles} z-index: ${zIndex + 1}; left: ${modalLeft} top: ${modalTop}`">
+		<div class="mdl-modal-box" :style="`${styles} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
 			<div class="mdl-modal-title-box">{{title}}</div>
 			<div class="mdl-close-box mdl-modal-close-box" @click="onClose">
 				<close-box />
@@ -14,12 +14,12 @@
 	</div>
 </template>
 <script>
-import mixin from '../utils/mixin';
+import StyleMixin from '../utils/style-mixin';
 import CloseBox from "../components/close-box";
 
 export default {
-	mixins: [ mixin ],
 	name: "MdlModal",
+	mixins: [ StyleMixin ],
 	components: {
 		CloseBox
 	},
@@ -57,10 +57,10 @@ export default {
 	created () {
 		this.modalVisible = this.visible;
 
-		const tmp = this.style || {};
+		const tmp = this.style;
 		
 		const modalWidth = (tmp.width) ? parseInt(tmp.width) : 800;
-		let modalHeight = (tmp.height) ? parseInt(tmpheight) : undefined;
+		let modalHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
 
 		if (modalHeight) {
 			this.modalTop = (document.body.scrollHeight - modalHeight ) / 2;
@@ -80,20 +80,20 @@ export default {
 			modalWidth = document.body.scrollWidth * 0.9;
 		}
 
-		this.modalLeft = `${this.modalLeft}px;`;
-		this.modalTop = `${this.modalTop}px;`;
+		this.modalLeft = `${this.modalLeft}px`;
+		this.modalTop = `${this.modalTop}px`;
 
 		const newStyle = {};
 		if (modalWidth) {
-			newStyle.width =  `${modalWidth}px;`;
+			newStyle.width =  `${modalWidth}px`;
 		}
 		if (modalHeight) {
-			newStyle.height =  `${modalHeight}px;`;
+			newStyle.height =  `${modalHeight}px`;
 		}
 
-		this.tmpStyle = newStyle;
+		this.style = newStyle;
 
-		this.init();
+		this.initStyle();
 
 		if (this.appendToBody) {
 			this.zIndex += 2;

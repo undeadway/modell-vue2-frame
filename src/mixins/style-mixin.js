@@ -9,12 +9,13 @@ export default {
 		}
 	},
 	created () {
-		this.tmpStyle = this.style || {};
-		this.init();
+		console.log("mixin");
+		this.style = this.style || {};
+		this.initStyle();
 	},
 	methods: {
-		init () {
-			const style = this.tmpStyle;
+		initStyle () {
+			const style = Object.assign({}, this.style);
 			if (!style.width) {
 				style.width = "100%";
 			}
@@ -27,5 +28,4 @@ export default {
 			this.styles = arr.join(" ");
 		}
 	}
-
 }

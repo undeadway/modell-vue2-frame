@@ -16,10 +16,10 @@
 	</div>
 </template>
 <script>
-import mixin from '../../utils/mixin';
+import StyleMixin from '../../utils/style-mixin';
 
 export default {
-	mixins: [ mixin ],
+	mixins: [ StyleMixin ],
 	name: "MdlInput",
 	inject: [ "mdlForm", "mdlFormItem" ],
 	props: {
