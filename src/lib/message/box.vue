@@ -80,7 +80,7 @@ export default {
 	}
 
 	.mdl-message-box__warning {
-		background: $c_earth_yellow;
+		background: $c_warning;
 	}
 	.mdl-message-box__danger {
 		background: $c_danger;
