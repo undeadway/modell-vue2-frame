@@ -57,11 +57,13 @@ export default {
 	created () {
 		this.modalVisible = this.visible;
 
-		const modalWidth = (this.style && this.style.width) ? parseInt(this.style.width) : 800;
-		let modalHeight = (this.style && this.style.height) ? parseInt(this.style.height) : undefined;
+		const tmp = this.style || {};
+		
+		const modalWidth = (tmp.width) ? parseInt(tmp.width) : 800;
+		let modalHeight = (tmp.height) ? parseInt(tmpheight) : undefined;
 
-		if (height) {
-			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
+		if (modalHeight) {
+			this.modalTop = (document.body.scrollHeight - modalHeight ) / 2;
 		} else {
 			this.modalTop = document.body.scrollHeight / 3;
 		}
@@ -80,11 +82,15 @@ export default {
 
 		this.modalLeft = `${this.modalLeft}px;`;
 		this.modalTop = `${this.modalTop}px;`;
-		
-		const newStyle = Object.assign(this.style, {
-			width: `${modalWidth}px;`,
-			height: `${modalHeight}px;`
-		});
+
+		const newStyle = {};
+		if (modalWidth) {
+			newStyle.width =  `${modalWidth}px;`;
+		}
+		if (modalHeight) {
+			newStyle.height =  `${modalHeight}px;`;
+		}
+
 		this.tmpStyle = newStyle;
 
 		this.init();
