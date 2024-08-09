@@ -79,7 +79,7 @@ export default {
 	}
 
 	.mdl-form-item-required-mark {
-		color: var(--c_red);
+		color: $c_red;
 		font-weight: bold;
 		margin-right: 5px;
 	}
@@ -95,7 +95,7 @@ export default {
 
 .mdl-form-item-check-result-box {
 	height: 20px;
-	color: var(--c_danger);
+	color: $c_danger;
 	padding: 2px 0px 4px 0px;
 }
 
