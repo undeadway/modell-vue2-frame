@@ -14,7 +14,7 @@
 	</div>
 </template>
 <script>
-import StyleMixin from '../utils/style-mixin';
+import StyleMixin from '../mixins/style-mixin';
 import CloseBox from "../components/close-box";
 
 export default {

@@ -16,7 +16,7 @@
 	</div>
 </template>
 <script>
-import StyleMixin from '../../utils/style-mixin';
+import StyleMixin from '../../mixins/style-mixin';
 
 export default {
 	mixins: [ StyleMixin ],
