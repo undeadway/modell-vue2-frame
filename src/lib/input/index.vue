@@ -16,7 +16,10 @@
 	</div>
 </template>
 <script>
+import mixin from '../../utils/mixin';
+
 export default {
+	mixins: [ mixin ],
 	name: "MdlInput",
 	inject: [ "mdlForm", "mdlFormItem" ],
 	props: {
@@ -32,7 +35,6 @@ export default {
 			type: String,
 			default: ""
 		},
-		style: undefined,
 		readonly: {
 			type: Boolean,
 			default: false
@@ -52,7 +54,6 @@ export default {
 			val: "",
 			beforeStyles: "",
 			inputStyles : "",
-			styles: "",
 			inputBoxStyles: "",
 			afterStyles: "",
 			rule: null
@@ -77,17 +78,6 @@ export default {
 			this.mdlFormItem.setField(this);
 		}
 
-		const style = this.style || {};
-		if (!style.width) {
-			style.width = "100%";
-		}
-
-		const arr = [];
-		for (const key in style) {
-			arr.push(`${key}: ${style[key]};`);
-		}
-
-		this.styles = arr.join(" ");
 		this.placeHolder = this.placeholder;
 
 		const append = this.append === "" ? [] : this.append.split(",");
@@ -112,8 +102,6 @@ export default {
 
 		const widthStyle = `width: calc(100% - ${width * length}px);`;
 		inputStyles += widthStyle;
-
-		// this.inputBoxStyles = widthStyle;
 		this.inputStyles = inputStyles;
 	},
 	methods: {
@@ -167,13 +155,12 @@ export default {
 				resolve(true);
 				return;
 			});
-		},
+		}
 	}
 }
 </script>
 <style lang="scss" scoped>
 .mdl-input-box {
-	// width: 100%;
 	>div {
 		display: table-cell;
 		vertical-align: middle;

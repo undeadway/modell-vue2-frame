@@ -2,7 +2,7 @@
 	<div v-if="modalVisible">
 		<div class="mdl-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<div class="mdl-modal-box" :style="`z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop}; width: ${modalWidth}; height:${modalHeight};`">
+		<div class="mdl-modal-box" :style="`${styles} z-index: ${zIndex + 1}; left: ${modalLeft} top: ${modalTop}`">
 			<div class="mdl-modal-title-box">{{title}}</div>
 			<div class="mdl-close-box mdl-modal-close-box" @click="onClose">
 				<close-box />
@@ -14,8 +14,11 @@
 	</div>
 </template>
 <script>
+import mixin from '../../utils/mixin';
 import CloseBox from "../components/close-box";
+
 export default {
+	mixins: [ mixin ],
 	name: "MdlModal",
 	components: {
 		CloseBox
@@ -29,14 +32,6 @@ export default {
 			type: Boolean,
 			default: false
 		},
-		width: {
-			type: String,
-			default: "800px",
-		},
-		height: {
-			type: String,
-			default: ""
-		},
 		appendToBody: {
 			type: Boolean,
 			default: false
@@ -47,9 +42,7 @@ export default {
 			zIndex: 100,
 			modalVisible: false,
 			modalLeft: "0px",
-			modalTop: "0px",
-			modalWidth: "0px",
-			modalHeight: "0px"
+			modalTop: "0px"
 		}
 	},
 	watch: {
@@ -63,31 +56,38 @@ export default {
 	},
 	created () {
 		this.modalVisible = this.visible;
-		this.modalWidth = parseInt(this.width);
 
-		if (this.height) {
-			this.modalHeight = parseInt(this.height);
+		const modalWidth = (this.style && this.style.width) ? parseInt(this.style.width) : 800;
+		let modalHeight = (this.style && this.style.height) ? parseInt(this.style.height) : undefined;
+
+		if (height) {
 			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
 		} else {
 			this.modalTop = document.body.scrollHeight / 3;
 		}
 
-		this.modalLeft = (document.body.scrollWidth - this.modalWidth )/ 2;
+		this.modalLeft = (document.body.scrollWidth - modalWidth ) / 2;
 
-		if (this.modalHeight > document.body.scrollHeight * 0.9) {
-			this.modalHeight = document.body.scrollHeight * 0.9;
+		if (modalHeight > document.body.scrollHeight * 0.9) {
+			modalHeight = document.body.scrollHeight * 0.9;
 			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
 		}
 
-		if (this.modalWidth > document.body.scrollWidth * 0.9) {
-			this.modalLeft = (document.body.scrollWidth - this.modalWidth )/ 2;
-			this.modalWidth = document.body.scrollWidth * 0.9;
+		if (modalWidth > document.body.scrollWidth * 0.9) {
+			this.modalLeft = (document.body.scrollWidth - modalWidth )/ 2;
+			modalWidth = document.body.scrollWidth * 0.9;
 		}
 
-		this.modalWidth = `${this.modalWidth}px`;
-		this.modalHeight = `${this.modalHeight}px`;
-		this.modalLeft = `${this.modalLeft}px`;
-		this.modalTop = `${this.modalTop}px`;
+		this.modalLeft = `${this.modalLeft}px;`;
+		this.modalTop = `${this.modalTop}px;`;
+		
+		const newStyle = Object.assign(this.style, {
+			width: `${modalWidth}px;`,
+			height: `${modalHeight}px;`
+		});
+		this.tmpStyle = newStyle;
+
+		this.init();
 
 		if (this.appendToBody) {
 			this.zIndex += 2;

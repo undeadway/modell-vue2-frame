@@ -1,13 +1,15 @@
 <template>
 	<div>
-		<form>
+		<form :style="styles">
 			<slot></slot>
 		</form>
 	</div>
 </template>
 <script>
+import mixin from '../../utils/mixin';
 export default {
 	name: "MdlForm",
+	mixins: [ mixin ],
 	provide : function() {
 		return {
 			mdlForm: this
