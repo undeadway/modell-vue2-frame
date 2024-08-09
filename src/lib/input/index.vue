@@ -62,14 +62,22 @@ export default {
 	},
 	watch: {
 		"val": function(v1, v2) {
-			this.mdlForm[this.mdlFormItem.field] = v1;
+			if (this.mdlForm) {
+				this.mdlForm[this.mdlFormItem.field] = v1;
+			}
+			
 		},
 		"value": function(v1) {
-			this.mdlForm[this.mdlFormItem.field] = v1;
+			if (this.mdlForm) {
+				this.mdlForm[this.mdlFormItem.field] = v1;
+			}
 		}
 	},
 	created () {
-		this.mdlFormItem.setField(this);
+		if (this.mdlFormItem) {
+			this.mdlFormItem.setField(this);
+		}
+
 		this.placeHolder = this.placeholder;
 
 		const append = this.append === "" ? [] : this.append.split(",");
@@ -103,7 +111,7 @@ export default {
 			this.placeHolder = "";
 		},
 		getRule () {
-			if (this.mdlForm.rules) {
+			if (this.mdlForm && this.mdlForm.rules) {
 				const rule = this.rule || this.mdlForm.rules[this.mdlFormItem.field];
 				if (!this.rule) {
 					this.rule = rule;
