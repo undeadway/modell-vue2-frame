@@ -103,17 +103,23 @@ export default {
 			this.placeHolder = "";
 		},
 		getRule () {
-			const rule = this.rule || this.mdlForm.rules[this.mdlFormItem.field];
-			if (!this.rule) {
-				this.rule = rule;
+			if (this.mdlForm.rules) {
+				const rule = this.rule || this.mdlForm.rules[this.mdlFormItem.field];
+				if (!this.rule) {
+					this.rule = rule;
+				}
+				return rule;
+			} else {
+				return null;
 			}
-			return rule;
 		},
 		async onBlur () {
 			this.placeHolder = this.placeholder;
 			const rule = this.getRule();
-			if (rule.trigger === "blur") {
-				await this.validate();
+			if (rule) {
+				if (rule.trigger === "blur") {
+					await this.validate();
+				}
 			}
 		},
 		validate () {

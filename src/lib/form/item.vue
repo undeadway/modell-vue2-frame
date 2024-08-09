@@ -47,9 +47,12 @@ export default {
 		}
 	},
 	created () {
-		const item = this.mdlForm.rules[this.field];
-		this.required = !!item ? (item.required || false) : false;
-		this.mdlForm.setItem(this.field, this);
+		if (this.mdlForm.rules) {
+			const item = this.mdlForm.rules[this.field];
+			this.required = !!item ? (item.required || false) : false;
+			this.mdlForm.setItem(this.field, this);
+		}
+
 	},
 	methods: {
 		setField (field) {
