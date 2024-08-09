@@ -15,10 +15,7 @@ export default {
 			type: String,
 			default: "请输入"
 		},
-		style: {
-			type: String,
-			default: ""
-		},
+		style: undefined,
 		disabled: {
 			type: Boolean,
 			default: false

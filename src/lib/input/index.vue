@@ -1,5 +1,5 @@
 <template>
-	<div class="mdl-input-box" :style="style">
+	<div class="mdl-input-box" :style="styles">
 		<div v-if="append === 'before'" class="slot-box" :style="beforeStyles">
 			<slot name="before"></slot>
 		</div>
@@ -32,10 +32,7 @@ export default {
 			type: String,
 			default: ""
 		},
-		style: {
-			type: String,
-			default: ""
-		},
+		style: undefined,
 		readonly: {
 			type: Boolean,
 			default: false
@@ -55,6 +52,7 @@ export default {
 			val: "",
 			beforeStyles: "",
 			inputStyles : "",
+			styles: "",
 			inputBoxStyles: "",
 			afterStyles: "",
 			rule: null
@@ -74,10 +72,22 @@ export default {
 		}
 	},
 	created () {
+		console.log("inputStyles");
 		if (this.mdlFormItem) {
 			this.mdlFormItem.setField(this);
 		}
 
+		const style = this.style || {};
+		if (!style.width) {
+			style.width = "100%";
+		}
+
+		const arr = [];
+		for (const key in style) {
+			arr.push(`${key}: ${style[key]};`);
+		}
+
+		this.styles = arr.join(" ");
 		this.placeHolder = this.placeholder;
 
 		const append = this.append === "" ? [] : this.append.split(",");
@@ -163,7 +173,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mdl-input-box {
-	width: 100%;
+	// width: 100%;
 	>div {
 		display: table-cell;
 		vertical-align: middle;

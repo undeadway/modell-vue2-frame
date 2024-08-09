@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<mdlinput :placeholder="placeholder" type="text" append="after">
+		<mdlinput :placeholder="placeholder" type="text" append="after" :style="style">
 			<template #after>
 				<div class="mdl-input-append-btn mdl-input-append-btn-search-bg" @click="onSearch"></div>
 			</template>
@@ -19,6 +19,7 @@ export default {
 			type: String,
 			default: "请输入搜索内容"
 		},
+		style: undefined
 	},
 	methods: {
 		onSearch() {
