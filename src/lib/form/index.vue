@@ -7,6 +7,7 @@
 </template>
 <script>
 import mixin from '../../utils/mixin';
+
 export default {
 	name: "MdlForm",
 	mixins: [ mixin ],

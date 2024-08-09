@@ -29,7 +29,7 @@
 	</div>
 </template>
 <script>
-import mixin from '../../utils/mixin';
+import mixin from '../utils/mixin';
 
 export default {
 	name: "MdlAlbum",

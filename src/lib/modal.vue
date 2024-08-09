@@ -14,7 +14,7 @@
 	</div>
 </template>
 <script>
-import mixin from '../../utils/mixin';
+import mixin from '../utils/mixin';
 import CloseBox from "../components/close-box";
 
 export default {
