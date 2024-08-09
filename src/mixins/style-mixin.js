@@ -1,21 +1,22 @@
 export default {
 	props: {
-		style: undefined
+		styles: {
+			type: Object,
+			default: null
+		}
 	},
 	data () {
 		return {
-			tmpStyle: null,
-			styles: ""
+			style: ""
 		}
 	},
 	created () {
-		console.log("mixin");
-		this.style = this.style || {};
+		this.styles = this.styles || {};
 		this.initStyle();
 	},
 	methods: {
 		initStyle () {
-			const style = Object.assign({}, this.style);
+			const style = Object.assign({}, this.styles);
 			if (!style.width) {
 				style.width = "100%";
 			}
@@ -25,7 +26,7 @@ export default {
 				arr.push(`${key}: ${style[key]};`);
 			}
 	
-			this.styles = arr.join(" ");
+			this.style = arr.join(" ");
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<mdl-input :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :style="style">
+		<mdl-input :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :styles="styles">
 			<template #after>
 				<div :class="`mdl-input-append-btn ${mdlInputPasswordBtnEyeStatus}`" @click="changeEyeStatus"></div>
 			</template>
@@ -15,7 +15,7 @@ export default {
 			type: String,
 			default: "请输入"
 		},
-		style: undefined,
+		styles: undefined,
 		disabled: {
 			type: Boolean,
 			default: false
