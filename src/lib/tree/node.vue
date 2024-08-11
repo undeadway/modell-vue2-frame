@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-	name: "MdlTreeNode",
+	name: "Mv2TreeNode",
 	props: {
 		value: {
 			type: String,

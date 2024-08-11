@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-	name: "MdlPercent",
+	name: "Mv2Percent",
 	props: {
 		label: {
 			type: String,

@@ -1,6 +1,6 @@
 <template>
-	<div :class="`mdl-tabs-group mdl-tabs-group-positon-${tabPosition}`">
-		<div class="mdl-tab-label-list" :style="`width:${width};`">
+	<div :class="`mv2-tabs-group mv2-tabs-group-positon-${tabPosition}`">
+		<div class="mv2-tab-label-list" :style="`width:${width};`">
 			<div :class="activeName === tab.name ? 'active-name-box' : ''" v-for="tab in tabs" @click="onTabClick(tab.name)">{{ tab.label }}</div>
 		</div>
 		<div>
@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-	name: "MdlTabsGroup",
+	name: "Mv2TabsGroup",
 	provide() {
 		return {
 			tabsGroup: this
@@ -55,8 +55,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-tabs-group {
-	.mdl-tab-label-list {
+.mv2-tabs-group {
+	.mv2-tab-label-list {
 		>div {
 			&:hover {
 				background: #5dbeec;
@@ -73,7 +73,7 @@ export default {
 	}
 }
 
-.mdl-tabs-group-positon-left {
+.mv2-tabs-group-positon-left {
 	>div {
 		height: 100%;
 		display: inline-block;
@@ -81,8 +81,8 @@ export default {
 	}
 }
 
-.mdl-tabs-group-positon-top {
-	.mdl-tab-label-list {
+.mv2-tabs-group-positon-top {
+	.mv2-tab-label-list {
 		>div {
 			display: inline-block;
 			vertical-align: top;

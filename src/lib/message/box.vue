@@ -1,8 +1,8 @@
 <template>
-	<div v-show="visible" class="mdl-message-list-box">
-		<div v-for="(item, index) in list" :class="`mdl-message-box mdl-message-box__${item.round} mdl-message-box__${item.type}`">
-			<div class="mdl-message-value-box"> {{ item.message }}</div>
-			<div v-if="item.closeable" class="mdl-message-close-box" @click="onClose(index)">
+	<div v-show="visible" class="mv2-message-list-box">
+		<div v-for="(item, index) in list" :class="`mv2-message-box mv2-message-box__${item.round} mv2-message-box__${item.type}`">
+			<div class="mv2-message-value-box"> {{ item.message }}</div>
+			<div v-if="item.closeable" class="mv2-message-close-box" @click="onClose(index)">
 				<close-box @close="onClose(index)" />
 			</div>
 		</div>
@@ -12,7 +12,7 @@
 import CloseBox from "../../components/close-box";
 
 export default {
-	name: "MdlMessage",
+	name: "Mv2Message",
 	components: {
 		CloseBox
 	},
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-message-list-box {
+.mv2-message-list-box {
 	position: absolute;
 	color: #FFFFFF;
 	top: 20px;
@@ -56,39 +56,39 @@ export default {
 	z-index: 2000;
 	margin-left: calc(50% - 400px);
 
-	.mdl-message-box {
+	.mv2-message-box {
 		padding: 0px 10px;
 		margin-top: 16px;
 	}
 
-	.mdl-message-box__round {
+	.mv2-message-box__round {
 		border-radius: 8px;
 	}
 
-	.mdl-message-box>div {
+	.mv2-message-box>div {
 		display: inline-block;
 		vertical-align: middle;
 	}
 
-	.mdl-message-value-box {
+	.mv2-message-value-box {
 		width: calc(100% - 30px);
 	}
 
-	.mdl-message-close-box {
+	.mv2-message-close-box {
 		width: 30px;
 		text-align: right;
 	}
 
-	.mdl-message-box__warning {
+	.mv2-message-box__warning {
 		background: $c_warning;
 	}
-	.mdl-message-box__danger {
+	.mv2-message-box__danger {
 		background: $c_danger;
 	}
-	.mdl-message-box__info {
+	.mv2-message-box__info {
 		background: $c_info;
 	}
-	.mdl-message-box__success {
+	.mv2-message-box__success {
 		background: $c_success;
 	}
 }

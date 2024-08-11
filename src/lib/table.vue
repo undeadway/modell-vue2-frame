@@ -1,5 +1,5 @@
 <template>
-	<div class="mdl-table">
+	<div class="mv2-table">
 		<table>
 			<thead v-if="showHead">
 				<tr>
@@ -10,7 +10,7 @@
 					</td>
 				</tr>
 			</thead>
-			<tbody class="mdl-table-body" :style="'overflow:auto;' + (height ? `height: ${height}px;` : '')">
+			<tbody class="mv2-table-body" :style="'overflow:auto;' + (height ? `height: ${height}px;` : '')">
 				<tr v-for="(row, index) in _data" :key="index">
 					<td v-for="(column, ji) in _columns" :key="ji"
 						:style="column.style + styleStr"
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-	name: "MdlTable",
+	name: "Mv2Table",
 	props: {
 		columns: {
 			type: Array,
@@ -184,7 +184,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-table {
+.mv2-table {
 	overflow: hidden;
 	width: 100%;
 	table {
@@ -205,7 +205,7 @@ export default {
 		}
 	}
 }
-.mdl-table-body {
+.mv2-table-body {
 	tr:nth-child(even) {
 		background: $c_list_even;
 	}

@@ -1,13 +1,13 @@
 <template>
-	<div class="mdl-album-big-box" :style="style">
+	<div class="mv2-album-big-box" :style="style">
 		<!--
 		 * 循环的时候，把所有主控全部循环到
 		 * 但只展示 [first, first + 3) 之间的内容
 		-->
-		<div class="mdl-album-btn-box">
+		<div class="mv2-album-btn-box">
 			<div :class="'btn-box ' + (leftDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onPrev">《&nbsp;&nbsp;</div>
 		</div>
-		<div class="mdl-album-data-box">
+		<div class="mv2-album-data-box">
 			<div v-if="total > 0">
 			<div v-for="index in total" :key="index"  v-if="index - 1 >= first && index - 1 < first + 3">
 				<div :class="(now === (index - 1)) ? 'is-active' : 'not-active'" @click="onChangeShow(index - 1)">
@@ -20,7 +20,7 @@
 			</div>
 			</div>
 		</div>
-		<div class="mdl-album-btn-box right-btn">
+		<div class="mv2-album-btn-box right-btn">
 			<div :class="'btn-box ' + (rightDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onNext">&nbsp;&nbsp;》</div>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 import StyleMixin from '../mixins/style-mixin';
 
 export default {
-	name: "MdlAlbum",
+	name: "Mv2Album",
 	mixins: [ StyleMixin ],
 	props: {
 		total: {
@@ -154,13 +154,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-album-big-box {
+.mv2-album-big-box {
 	>div {
 		display: inline-block;
 		vertical-align: middle;
 	}
 
-	.mdl-album-btn-box {
+	.mv2-album-btn-box {
 		width: 40px;
 		text-align: center;
 
@@ -186,7 +186,7 @@ export default {
 		}
 	}
 
-	.mdl-album-data-box {
+	.mv2-album-data-box {
 		width: calc(100% - 80px);
 		height: 100%;
 		>div {

@@ -1,5 +1,5 @@
 <template>
-	<div class="mdl-close-box" @click="onClick">×</div>
+	<div class="mv2-close-box" @click="onClick">×</div>
 </template>
 <script>
 export default {
@@ -11,7 +11,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-close-box {
+.mv2-close-box {
 	font-size: 30px;
 	color: $c_dark-gray;
 	cursor: pointer;

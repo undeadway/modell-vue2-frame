@@ -1,11 +1,11 @@
 <template>
-	<div :class="`mdl-alert-box mdl-text-align__${align} mdl-effect__${effect} 
-	mdl-effect__${type}-${effect} mdl_border_${type}
+	<div :class="`mv2-alert-box mv2-text-align__${align} mv2-effect__${effect} 
+	mv2-effect__${type}-${effect} mdl_border_${type}
 	`"><slot></slot></div>
 </template>
 <script>
 export default {
-	name: "MdlAlert",
+	name: "Mv2Alert",
 	props: {
 		effect: {
 			type: String,
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-alert-box {
+.mv2-alert-box {
 	padding:5px;
 	margin: 5px 10px;
 	font-size: 18px;

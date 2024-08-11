@@ -1,10 +1,10 @@
 <template>
-	<div :class="`mdl-tag-box mdl-effect__${effect} 
-	mdl-effect__${type}-${effect} mdl_border_${type}`"><slot></slot></div>
+	<div :class="`mv2-tag-box mv2-effect__${effect} 
+	mv2-effect__${type}-${effect} mdl_border_${type}`"><slot></slot></div>
 </template>
 <script>
 export default {
-	name: "MdlTag",
+	name: "Mv2Tag",
 	props: {
 		type: {
 			type: String,
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-tag-box {
+.mv2-tag-box {
 	position: relative;
 	padding: 4px 10px;
 	margin-right: 10px;

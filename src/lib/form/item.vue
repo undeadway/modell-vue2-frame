@@ -1,20 +1,20 @@
 <template>
 	<div>
-		<div class="mdl-form-item-box">
-			<div v-if="required" class="mdl-form-item-required-mark">*</div>
-			<div :style="`width: ${mdlForm.labelWidth}px;`" :class="`mdl-form-item-label mdl-text-align__${mdlForm.labelAlign}`">
+		<div class="mv2-form-item-box">
+			<div v-if="required" class="mv2-form-item-required-mark">*</div>
+			<div :style="`width: ${mdlForm.labelWidth}px;`" :class="`mv2-form-item-label mv2-text-align__${mdlForm.labelAlign}`">
 				{{ label }}
 			</div>
 			<div :style="`width: calc(100% - ${Number(mdlForm.labelWidth) + 30}px); ${style}`">
 				<slot ref="field"></slot>
 			</div>
 		</div>
-		<div class="mdl-form-item-check-result-box" :style="`margin-left:${Number(mdlForm.labelWidth) + 30}px;`">{{ errorMessage }}</div>
+		<div class="mv2-form-item-check-result-box" :style="`margin-left:${Number(mdlForm.labelWidth) + 30}px;`">{{ errorMessage }}</div>
 	</div>
 </template>
 <script>
 export default {
-	name: "MdlFormItem",
+	name: "Mv2FormItem",
 	inject: [ "mdlForm" ],
 	provide: function () {
 		return {
@@ -72,28 +72,28 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-form-item-box {
+.mv2-form-item-box {
 	>div {
 		display: inline-table;
 		vertical-align: middle;
 	}
 
-	.mdl-form-item-required-mark {
+	.mv2-form-item-required-mark {
 		color: $c_red;
 		font-weight: bold;
 		margin-right: 5px;
 	}
 
-	.mdl-form-item-label {
+	.mv2-form-item-label {
 		margin-right: 10px;
 	}
 
-	.mdl-text-align_left {
+	.mv2-text-align_left {
 		text-align: left;
 	}
 }
 
-.mdl-form-item-check-result-box {
+.mv2-form-item-check-result-box {
 	height: 20px;
 	color: $c_danger;
 	padding: 2px 0px 4px 0px;

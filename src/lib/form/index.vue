@@ -9,7 +9,7 @@
 import StyleMixin from '../../mixins/style-mixin';
 
 export default {
-	name: "MdlForm",
+	name: "Mv2Form",
 	mixins: [ StyleMixin ],
 	provide : function() {
 		return {

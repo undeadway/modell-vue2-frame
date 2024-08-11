@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-	name: "MdlTree",
+	name: "Mv2Tree",
 	props: {
 		data: {
 			type: Array,

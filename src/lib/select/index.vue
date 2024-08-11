@@ -3,6 +3,6 @@
 </template>
 <script>
 export default {
-	name: "MdlSelect"
+	name: "Mv2Select"
 }
 </script>

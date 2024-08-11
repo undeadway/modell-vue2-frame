@@ -1,11 +1,11 @@
 <template>
-	<button @click="onClick" :type="nativeType" :disabled="disabled" :class="`mdl-button mdl-button__${type}`" :style="style">
+	<button @click="onClick" :type="nativeType" :disabled="disabled" :class="`mv2-button mv2-button__${type}`" :style="style">
 		<slot></slot>
 	</button>
 </template>
 <script>
 export default {
-	name: "MdlButton",
+	name: "Mv2Button",
 	props: {
 		type: {
 			type: String,
@@ -34,10 +34,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-button {
+.mv2-button {
 	cursor: pointer;
 }
-.mdl-button__text {
+.mv2-button__text {
 	border-color: transparent;
 	color: $c_blue;
 	background: transparent;
@@ -46,7 +46,7 @@ export default {
 	font-weight: bold;
 }
 
-.mdl-button__button {
+.mv2-button__button {
 	border: 1px solid $c_dark_blue;
 	background:  $c_blue;
 	color: $c_white;

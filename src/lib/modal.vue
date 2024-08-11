@@ -1,13 +1,13 @@
 <template>
 	<div v-if="modalVisible">
-		<div class="mdl-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
+		<div class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<div class="mdl-modal-box" :style="`${style} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
-			<div class="mdl-modal-title-box">{{title}}</div>
-			<div class="mdl-close-box mdl-modal-close-box" @click="onClose">
+		<div class="mv2-modal-box" :style="`${style} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
+			<div class="mv2-modal-title-box">{{title}}</div>
+			<div class="mv2-close-box mv2-modal-close-box" @click="onClose">
 				<close-box />
 			</div>
-			<div class="mdl-modal-content-box">
+			<div class="mv2-modal-content-box">
 				<slot></slot>
 			</div>
 		</div>
@@ -18,7 +18,7 @@ import StyleMixin from '../mixins/style-mixin';
 import CloseBox from "../components/close-box";
 
 export default {
-	name: "MdlModal",
+	name: "Mv2Modal",
 	mixins: [ StyleMixin ],
 	components: {
 		CloseBox
@@ -108,7 +108,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-mask-layer-box {
+.mv2-mask-layer-box {
 	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -117,20 +117,20 @@ export default {
 	background: rgba($color: $c_pure_black, $alpha: $v_golden_ratio);
 }
 
-.mdl-modal-box {
+.mv2-modal-box {
 	position: absolute;
 	background: $c_bgcolor;
 	border: 1px solid $c_border;
 	padding-bottom: 20px;
-	.mdl-modal-title-box {
+	.mv2-modal-title-box {
 		margin: 20px;
 		font-size: 20px;
 		font-weight: bold;
 	}
-	.mdl-modal-content-box {
+	.mv2-modal-content-box {
 		margin: 10px 20px;
 	}
-	.mdl-modal-close-box {
+	.mv2-modal-close-box {
 		position: absolute;
 		right: 10px;
 		top: 0px;

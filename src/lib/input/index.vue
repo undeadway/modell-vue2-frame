@@ -1,16 +1,16 @@
 <template>
-	<div class="mdl-input-box" :style="style">
+	<div class="mv2-input-box" :style="style">
 		<div v-if="append === 'before'" class="slot-box" :style="beforeStyles">
 			<slot name="before"></slot>
 		</div>
 		<div style="width: 1px" />
-		<div class="mdl-input-obj" :style="inputBoxStyles">
-			<input class="mdl-input-obj-input" autocomplete="off" v-model="val"
+		<div class="mv2-input-obj" :style="inputBoxStyles">
+			<input class="mv2-input-obj-input" autocomplete="off" v-model="val"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
 		</div>
 		<div style="width: 1px" />
-		<div v-if="append === 'after'" class="mdl-slot-box" :style="afterStyles">
+		<div v-if="append === 'after'" class="mv2-slot-box" :style="afterStyles">
 			<slot name="after"></slot>
 		</div>
 	</div>
@@ -20,7 +20,7 @@ import StyleMixin from '../../mixins/style-mixin';
 
 export default {
 	mixins: [ StyleMixin ],
-	name: "MdlInput",
+	name: "Mv2Input",
 	inject: [ "mdlForm", "mdlFormItem" ],
 	props: {
 		placeholder: {
@@ -160,26 +160,26 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-input-box {
+.mv2-input-box {
 	>div {
 		display: table-cell;
 		vertical-align: middle;
 	}
-	.mdl-input-obj {
-		.mdl-input-obj-input {
+	.mv2-input-obj {
+		.mv2-input-obj-input {
 			height: 24px;
 			padding:6px 10px;
 			border: 1px solid $c_dark-gray;
 			border-radius: 6px;
 			outline: none;
 		}
-		.mdl-input-obj-input:focus {
+		.mv2-input-obj-input:focus {
 			border: 1px solid $c_dark-blue;
 		}
 		width: 100%;
 	}
-	.mdl-slot-box {
-		.mdl-input-append-btn {
+	.mv2-slot-box {
+		.mv2-input-append-btn {
 			background-position-x: 0px;
 			background-position-y: 0px;
 			background-repeat: no-repeat;

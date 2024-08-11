@@ -1,32 +1,32 @@
 @import "./common-base.scss";
 
-.mdl-text-align__left {
+.mv2-text-align__left {
     text-align: left;
 }
 
-.mdl-text-align__right {
+.mv2-text-align__right {
     text-align: right;
 }
 
-.mdl-text-align__justify {
+.mv2-text-align__justify {
     text-align: justify;
     text-align-last: justify;
 }
 
-.mdl-text-align__center {
+.mv2-text-align__center {
     text-align: center;
 }
 
-.mdl-background__info {
+.mv2-background__info {
 	background: $c_info;
 }
-.mdl-background__success {
+.mv2-background__success {
 	background: $c_success;
 }
-.mdl-background__warning {
+.mv2-background__warning {
 	background: $c_warning;
 }
-.mdl-background__danger {
+.mv2-background__danger {
 	background: $c_warning;
 }
 
@@ -48,42 +48,42 @@
 
 
 /////////////// ↓ 字体颜色 ↓ ///////////////
-.mdl-effect__dark {
+.mv2-effect__dark {
 	color: var(--c_white);
 }
-.mdl-effect__info-light {
+.mv2-effect__info-light {
 	color: $c_info;
 }
-.mdl-effect__text-light {
+.mv2-effect__text-light {
 	color: $c_text;
 }
-.mdl-effect__success-light {
+.mv2-effect__success-light {
 	color: $c_success;
 }
-.mdl-effect__warning-light {
+.mv2-effect__warning-light {
 	color: $c_warning;
 }
-.mdl-effect__danger-light {
+.mv2-effect__danger-light {
 	color: $c_danger;
 }
 
 /////////////// ↓ 背景颜色 ↓ ///////////////
-.mdl-effect__light {
+.mv2-effect__light {
 	background: $c_light_info;
 }
 
-.mdl-effect__info-dark {
+.mv2-effect__info-dark {
 	background: $c_info;
 }
-.mdl-effect__text-dark {
+.mv2-effect__text-dark {
 	background: $c_text;
 }
-.mdl-effect__success-dark {
+.mv2-effect__success-dark {
 	background: $c_success;
 }
-.mdl-effect__warning-dark {
+.mv2-effect__warning-dark {
 	background: $c_warning;
 }
-.mdl-effect__danger-dark {
+.mv2-effect__danger-dark {
 	background: $c_danger;
 }

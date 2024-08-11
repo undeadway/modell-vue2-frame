@@ -5,18 +5,18 @@
 				<slot></slot>
 			</div>
 			<div v-show="!success">
-				<div class="mdl-error-box">
+				<div class="mv2-error-box">
 					<div>数据读取失败</div>
-					<div class="mdl-btn-box">
-						<button class="mdl-btn" @click="getDatas">再次尝试</button>
+					<div class="mv2-btn-box">
+						<button class="mv2-btn" @click="getDatas">再次尝试</button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div v-show="loading" style="height: 100%;">
-			<div class="mdl-loading-box">
+			<div class="mv2-loading-box">
 				<div>
-					<div class="mdl-loading"></div>
+					<div class="mv2-loading"></div>
 					<div>数据加载中</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 </template>
 <script>
 export default {
-	name: "MdlLoading",
+	name: "Mv2Loading",
 	data () {
 		return {
 			loading: false,
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mdl-loading-box {
+.mv2-loading-box {
 	width: calc(100% - 25px);
 	height: 100%;
 	padding-top: 20px;
@@ -71,7 +71,7 @@ export default {
 	}
 }
 
-.mdl-loading {
+.mv2-loading {
 	position: relative;
 	width: 150px;
 	height: 150px;
@@ -93,14 +93,14 @@ export default {
 	}
 }
 
-.mdl-error-box {
+.mv2-error-box {
 	width: 200px;
 	margin: auto;
 	margin-top: 5vh;
 	text-align: center;
-	.mdl-btn-box {
+	.mv2-btn-box {
 		margin-top: 1vh;
-		.mdl-btn {
+		.mv2-btn {
 			cursor: pointer;
 			border: none;
 			background:var(--c_blue);

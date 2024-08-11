@@ -1,11 +1,11 @@
 <template>
-	<div class="mdl-tabs-item" v-if="activeName === name">
+	<div class="mv2-tabs-item" v-if="activeName === name">
 		<slot></slot>
 	</div>
 </template>
 <script>
 export default {
-	name: "MdlTabsItem",
+	name: "Mv2TabsItem",
 	inject: [ "tabsGroup" ],
 	props: {
 		label: {
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mdl-tabs-item {
+.mv2-tabs-item {
 	height: 100%;
 	width: 100%;
 };
