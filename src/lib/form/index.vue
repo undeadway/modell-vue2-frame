@@ -13,7 +13,7 @@ export default {
 	mixins: [ StyleMixin ],
 	provide : function() {
 		return {
-			mdlForm: this
+			mv2Form: this
 		};
 	},
 	props: {

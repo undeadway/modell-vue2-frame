@@ -21,7 +21,7 @@ import StyleMixin from '../../mixins/style-mixin';
 export default {
 	mixins: [ StyleMixin ],
 	name: "Mv2Input",
-	inject: [ "mdlForm", "mdlFormItem" ],
+	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
 		placeholder: {
 			type: String,
@@ -61,21 +61,21 @@ export default {
 	},
 	watch: {
 		"val": function(v1, v2) {
-			if (this.mdlForm) {
-				this.mdlForm[this.mdlFormItem.field] = v1;
+			if (this.mv2Form) {
+				this.mv2Form[this.mv2FormItem.field] = v1;
 			}
 			
 		},
 		"value": function(v1) {
-			if (this.mdlForm) {
-				this.mdlForm[this.mdlFormItem.field] = v1;
+			if (this.mv2Form) {
+				this.mv2Form[this.mv2FormItem.field] = v1;
 			}
 		}
 	},
 	created () {
 		console.log("inputStyles");
-		if (this.mdlFormItem) {
-			this.mdlFormItem.setField(this);
+		if (this.mv2FormItem) {
+			this.mv2FormItem.setField(this);
 		}
 
 		this.placeHolder = this.placeholder;
@@ -109,8 +109,8 @@ export default {
 			this.placeHolder = "";
 		},
 		getRule () {
-			if (this.mdlForm && this.mdlForm.rules) {
-				const rule = this.rule || this.mdlForm.rules[this.mdlFormItem.field];
+			if (this.mv2Form && this.mv2Form.rules) {
+				const rule = this.rule || this.mv2Form.rules[this.mv2FormItem.field];
 				if (!this.rule) {
 					this.rule = rule;
 				}
@@ -134,24 +134,24 @@ export default {
 			return new Promise((resolve, reject) => {
 				if (rule) {
 					if (rule.required && !that.val) {
-						const message = that.rule.message || `${that.mdlFormItem.label}是必填字段`;
-						that.mdlFormItem.setMessage(message);
+						const message = that.rule.message || `${that.mv2FormItem.label}是必填字段`;
+						that.mv2FormItem.setMessage(message);
 						resolve(false);
 						return;
 					}
 					if (rule.validate) {
 						that.rule.validate(that.val, (res) => {
 							if (res) {
-								that.mdlFormItem.errorMessage = res;
-								that.mdlFormItem.setMessage(res);
+								that.mv2FormItem.errorMessage = res;
+								that.mv2FormItem.setMessage(res);
 								resolve(false);
 								return;
 							}
 						});
 					}
 				}
-				that.mdlFormItem.setValue(that.val);
-				that.mdlFormItem.setMessage(null);
+				that.mv2FormItem.setValue(that.val);
+				that.mv2FormItem.setMessage(null);
 				resolve(true);
 				return;
 			});

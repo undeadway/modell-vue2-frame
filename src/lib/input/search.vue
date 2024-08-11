@@ -1,18 +1,18 @@
 <template>
 	<div>
-		<mdlinput :placeholder="placeholder" type="text" append="after" :styles="styles">
+		<mv2input :placeholder="placeholder" type="text" append="after" :styles="styles">
 			<template #after>
 				<div class="mv2-input-append-btn mv2-input-append-btn-search-bg" @click="onSearch"></div>
 			</template>
-		</mdlinput>
+		</mv2input>
 	</div>
 </template>
 <script>
-import mdlinput from "./index";
+import mv2input from "./index";
 export default {
 	name: "Mv2Search",
 	components: {
-		mdlinput
+		mv2input
 	},
 	props: {
 		placeholder: {

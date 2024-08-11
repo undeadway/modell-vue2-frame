@@ -2,7 +2,7 @@
 	<div>
 		<mv2-input :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :styles="styles">
 			<template #after>
-				<div :class="`mv2-input-append-btn ${mdlInputPasswordBtnEyeStatus}`" @click="changeEyeStatus"></div>
+				<div :class="`mv2-input-append-btn ${mv2InputPasswordBtnEyeStatus}`" @click="changeEyeStatus"></div>
 			</template>
 		</mv2-input>
 	</div>
@@ -28,7 +28,7 @@ export default {
 	data () {
 		return {
 			inputType: "password",
-			mdlInputPasswordBtnEyeStatus: "mv2-input-password-apend-btn-eye-on",
+			mv2InputPasswordBtnEyeStatus: "mv2-input-password-apend-btn-eye-on",
 			eyeStatus: false,
 			readonly: {
 				type: Boolean,
@@ -41,11 +41,11 @@ export default {
 			if (this.eyeStatus) {
 				this.eyeStatus = false;
 				this.inputType = "password";
-				this.mdlInputPasswordBtnEyeStatus = "mv2-input-password-apend-btn-eye-on";
+				this.mv2InputPasswordBtnEyeStatus = "mv2-input-password-apend-btn-eye-on";
 			} else {
 				this.eyeStatus = true;
 				this.inputType = "text";
-				this.mdlInputPasswordBtnEyeStatus = "mv2-input-password-apend-btn-eye-hide";
+				this.mv2InputPasswordBtnEyeStatus = "mv2-input-password-apend-btn-eye-hide";
 			}
 		}
 	}

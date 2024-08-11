@@ -2,23 +2,23 @@
 	<div>
 		<div class="mv2-form-item-box">
 			<div v-if="required" class="mv2-form-item-required-mark">*</div>
-			<div :style="`width: ${mdlForm.labelWidth}px;`" :class="`mv2-form-item-label mv2-text-align__${mdlForm.labelAlign}`">
+			<div :style="`width: ${mv2Form.labelWidth}px;`" :class="`mv2-form-item-label mv2-text-align__${mv2Form.labelAlign}`">
 				{{ label }}
 			</div>
-			<div :style="`width: calc(100% - ${Number(mdlForm.labelWidth) + 30}px); ${style}`">
+			<div :style="`width: calc(100% - ${Number(mv2Form.labelWidth) + 30}px); ${style}`">
 				<slot ref="field"></slot>
 			</div>
 		</div>
-		<div class="mv2-form-item-check-result-box" :style="`margin-left:${Number(mdlForm.labelWidth) + 30}px;`">{{ errorMessage }}</div>
+		<div class="mv2-form-item-check-result-box" :style="`margin-left:${Number(mv2Form.labelWidth) + 30}px;`">{{ errorMessage }}</div>
 	</div>
 </template>
 <script>
 export default {
 	name: "Mv2FormItem",
-	inject: [ "mdlForm" ],
+	inject: [ "mv2Form" ],
 	provide: function () {
 		return {
-			"mdlFormItem": this
+			"mv2FormItem": this
 		}
 	},
 	props: {
@@ -47,10 +47,10 @@ export default {
 		}
 	},
 	created () {
-		if (this.mdlForm.rules) {
-			const item = this.mdlForm.rules[this.field];
+		if (this.mv2Form.rules) {
+			const item = this.mv2Form.rules[this.field];
 			this.required = !!item ? (item.required || false) : false;
-			this.mdlForm.setItem(this.field, this);
+			this.mv2Form.setItem(this.field, this);
 		}
 
 	},
@@ -62,7 +62,7 @@ export default {
 			return this.itemField.validate();
 		},
 		setValue (value) {
-			this.mdlForm.form[this.field] = value;
+			this.mv2Form.form[this.field] = value;
 		},
 		setMessage (message) {
 			this.errorMessage = "";

@@ -81,10 +81,10 @@ export default {
 	border-bottom-color: rgba(0, 0, 0, 0.2);
 	border-radius: 100%;
 
-	animation: mdl_circle infinite 0.75s linear;
+	animation: mv2-circle infinite 0.75s linear;
 }
 
-@keyframes mdl_circle {
+@keyframes mv2-circle {
 	0% {
 		transform: rotate(0);
 	}
