@@ -1,7 +1,9 @@
 <template>
 	<div :class="`mv2-tabs-group mv2-tabs-group-positon-${tabPosition}`">
 		<div class="mv2-tab-label-list" :style="`width:${width};`">
-			<div :class="activeName === tab.name ? 'active-name-box' : ''" v-for="tab in tabs" @click="onTabClick(tab.name)">{{ tab.label }}</div>
+			<div :class="activeName === tab.name ? 'active-name-box' : ''"
+				v-for="(tab,index) in tabs" :key="index" @click="onTabClick(tab.name)">{{ tab.label }}
+			</div>
 		</div>
 		<div>
 			<slot></slot>
