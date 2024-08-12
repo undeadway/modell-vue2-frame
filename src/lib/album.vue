@@ -36,7 +36,7 @@ export default {
 			type: Number,
 			default: 0
 		},
-		autoplay: {
+		autoPlay: {
 			type: Boolean,
 			default: false
 		},
@@ -60,7 +60,7 @@ export default {
 		}
 	},
 	created () {
-		if (this.autoplay) {
+		if (this.autoPlay) {
 			this.onAutoPlay();
 		}
 	},
@@ -111,7 +111,7 @@ export default {
 			this.now++;
 			if (this.now === this.total) {
 				this.now =  this.total - 1;
-				if (this.autoplay && !clickFlg) {
+				if (this.autoPlay && !clickFlg) {
 					this.first = 0;
 					this.position = 0;
 					console.log(1);
@@ -131,7 +131,7 @@ export default {
 				this.position = 2;
 				this.first++;
 				if (this.first > this.total - 3) {
-					if (this.autoplay && !clickFlg) {
+					if (this.autoPlay && !clickFlg) {
 						this.first = 0;
 						this.position = 0;
 						console.log(2);
@@ -168,7 +168,7 @@ export default {
 			this.now--;
 			if (this.now < 0) {
 				this.now = 0;
-				if (this.autoplay && !clickFlg) {
+				if (this.autoPlay && !clickFlg) {
 					this.first = this.total - 3;
 					this.position = 3;
 					this.onChangeShow(this.total - 1);
@@ -192,7 +192,7 @@ export default {
 				this.first--;
 				if (this.first < 0) {
 					this.first = 0;
-					if (this.autoplay && !clickFlg) {
+					if (this.autoPlay && !clickFlg) {
 						this.first = this.total - 3;
 						this.position = 3;
 						this.onChangeShow(this.total - 1);
