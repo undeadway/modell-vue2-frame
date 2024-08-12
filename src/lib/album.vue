@@ -5,7 +5,7 @@
 		 * 但只展示 [first, first + 3) 之间的内容
 		-->
 		<div class="mv2-album-btn-box">
-			<div :class="'btn-box ' + (leftDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onPrev">《&nbsp;&nbsp;</div>
+			<div :class="'btn-box ' + (leftDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onPrev(true)">《&nbsp;&nbsp;</div>
 		</div>
 		<div class="mv2-album-data-box">
 			<div v-if="total > 0">
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="mv2-album-btn-box right-btn">
-			<div :class="'btn-box ' + (rightDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onNext">&nbsp;&nbsp;》</div>
+			<div :class="'btn-box ' + (rightDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onNext(true)">&nbsp;&nbsp;》</div>
 		</div>
 	</div>
 </template>
@@ -35,6 +35,18 @@ export default {
 		total: {
 			type: Number,
 			default: 0
+		},
+		autoPlay: {
+			type: Boolean,
+			default: false
+		},
+		duration: {
+			type: Boolean,
+			default: 1500
+		},
+		autoDirect: {
+			type: String,
+			default: "right"
 		}
 	},
 	data () {
@@ -47,7 +59,23 @@ export default {
 			now: 0
 		}
 	},
+	created () {
+		if (this.autoPlay) {
+			this.onAutoPlay();
+		}
+	},
 	methods: {
+		onAutoPlay () {
+			let method = null;
+			if (this.autoDirect === "right") {
+				method = this.onNext;
+			}
+			if (this.autoDirect === "left") {
+				this.leftDisabled = false;
+				method = this.onPrev;
+			}
+			setInterval(method, this.duration);
+		},
 		/*
 		 * 按下一步的时候，向右前进一格，[ ○ □ □ ] □ □ □ => [ □ ○ □ ] □ □ □
 		 * 如果已经到最右，则把看不见的向左推一格 [ □ □ ○ ] □ □ □  => □ [ □ □ ○ ] □ □
@@ -74,7 +102,7 @@ export default {
 		 * position = 2
 		 * 否则 first = 0
 		 */
-		onNext () {
+		onNext (clickFlg) {
 			if (this.rightDisabled) return;
 
 			this.leftDisabled = false;
@@ -83,11 +111,18 @@ export default {
 			this.now++;
 			if (this.now === this.total) {
 				this.now =  this.total - 1;
-				this.$Message({
-					message: "后面没有了",
-					type: "info"
-				});
-				this.rightDisabled = true;
+				if (this.autoPlay && !clickFlg) {
+					this.first = 0;
+					this.position = 0;
+					console.log(1);
+					this.onChangeShow(0);
+				} else {
+					this.$Message({
+						message: "后面没有了",
+						type: "info"
+					});
+					this.rightDisabled = true;
+				}
 				return;
 			}
 
@@ -96,12 +131,20 @@ export default {
 				this.position = 2;
 				this.first++;
 				if (this.first > this.total - 3) {
-					this.first = this.total - 3;
-					this.rightDisabled = true;
-					this.$Message({
-						message: "后面没有了",
-						type: "info"
-					});
+					if (this.autoPlay && !clickFlg) {
+						this.first = 0;
+						this.position = 0;
+						console.log(2);
+						this.onChangeShow(0);
+					} else {
+						this.first = this.total - 3;
+						this.rightDisabled = true;
+						this.$Message({
+							message: "后面没有了",
+							type: "info"
+						});
+					}
+					return;
 				}
 			}
 		},
@@ -116,7 +159,7 @@ export default {
 		 * 否则
 		 * first = 0
 		 */
-		onPrev () {
+		onPrev (clickFlg) {
 			if (this.leftDisabled) return;
 
 			this.rightDisabled = false;
@@ -125,12 +168,19 @@ export default {
 			this.now--;
 			if (this.now < 0) {
 				this.now = 0;
-				this.$Message({
-					message: "前面没有了",
-					type: "info"
-				});
-				this.leftDisabled = true;
+				if (this.autoPlay && !clickFlg) {
+					this.first = this.total - 3;
+					this.position = 3;
+					this.onChangeShow(this.total - 1);
+				} else {
+					this.$Message({
+						message: "前面没有了",
+						type: "info"
+					});
+					this.leftDisabled = true;
+				}
 				return;
+
 			}
 
 			this.position--;
@@ -142,11 +192,18 @@ export default {
 				this.first--;
 				if (this.first < 0) {
 					this.first = 0;
-					this.leftDisabled = true;
-					this.$Message({
-						message: "前面没有了",
-						type: "info"
-					});
+					if (this.autoPlay && !clickFlg) {
+						this.first = this.total - 3;
+						this.position = 3;
+						this.onChangeShow(this.total - 1);
+					} else {
+						this.$Message({
+							message: "前面没有了",
+							type: "info"
+						});
+						this.leftDisabled = true;
+						return;
+					}
 				}
 			}
 		}
