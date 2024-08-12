@@ -59,14 +59,11 @@ export default {
 	watch: {
 		"data": function(v1, v2) {
 			this._data = v1;
-
-			this.updateStyle();
-			this.$nextTick(() => {
-				this.bindEvent();
-			});
+			this.init();
 		}
 	},
 	created () {
+		console.log("table");
 		const newCols = [];
 		for (const column of this.columns) {
 			const newCol = JSON.parse(JSON.stringify(column));
@@ -123,9 +120,15 @@ export default {
 			column.style = style.join(";") + ";";
 		}
 
-		this.updateStyle();
+		this.init();
 	},
 	methods: {
+		init () {
+			this.updateStyle();
+			this.$nextTick(() => {
+				this.bindEvent();
+			});
+		},
 		bindEvent () {
 			for (let i = 0, len = this._data.length; i < len; i++) {
 			const data = this._data[i];
@@ -175,7 +178,7 @@ export default {
 			if (column.format) {
 				html = column.format(row);
 			} else {
-				html = row[column.class];
+				html = row[column.name];
 			}
 
 			return html;
