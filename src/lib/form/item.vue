@@ -87,22 +87,23 @@ export default {
 			const that = this;
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
-				const value = that.itemField.value;
-				if (rule && rule.required && !value) {
-					const message = rule.message || `${that.label}是必填字段`;
-					that.setMessage(message);
-					resolve(message);
-					return;
-				}
-
-				if (rule.validate) {
-					rule.validate(value, (message) => {
-						if (message) {
-							that.setMessage(message);
-							resolve(message);
-							return;
-						}
-					});
+				const value = that.itemField !== null ? that.itemField.value : null;
+				if (rule) {
+					if (rule.required && !value) {
+						const message = rule.message || `${that.label}是必填字段`;
+						that.setMessage(message);
+						resolve(message);
+						return;
+					}
+					if (rule.validate) {
+						rule.validate(value, (message) => {
+							if (message) {
+								that.setMessage(message);
+								resolve(message);
+								return;
+							}
+						});
+					}
 				}
 
 				resolve(null);
