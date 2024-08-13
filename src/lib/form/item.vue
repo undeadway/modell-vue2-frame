@@ -58,8 +58,26 @@ export default {
 		setField (field) {
 			this.itemField = field;
 		},
+		getRule () {
+			if (this.mv2Form && this.mv2Form.rules) {
+				const rule = this.rule || this.mv2Form.rules[this.field];
+				if (!this.rule) {
+					this.rule = rule;
+				}
+				return rule;
+			} else {
+				return null;
+			}
+		},
 		validate() {
-			return this.itemField.validate();
+			// return this.itemField.validate();
+			const that = this;
+			return new Promise((resolve, reject) => {
+				const rule = this.getRule();
+				if (rule.required && !that.value) {
+					
+				}
+			});
 		},
 		setValue (value) {
 			this.mv2Form.form[this.field] = value;
