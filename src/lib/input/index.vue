@@ -57,7 +57,9 @@ export default {
 	},
 	watch: {
 		"value": function(v1, v2) {
-			this.mv2FormItem.setValue(v1);
+			if (this.mv2FormItem) {
+				this.mv2FormItem.setValue(v1);
+			}
 		}
 	},
 	created () {
