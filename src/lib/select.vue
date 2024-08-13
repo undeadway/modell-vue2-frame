@@ -97,7 +97,7 @@ export default {
 		position: absolute;
 		margin-top: -1px;
 		border: 1px solid #CCCCCC;
-		height: 156px;
+		max-height: 156px;
 		overflow: auto;
 		>div {
 			padding: 5px 10px;
