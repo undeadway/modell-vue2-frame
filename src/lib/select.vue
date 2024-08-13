@@ -14,10 +14,10 @@
 </template>
 <script>
 import StyleMixin from "./../mixins/style-mixin";
-import FormMixin from "../mixins/form-mixin";
+import FormItemMixin from "../mixins/form-item-mixin";
 
 export default {
-	mixins: [ StyleMixin, FormMixin ],
+	mixins: [ StyleMixin, FormItemMixin ],
 	name: "Mv2Select",
 	props: {
 		options: {
