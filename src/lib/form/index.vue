@@ -58,8 +58,10 @@ export default {
 			return reses.indexOf(false) < 0;
 		},
 		setField (key, value) {
-			this.keys.push(key);
-			this.fields[key] = value;
+			if (this.keys.indexOf(key) < 0) {
+				this.keys.push(key);
+				this.fields[key] = value;
+			}
 		}
 	}
 }
