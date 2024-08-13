@@ -14,7 +14,7 @@ export default {
     methods: {
         async formItemValidte  () {
             const mv2FormItem = this.mv2FormItem;
-            if (this.hasFormItem()) {
+            if (this.hasFormItem) {
                 mv2FormItem.setValue(v1);
                 const rule = mv2FormItem.getRule();
                 if (rule) {
@@ -25,12 +25,12 @@ export default {
             }
         },
         formItemsetValue (value) {
-            if (this.hasFormItem()) {
+            if (this.hasFormItem) {
                 this.mv2FormItem.setValue(value);
             }
         },
         formItemSetField () {
-            if (this.hasFormItem()) {
+            if (this.hasFormItem) {
                 this.mv2FormItem.setField(this);
             }
         }
