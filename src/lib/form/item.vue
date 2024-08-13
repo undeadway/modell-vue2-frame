@@ -56,7 +56,7 @@ export default {
 	methods: {
 		setField (field) {
 			this.itemField = field;
-			this.mv2Form.setField(this.label, field);
+			this.mv2Form.setField(this.field, field);
 		},
 		getRule () {
 			if (this.mv2Form && this.mv2Form.rules) {
