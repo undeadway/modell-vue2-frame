@@ -1,10 +1,14 @@
 <template>
-	<div :style="style" class="mv2-select-box">
-		<div class="mv2-select-value-box" @click="showOptionList">
-			{{ value }}
-		</div>
-		<div class="mv2-select-options-box" :style="`display:${display}`">
-			<div v-for="(option, index) in options" :key="index" @click="onClick(index)">{{ option.label }}</div>
+	<div :style="style" class="mv2-select-box" @click="hideOptionList">
+		<div @click.stop="">
+			<div class="mv2-select-value-box" @click="showOptionList">
+				<div>{{ label }}</div>
+			</div>
+			<div class="mv2-select-options-box" v-show="visible" :style="`width:calc(${width} - 2px);`">
+				<div v-for="(option, index) in options" :key="index" @click="onClick(index)">
+					<div>{{ option.label }}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -14,6 +18,7 @@ import StyleMixin from "./../mixins/style-mixin";
 export default {
 	mixins: [ StyleMixin ],
 	name: "Mv2Select",
+	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
 		options: {
 			type: Array,
@@ -32,24 +37,41 @@ export default {
 		return {
 			value: "",
 			label: "",
-			display: "none"
+			visible: false,
+			width: ""
 		}
 	},
 	created () {
 		this.init();
+		if (this.mv2FormItem) {
+			this.mv2FormItem.setField(this);
+		}
+	},
+	mounted() {
+		// 监听点击事件，用于关闭下拉框
+		window.addEventListener('click', this.hideOptionList);
+	},
+	beforeUnmount() {
+		// 移除点击事件监听器
+		window.removeEventListener('click', this.hideOptionList);
 	},
 	methods: {
 		init () {
-			console.log(this.options);
+			if (this.styles && this.styles.width) {
+				this.width = this.styles.width;
+			}
 		},
 		onClick (index) {
 			const option = this.options[index];
 			this.value = option.value;
 			this.label = option.label;
-			this.display = "none";
+			this.hideOptionList();
+		},
+		hideOptionList () {
+			this.visible = false;
 		},
 		showOptionList () {
-			this.display = "block";
+			this.visible = true;
 		}
 	}
 }
@@ -65,18 +87,28 @@ export default {
 		background: #FFFFFF;
 		padding: 0px 6px;
 		cursor: pointer;
+		>div {
+			overflow-x: hidden;
+			white-space:nowrap;
+		}
 	}
 
 	.mv2-select-options-box {
 		position: absolute;
 		margin-top: -1px;
 		border: 1px solid #CCCCCC;
+		height: 156px;
+		overflow: auto;
 		>div {
 			padding: 5px 10px;
 			cursor: pointer;
 			background: #FFFFFF;
 			&:hover {
 				background: #DDDDDD;
+			}
+			>div {
+				overflow-x: hidden;
+				white-space:nowrap;
 			}
 		}
 	}
