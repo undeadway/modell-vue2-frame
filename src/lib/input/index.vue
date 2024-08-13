@@ -97,10 +97,12 @@ export default {
 		},
 		async onBlur () {
 			this.placeHolder = this.placeholder;
-			const rule = this.mv2FormItem.getRule();
-			if (rule) {
-				if (rule.trigger === "blur") {
-					await this.mv2FormItem.validate();
+			if (this.mv2FormItem) {
+				const rule = this.mv2FormItem.getRule();
+				if (rule) {
+					if (rule.trigger === "blur") {
+						await this.mv2FormItem.validate();
+					}
 				}
 			}
 		}
