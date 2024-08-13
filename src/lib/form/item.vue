@@ -71,17 +71,6 @@ export default {
 				return null;
 			}
 		},
-		getRule () {
-			if (this.mv2Form && this.mv2Form.rules) {
-				const rule = this.rule || this.mv2Form.rules[this.field];
-				if (!this.rule) {
-					this.rule = rule;
-				}
-				return rule;
-			} else {
-				return null;
-			}
-		},
 		validate() {
 			const that = this;
 			return new Promise((resolve, reject) => {
