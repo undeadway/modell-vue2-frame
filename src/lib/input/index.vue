@@ -17,9 +17,10 @@
 </template>
 <script>
 import StyleMixin from '../../mixins/style-mixin';
+import FormItemValidateMixin from "../mixins/form-item-validate-mixin";
 
 export default {
-	mixins: [ StyleMixin ],
+	mixins: [ StyleMixin, FormItemValidateMixin ],
 	name: "Mv2Input",
 	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
@@ -99,14 +100,7 @@ export default {
 		},
 		async onBlur () {
 			this.placeHolder = this.placeholder;
-			if (this.mv2FormItem) {
-				const rule = this.mv2FormItem.getRule();
-				if (rule) {
-					if (rule.trigger === "blur") {
-						await this.mv2FormItem.validate();
-					}
-				}
-			}
+			this.formItemValidte();
 		}
 	}
 }

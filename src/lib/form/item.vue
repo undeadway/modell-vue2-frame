@@ -83,7 +83,6 @@ export default {
 			}
 		},
 		validate() {
-			// return this.itemField.validate();
 			const that = this;
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();

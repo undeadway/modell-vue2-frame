@@ -14,9 +14,10 @@
 </template>
 <script>
 import StyleMixin from "./../mixins/style-mixin";
+import FormItemValidateMixin from "../mixins/form-item-validate-mixin";
 
 export default {
-	mixins: [ StyleMixin ],
+	mixins: [ StyleMixin, FormItemValidateMixin ],
 	name: "Mv2Select",
 	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
@@ -29,11 +30,12 @@ export default {
 		options: function (v1) {
 			this.init();
 		},
-		value: function (v1) {
+		value: async function (v1) {
 			this.$emit("change", v1);
 			if (this.mv2FormItem) {
 				this.mv2FormItem.setValue(v1);
 			}
+			this.formItemValidte();
 		}
 	},
 	data () {
