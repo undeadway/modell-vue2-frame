@@ -57,7 +57,7 @@ export default {
 
 			return reses.indexOf(false) < 0;
 		},
-		setFields (key, value) {
+		setField (key, value) {
 			this.keys.push(key);
 			this.fields[key] = value;
 		}
