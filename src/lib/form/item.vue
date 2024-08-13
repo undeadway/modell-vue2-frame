@@ -74,9 +74,26 @@ export default {
 			const that = this;
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
-				if (rule.required && !that.value) {
-					
+				const value = that.itemField.value;
+				if (rule.required && !value) {
+					const message = rule.message || `${that.label}是必填字段`;
+					that.setMessage(message);
+					resolve(false);
+					return;
 				}
+
+				if (rule.validate) {
+					rule.validate(value, (res) => {
+						if (res) {
+							that.setMessage(message);
+							resolve(false);
+							return;
+						}
+					});
+				}
+
+				resolve(true);
+				return;
 			});
 		},
 		setValue (value) {
