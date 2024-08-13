@@ -87,3 +87,14 @@
 .mv2-effect__danger-dark {
 	background: $c_danger;
 }
+
+.mv2-input-object {
+	height: 24px;
+	padding:6px 10px;
+	border: 1px solid $c_dark-gray;
+	border-radius: 6px;
+	outline: none;
+	&:focus {
+		border: 1px solid $c_dark-blue;
+	}
+}

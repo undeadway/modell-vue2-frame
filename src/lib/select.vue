@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
-			<div class="mv2-select-value-box" @click="showOptionList">
+			<div class="mv2-select-value-box mv2-input-object" @click="showOptionList">
 				<div>{{ label }}</div>
 			</div>
 			<div class="mv2-select-options-box" v-show="visible" :style="`width:calc(${width} - 2px);`">
@@ -80,18 +80,18 @@ export default {
 .mv2-select-box {
 	position: relative;
 
-	.mv2-select-value-box {
-		border: 1px solid #CCCCCC;
-		height: 30px;
-		line-height: 30px;
-		background: #FFFFFF;
-		padding: 0px 6px;
-		cursor: pointer;
-		>div {
-			overflow-x: hidden;
-			white-space:nowrap;
-		}
-	}
+	// .mv2-select-value-box {
+	// 	border: 1px solid #CCCCCC;
+	// 	height: 30px;
+	// 	line-height: 30px;
+	// 	background: #FFFFFF;
+	// 	padding: 0px 6px;
+	// 	cursor: pointer;
+	// 	>div {
+	// 		overflow-x: hidden;
+	// 		white-space:nowrap;
+	// 	}
+	// }
 
 	.mv2-select-options-box {
 		position: absolute;

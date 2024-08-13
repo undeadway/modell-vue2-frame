@@ -5,7 +5,7 @@
 		</div>
 		<div style="width: 1px" />
 		<div class="mv2-input-obj" :style="inputBoxStyles">
-			<input class="mv2-input-obj-input" autocomplete="off" v-model="value"
+			<input class="mv2-input-object" autocomplete="off" v-model="value"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
 		</div>
@@ -114,16 +114,6 @@ export default {
 		vertical-align: middle;
 	}
 	.mv2-input-obj {
-		.mv2-input-obj-input {
-			height: 24px;
-			padding:6px 10px;
-			border: 1px solid $c_dark-gray;
-			border-radius: 6px;
-			outline: none;
-		}
-		.mv2-input-obj-input:focus {
-			border: 1px solid $c_dark-blue;
-		}
 		width: 100%;
 	}
 	.mv2-slot-box {
