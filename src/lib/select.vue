@@ -79,28 +79,23 @@ export default {
 <style lang="scss" scoped>
 .mv2-select-box {
 	position: relative;
-
-	// .mv2-select-value-box {
-	// 	border: 1px solid #CCCCCC;
-	// 	height: 30px;
-	// 	line-height: 30px;
-	// 	background: #FFFFFF;
-	// 	padding: 0px 6px;
-	// 	cursor: pointer;
-	// 	>div {
-	// 		overflow-x: hidden;
-	// 		white-space:nowrap;
-	// 	}
-	// }
-
+	.mv2-select-value-box {
+		cursor: pointer;
+		>div {
+			overflow-x: hidden;
+			white-space:nowrap;
+		}
+	}
 	.mv2-select-options-box {
 		position: absolute;
-		margin-top: -1px;
+		margin-top: 0px;
 		border: 1px solid #CCCCCC;
 		max-height: 156px;
+		border-radius: 6px;
 		overflow: auto;
+		width: 100%;
 		>div {
-			padding: 5px 10px;
+			padding: 6px 8px;
 			cursor: pointer;
 			background: #FFFFFF;
 			&:hover {
