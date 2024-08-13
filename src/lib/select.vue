@@ -14,12 +14,11 @@
 </template>
 <script>
 import StyleMixin from "./../mixins/style-mixin";
-import FormItemValidateMixin from "../mixins/form-item-validate-mixin";
+import FormMixin from "../mixins/form-mixin";
 
 export default {
-	mixins: [ StyleMixin, FormItemValidateMixin ],
+	mixins: [ StyleMixin, FormMixin ],
 	name: "Mv2Select",
-	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
 		options: {
 			type: Array,
@@ -32,9 +31,7 @@ export default {
 		},
 		value: async function (v1) {
 			this.$emit("change", v1);
-			if (this.mv2FormItem) {
-				this.mv2FormItem.setValue(v1);
-			}
+			this.formItemsetValue(v1);
 			this.formItemValidte();
 		}
 	},
@@ -48,9 +45,6 @@ export default {
 	},
 	created () {
 		this.init();
-		if (this.mv2FormItem) {
-			this.mv2FormItem.setField(this);
-		}
 	},
 	mounted() {
 		// 监听点击事件，用于关闭下拉框

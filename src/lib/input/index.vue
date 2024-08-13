@@ -17,12 +17,11 @@
 </template>
 <script>
 import StyleMixin from '../../mixins/style-mixin';
-import FormItemValidateMixin from "../mixins/form-item-validate-mixin";
+import FormMixin from "../../mixins/form-mixin";
 
 export default {
-	mixins: [ StyleMixin, FormItemValidateMixin ],
+	mixins: [ StyleMixin, FormMixin ],
 	name: "Mv2Input",
-	inject: [ "mv2Form", "mv2FormItem" ],
 	props: {
 		placeholder: {
 			type: String,
@@ -52,22 +51,15 @@ export default {
 			beforeStyles: "",
 			inputStyles : "",
 			inputBoxStyles: "",
-			afterStyles: "",
-			rule: null
+			afterStyles: ""
 		}
 	},
 	watch: {
 		"value": function(v1, v2) {
-			if (this.mv2FormItem) {
-				this.mv2FormItem.setValue(v1);
-			}
+			this.formItemsetValue(v1);
 		}
 	},
 	created () {
-		if (this.mv2FormItem) {
-			this.mv2FormItem.setField(this);
-		}
-
 		this.placeHolder = this.placeholder;
 
 		const append = this.append === "" ? [] : this.append.split(",");
