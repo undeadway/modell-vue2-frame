@@ -69,27 +69,42 @@ export default {
 				return null;
 			}
 		},
+		getRule () {
+			if (this.mv2Form && this.mv2Form.rules) {
+				const rule = this.rule || this.mv2Form.rules[this.field];
+				if (!this.rule) {
+					this.rule = rule;
+				}
+				return rule;
+			} else {
+				return null;
+			}
+		},
 		validate() {
-			const rule = this.getRule();
+			// return this.itemField.validate();
 			const that = this;
 			return new Promise((resolve, reject) => {
-				if (rule) {
-					if (rule.required && !that.val) {
-						const message = rule.message || `${that.label}是必填字段`;
-						that.setMessage(message);
-						resolve(false);
-					}
-					if (rule.validate) {
-						rule.validate(that.val, (res) => {
-							if (res) {
-								that.setMessage(res);
-								resolve(false);
-							}
-						});
-					}
+				const rule = this.getRule();
+				const value = that.itemField.value;
+				if (rule.required && !value) {
+					const message = rule.message || `${that.label}是必填字段`;
+					that.setMessage(message);
+					resolve(false);
+					return;
 				}
-				that.setMessage(null);
+
+				if (rule.validate) {
+					rule.validate(value, (res) => {
+						if (res) {
+							that.setMessage(message);
+							resolve(false);
+							return;
+						}
+					});
+				}
+
 				resolve(true);
+				return;
 			});
 		},
 		setValue (value) {
