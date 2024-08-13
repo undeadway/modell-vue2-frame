@@ -55,7 +55,11 @@ export default {
 
 			const reses = await Promise.all(arr);
 
-			return reses.indexOf(false) < 0;
+			const output = reses.filter(obj => {
+				return obj !== null;
+			});
+
+			return output;
 		},
 		setField (key, value) {
 			if (this.keys.indexOf(key) < 0) {

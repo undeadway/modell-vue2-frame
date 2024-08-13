@@ -89,21 +89,21 @@ export default {
 				if (rule.required && !value) {
 					const message = rule.message || `${that.label}是必填字段`;
 					that.setMessage(message);
-					resolve(false);
+					resolve(message);
 					return;
 				}
 
 				if (rule.validate) {
-					rule.validate(value, (res) => {
-						if (res) {
+					rule.validate(value, (message) => {
+						if (message) {
 							that.setMessage(message);
-							resolve(false);
+							resolve(message);
 							return;
 						}
 					});
 				}
 
-				resolve(true);
+				resolve(null);
 				return;
 			});
 		},
