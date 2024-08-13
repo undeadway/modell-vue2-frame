@@ -36,7 +36,7 @@ export default {
 	},
 	data () {
 		return {
-			items: {},
+			fields: {},
 			keys: []
 		}
 	},
@@ -48,7 +48,7 @@ export default {
 		async validateFields (fieldArr) {
 			const arr = [];
 			for (const field of fieldArr) {
-				const ref = this.items[field];
+				const ref = this.fields[field];
 				const valid = ref.validate();
 				arr.push(valid);
 			}
@@ -57,9 +57,9 @@ export default {
 
 			return reses.indexOf(false) < 0;
 		},
-		setItem (key, value) {
+		setFields (key, value) {
 			this.keys.push(key);
-			this.items[key] = value;
+			this.fields[key] = value;
 		}
 	}
 }

@@ -73,7 +73,6 @@ export default {
 		}
 	},
 	created () {
-		console.log("inputStyles");
 		if (this.mv2FormItem) {
 			this.mv2FormItem.setField(this);
 		}
@@ -108,54 +107,54 @@ export default {
 		onFocus () {
 			this.placeHolder = "";
 		},
-		getRule () {
-			if (this.mv2Form && this.mv2Form.rules) {
-				const rule = this.rule || this.mv2Form.rules[this.mv2FormItem.field];
-				if (!this.rule) {
-					this.rule = rule;
-				}
-				return rule;
-			} else {
-				return null;
-			}
-		},
-		async onBlur () {
-			this.placeHolder = this.placeholder;
-			const rule = this.getRule();
-			if (rule) {
-				if (rule.trigger === "blur") {
-					await this.validate();
-				}
-			}
-		},
-		validate () {
-			const rule = this.getRule();
-			const that = this;
-			return new Promise((resolve, reject) => {
-				if (rule) {
-					if (rule.required && !that.val) {
-						const message = that.rule.message || `${that.mv2FormItem.label}是必填字段`;
-						that.mv2FormItem.setMessage(message);
-						resolve(false);
-						return;
-					}
-					if (rule.validate) {
-						that.rule.validate(that.val, (res) => {
-							if (res) {
-								that.mv2FormItem.errorMessage = res;
-								that.mv2FormItem.setMessage(res);
-								resolve(false);
-								return;
-							}
-						});
-					}
-				}
-				that.mv2FormItem.setValue(that.val);
-				that.mv2FormItem.setMessage(null);
-				resolve(true);
-				return;
-			});
-		}
+		// getRule () {
+		// 	if (this.mv2Form && this.mv2Form.rules) {
+		// 		const rule = this.rule || this.mv2Form.rules[this.mv2FormItem.field];
+		// 		if (!this.rule) {
+		// 			this.rule = rule;
+		// 		}
+		// 		return rule;
+		// 	} else {
+		// 		return null;
+		// 	}
+		// },
+		// async onBlur () {
+		// 	this.placeHolder = this.placeholder;
+		// 	const rule = this.getRule();
+		// 	if (rule) {
+		// 		if (rule.trigger === "blur") {
+		// 			await this.validate();
+		// 		}
+		// 	}
+		// },
+		// validate () {
+		// 	const rule = this.getRule();
+		// 	const that = this;
+		// 	return new Promise((resolve, reject) => {
+		// 		if (rule) {
+		// 			if (rule.required && !that.val) {
+		// 				const message = that.rule.message || `${that.mv2FormItem.label}是必填字段`;
+		// 				that.mv2FormItem.setMessage(message);
+		// 				resolve(false);
+		// 				return;
+		// 			}
+		// 			if (rule.validate) {
+		// 				that.rule.validate(that.val, (res) => {
+		// 					if (res) {
+		// 						that.mv2FormItem.errorMessage = res;
+		// 						that.mv2FormItem.setMessage(res);
+		// 						resolve(false);
+		// 						return;
+		// 					}
+		// 				});
+		// 			}
+		// 		}
+		// 		that.mv2FormItem.setValue(that.val);
+		// 		that.mv2FormItem.setMessage(null);
+		// 		resolve(true);
+		// 		return;
+		// 	});
+		// }
 	}
 }
 </script>

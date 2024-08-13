@@ -50,16 +50,47 @@ export default {
 		if (this.mv2Form.rules) {
 			const item = this.mv2Form.rules[this.field];
 			this.required = !!item ? (item.required || false) : false;
-			this.mv2Form.setItem(this.field, this);
+			this.mv2Form.setField(this.field, this);
 		}
-
 	},
 	methods: {
 		setField (field) {
 			this.itemField = field;
+			this.mv2Form.setField(this.label, field);
+		},
+		getRule () {
+			if (this.mv2Form && this.mv2Form.rules) {
+				const rule = this.rule || this.mv2Form.rules[this.field];
+				if (!this.rule) {
+					this.rule = rule;
+				}
+				return rule;
+			} else {
+				return null;
+			}
 		},
 		validate() {
-			return this.itemField.validate();
+			const rule = this.getRule();
+			const that = this;
+			return new Promise((resolve, reject) => {
+				if (rule) {
+					if (rule.required && !that.val) {
+						const message = rule.message || `${that.label}是必填字段`;
+						that.setMessage(message);
+						resolve(false);
+					}
+					if (rule.validate) {
+						rule.validate(that.val, (res) => {
+							if (res) {
+								that.setMessage(res);
+								resolve(false);
+							}
+						});
+					}
+				}
+				that.setMessage(null);
+				resolve(true);
+			});
 		},
 		setValue (value) {
 			this.mv2Form.form[this.field] = value;
