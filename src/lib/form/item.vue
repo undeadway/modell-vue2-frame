@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div class="mv2-form-item-box">
-			<div v-if="required" class="mv2-form-item-required-mark">*</div>
+			<div>
+				<div v-if="required" class="mv2-form-item-required-mark">*</div>
+			</div>
 			<div :style="`width: ${mv2Form.labelWidth}px;`" :class="`mv2-form-item-label mv2-text-align__${mv2Form.labelAlign}`">
 				{{ label }}
 			</div>
@@ -122,6 +124,9 @@ export default {
 	>div {
 		display: inline-table;
 		vertical-align: middle;
+		&:first-child {
+			width: 12px;
+		}
 	}
 
 	.mv2-form-item-required-mark {
