@@ -1,6 +1,7 @@
 <template>
-	<div :class="`mv2-tag-box mv2-effect__${effect} 
-	mv2-effect__${type}-${effect} mv2-border_${type}`"><slot></slot></div>
+	<div :class="`mv2-tag-box mv2-effect__${effect} mv2-effect__${type}-${effect} mv2-border_${type}`">
+		<slot></slot>
+	</div>
 </template>
 <script>
 export default {
