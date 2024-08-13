@@ -31,14 +31,17 @@ export default {
 		},
 		value: function (v1) {
 			this.$emit("change", v1);
+			if (this.mv2FormItem) {
+				this.mv2FormItem.setValue(v1);
+			}
 		}
 	},
 	data () {
 		return {
 			value: "",
 			label: "",
-			visible: false,
-			width: ""
+			width: "",
+			visible: false
 		}
 	},
 	created () {
