@@ -15,7 +15,6 @@ export default {
         async formItemValidte  () {
             const mv2FormItem = this.mv2FormItem;
             if (this.hasFormItem) {
-                mv2FormItem.setValue(v1);
                 const rule = mv2FormItem.getRule();
                 if (rule) {
                     if (rule.trigger === "blur") {
