@@ -106,6 +106,7 @@ export default {
 					}
 				}
 
+				that.setMessage("");
 				resolve(null);
 				return;
 			});
