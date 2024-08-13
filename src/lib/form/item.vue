@@ -88,7 +88,7 @@ export default {
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
 				const value = that.itemField.value;
-				if (rule.required && !value) {
+				if (rule && rule.required && !value) {
 					const message = rule.message || `${that.label}是必填字段`;
 					that.setMessage(message);
 					resolve(message);
