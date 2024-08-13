@@ -1,12 +1,15 @@
 <template>
-	<div class="mv2-tabs-item" v-if="activeName === name">
+	<div class="mv2-tabs-item" v-if="activeName === name" :style="style">
 		<slot></slot>
 	</div>
 </template>
 <script>
+import StyleMixin from "./../../mixins/style-mixin";
+
 export default {
 	name: "Mv2TabsItem",
 	inject: [ "tabsGroup" ],
+	mixins: [ StyleMixin ],
 	props: {
 		label: {
 			type: String,

@@ -1,6 +1,6 @@
 <template>
 	<div :class="`mv2-tabs-group mv2-tabs-group-positon-${tabPosition}`">
-		<div class="mv2-tab-label-list" :style="`width:${width};`">
+		<div class="mv2-tab-label-list" :style="style">
 			<div :class="activeName === tab.name ? 'active-name-box' : ''"
 				v-for="(tab,index) in tabs" :key="index" @click="onTabClick(tab.name)">{{ tab.label }}
 			</div>
@@ -11,8 +11,11 @@
 	</div>
 </template>
 <script>
+import StyleMixin from "./../../mixins/style-mixin";
+
 export default {
 	name: "Mv2TabsGroup",
+	mixins: [ StyleMixin ],
 	provide() {
 		return {
 			tabsGroup: this
