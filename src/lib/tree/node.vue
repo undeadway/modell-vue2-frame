@@ -58,9 +58,11 @@ export default {
 		vertical-align: middle;
 		&:first-child {
 			font-size: 12px;
-
-			.mv2-tree-value-icon {
+			width: 20px;
+			>div {
 				padding: 4px;
+			}
+			.mv2-tree-value-icon {
 				transition: transform .3s ease-in-out;
 			}
 		}
