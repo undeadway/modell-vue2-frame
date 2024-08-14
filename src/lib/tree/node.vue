@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div @click="onClick" class="mv2-tree-value-box" :style="`padding-left:${20 + 15 * depth}px;`">
-			<div><div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">▶</div></div>
+			<div v-if="children.length === 0"></div>
+			<div v-else><div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">▶</div></div>
 			<div>{{ value }}</div>
 		</div>
 		<div class="mv2-tree-children-box" v-show="visible">
