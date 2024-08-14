@@ -61,11 +61,12 @@ export default {
 	>div {
 		display: inline-block;
 		vertical-align: middle;
-		font-size: 26px;
+		font-size: 20px;
 	}
 	.percent-bg-box {
 		border-radius: 10px;
 		position: relative;
+		padding-top: 8px;
 			>div {
 			margin-top: -8px;
 			position: absolute;
