@@ -13,11 +13,15 @@ export default {
 		}
 	},
 	created () {
-		this.styles = this.styles || {};
 		this.initStyle();
 	},
 	methods: {
 		initStyle () {
+
+			if (!this.styles.width) {
+				this.styles.width = "100%";
+			}
+
 			this.style = utils.initStyls(this.styles);
 		}
 	}
