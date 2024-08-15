@@ -16,8 +16,7 @@
 			</div>
 			</div>
 			<div v-else>
-			<div class="empty-box">
-			</div>
+				<mv2-empty />
 			</div>
 		</div>
 		<div class="mv2-album-btn-box right-btn">
