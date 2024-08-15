@@ -5,11 +5,10 @@
 	</div>
 </template>
 <script>
-import StyleMixin from '../mixins/style-mixin';
+import utils from "./../utils/utils";
 
 export default {
 	name: "Mv2Empty",
-	mixins: [ StyleMixin ],
 	props: {
 		text: {
 			type: String,
@@ -20,10 +19,18 @@ export default {
 			default: 400
 		}
 	},
+	data () {
+		return {
+			style: ""
+		}
+	},
 	created () {
-		this.styles.width = this.styles.width || "420px";
-		this.styles.height = this.styles.height || "450px";
-		this.initStyle();
+		const styles = {
+			width: `${this.size + 20}px`,
+			height: `${this.size + 50}px`,
+		};
+
+		this.style = utils.initStyls(styles);
 	}
 }
 </script>

@@ -16,6 +16,7 @@ import TabItem from "./lib/tabs/item";
 import Percent from "./lib/percent";
 import Album from "./lib/album";
 import Select from "./lib/select";
+import Empty from "./lib/empty";
 
 import $message from "./lib/message";
 
@@ -37,7 +38,8 @@ const PAGE_COMPONENTS = [
 	TabGroup,
 	TabItem,
 	Album,
-	Select
+	Select,
+	Empty
 ];
 const PROTOTYPE_COMPONENTS = [
     $message
@@ -76,5 +78,6 @@ export default {
 	Tree,
 	TabGroup,
 	TabItem,
-	Select
+	Select,
+	Empty
 }
