@@ -4,8 +4,11 @@
 	</button>
 </template>
 <script>
+import StyleMixin from '../mixins/style-mixin';
+
 export default {
 	name: "Mv2Button",
+	mixins: [ StyleMixin ],
 	props: {
 		type: {
 			type: String,
@@ -14,12 +17,6 @@ export default {
 		nativeType: {
 			type: String,
 			default: "button"
-		},
-		style: {
-			type: {
-				type: String,
-				default: ""
-			}
 		},
 		disabled: {
 			type: Boolean,
