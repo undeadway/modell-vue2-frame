@@ -30,7 +30,7 @@ export default {
 			height: `${this.size + 50}px`,
 		};
 
-		this.style = utils.initStyls(styles);
+		this.style = utils.initStyles(styles);
 	}
 }
 </script>

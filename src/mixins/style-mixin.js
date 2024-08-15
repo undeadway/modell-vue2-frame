@@ -22,7 +22,7 @@ export default {
 				this.styles.width = "100%";
 			}
 
-			this.style = utils.initStyls(this.styles);
+			this.style = utils.initStyles(this.styles);
 		}
 	}
 }
