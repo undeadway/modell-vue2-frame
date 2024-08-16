@@ -66,8 +66,8 @@ export default {
 
 	.mv2-breadcrumb-value-box {
 		text-align: left;
-		cursor: pointer;
 		&:hover {
+			cursor: pointer;
 			color: $CTC_HeatEnd_facui;
 		}
 	}
