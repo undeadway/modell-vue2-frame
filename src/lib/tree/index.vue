@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<tree-node v-for="(item, index) in data" :value="item.value" :key="index" :index="index" :children="item.children" :depth="0" />
+		<tree-node v-for="(item, index) in data" :value="item" :key="index" :index="index" :children="item.children" :depth="0" @click="data => onClickVal(data)" />
 	</div>
 </template>
 <script>
@@ -16,5 +16,10 @@ export default {
 			default: []
 		}
 	},
+	methods: {
+		onClickVal (data) {
+			this.$emit("node-click", data);
+		}
+	}
 }
 </script>
