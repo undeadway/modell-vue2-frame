@@ -21,6 +21,11 @@ export default {
 			default: []
 		}
 	},
+	watch: {
+		data: function () {
+			this.getDatas();
+		}
+	},
 	data () {
 		return {
 			list: []
