@@ -13,7 +13,7 @@ export default {
 		},
 		type: {
 			type: String,
-			default: "info" // info、success、warning、danger
+			default: "info" // info、success、warning、danger、text
 		},
 		align: {
 			type: String,
