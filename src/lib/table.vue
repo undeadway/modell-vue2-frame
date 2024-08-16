@@ -5,7 +5,7 @@
 				<tr>
 					<td v-for="(column, index) in _columns" :key="index"
 						:style="column.style + headStyleStr"
-						>
+					>
 						{{ column.text }}
 					</td>
 				</tr>
@@ -63,7 +63,6 @@ export default {
 		}
 	},
 	created () {
-		console.log("table");
 		const newCols = [];
 		for (const column of this.columns) {
 			const newCol = JSON.parse(JSON.stringify(column));
