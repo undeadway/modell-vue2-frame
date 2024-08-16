@@ -44,7 +44,9 @@ export default {
 			}
 		},
 		onClickVal (data) {
-			this.$emit("click", data);
+			const tmp = Object.assign({}, data);
+			delete tmp.children; // 只保留当前节点的数据
+			this.$emit("click", tmp);
 		}
 	}
 }

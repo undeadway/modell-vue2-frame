@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<tree-node v-for="(item, index) in data" :value="item" :key="index" :index="index" :children="item.children" :depth="0" @click="data => onClickVal(data)" />
+		<tree-node v-for="(item, index) in data" :data="item" :key="index" :index="index" :children="item.children" :depth="0" @click="data => onClickVal(data)" />
 	</div>
 </template>
 <script>
