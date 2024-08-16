@@ -67,7 +67,7 @@ export default {
 		text-align: left;
 		cursor: pointer;
 		&:hover {
-			color: $CTC_SpringEquinox_qilin;
+			color: $CTC_AutumnBeginning_qunqing;
 		}
 	}
 	.mv2-breadcrumb-separator-box {
