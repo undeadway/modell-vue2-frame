@@ -61,18 +61,18 @@ export default {
 .mv2-breadcrumb-item-box {
 	display: inline-block;
 	vertical-align: middle;
+	font-weight: bold;
 	padding: 2px 4px;
 
 	.mv2-breadcrumb-value-box {
 		text-align: left;
 		cursor: pointer;
 		&:hover {
-			color: $CTC_AutumnBeginning_qunqing;
+			color: $CTC_HeatEnd_facui;
 		}
 	}
 	.mv2-breadcrumb-separator-box {
 		text-align: center;
-		font-weight: bold;
 	}
 }
 </style>
