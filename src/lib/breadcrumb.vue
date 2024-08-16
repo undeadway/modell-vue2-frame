@@ -2,7 +2,7 @@
 	<div>
 		<div class="mv2-breadcrumb-item-box" v-for="(item, index) in list">
 			<div v-if="item.type === 'value'" class="mv2-breadcrumb-value-box" :style="item.style">
-				<span :id="`mv2-breadcrumb__${index}`">{{ item.text }}</span>
+				<span :id="`mv2-breadcrumb__${index}`" :class="`mv2-breadcrumb__${item.event? 'event' : ''}`">{{ item.text }}</span>
 			</div>
 			<div v-if="item.type === 'separator'" class="mv2-breadcrumb-separator-box">{{ item.text }}</div>
 		</div>
@@ -67,9 +67,11 @@ export default {
 	.mv2-breadcrumb-value-box {
 		text-align: left;
 		&:hover {
-			cursor: pointer;
 			color: $CTC_HeatEnd_facui;
 		}
+	}
+	.mv2-breadcrumb__event {
+		cursor: pointer;
 	}
 	.mv2-breadcrumb-separator-box {
 		text-align: center;
