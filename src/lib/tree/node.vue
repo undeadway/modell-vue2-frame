@@ -2,7 +2,7 @@
 	<div>
 		<div @click="onClick" class="mv2-tree-value-box" :style="`padding-left:${20 + 15 * depth}px;`">
 			<div v-if="children.length === 0"><div></div></div>
-			<div v-else><div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">▶</div></div>
+			<div v-else><div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">&gt;</div></div>
 			<div>{{ value }}</div>
 		</div>
 		<div class="mv2-tree-children-box" v-show="visible">
@@ -57,10 +57,10 @@ export default {
 		display: inline-block;
 		vertical-align: middle;
 		&:first-child {
-			font-size: 12px;
+			font-size: 10px;
 			width: 20px;
 			>div {
-				padding: 4px;
+				padding: 5px;
 			}
 			.mv2-tree-value-icon {
 				transition: transform .3s ease-in-out;
