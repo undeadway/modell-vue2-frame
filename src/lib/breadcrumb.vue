@@ -2,7 +2,7 @@
 	<div>
 		<div class="mv2-breadcrumb-item-box" v-for="(item, index) in list">
 			<div v-if="type === 'value'" class="mv2-breadcrumb-value-box" :style="item.style">
-				<span :id="`breadcrumb_${index}`">{{ item.text }}</span>
+				<span :id="`mv2-breadcrumb_${index}`">{{ item.text }}</span>
 			</div>
 			<div v-if="type === 'separator'" class="mv2-breadcrumb-separator-box">{{ item.text }}</div>
 		</div>
@@ -45,8 +45,8 @@ export default {
 			for (let i = 0, len = this.list.length; i < len; i++) {
 				const item = this.list[i];
 				if (item.type === "separator") {
-					const node = document.getElementById(`breadcrumb__${i}`);
 					if (item.event) {
+						const node = document.getElementById(`mv2-breadcrumb_${i}`);
 						node.onclick = () => {
 							item.event(this.$parent, item);
 						}
