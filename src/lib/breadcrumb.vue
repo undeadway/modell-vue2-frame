@@ -65,6 +65,10 @@ export default {
 
 	.mv2-breadcrumb-value-box {
 		text-align: left;
+		cursor: pointer;
+		&:hover {
+			color: $CTC_LesserCold_daose;
+		}
 	}
 	.mv2-breadcrumb-separator-box {
 		text-align: center;
