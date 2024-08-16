@@ -6,7 +6,7 @@
 			<div @click="onClickVal(data)">{{ data.value }}</div>
 		</div>
 		<div class="mv2-tree-children-box" v-show="visible">
-			<mv2-tree-node v-for="(item, index) in children" :data="data" :key="index" :index="index" :children="item.children" :depth="depth + 1" @click="data => onClickVal(data)" />
+			<mv2-tree-node v-for="(item, index) in children" :data="item" :key="index" :index="index" :children="item.children" :depth="depth + 1" @click="data => onClickVal(data)" />
 		</div>
 	</div>
 </template>
