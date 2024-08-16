@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+	name: "Mv2Breadcrumb",
 	props: {
 		separator: {
 			type: String,
