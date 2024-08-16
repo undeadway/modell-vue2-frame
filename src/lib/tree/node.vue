@@ -63,6 +63,7 @@ export default {
 				padding: 5px;
 			}
 			.mv2-tree-value-icon {
+				font-weight: bold;
 				transition: transform .3s ease-in-out;
 			}
 		}
