@@ -88,6 +88,9 @@ export default {
 	.mv2-message-box__info {
 		background: $c_info;
 	}
+	.mv2-message-box__text {
+		background: $c_text;
+	}
 	.mv2-message-box__success {
 		background: $c_success;
 	}
