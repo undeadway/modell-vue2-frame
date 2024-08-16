@@ -36,7 +36,7 @@ export default {
 		getDatas () {
 			const list = [];
 			for (const item of this.data) {
-				list.push({ text: item.label, path: item.path, type: "value" });
+				list.push({ text: item.text, event: item.event, style: item.style, type: "value" });
 				list.push({ text: this.separator, type: "separator" });
 			}
 			this.list = list.slice(0, list.length - 1);
