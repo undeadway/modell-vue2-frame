@@ -1,11 +1,8 @@
 <template>
 	<div>
-		<div class="mv2-breadcrumb-item-box" v-for="item in list">
-			<div v-if="type === 'value'" class="mv2-breadcrumb-value-box">
-				<span v-if="item.path">
-					<a :href="item.path">{{ item.text }}</a>
-				</span>
-				<span v-else>{{ item.text }}</span>
+		<div class="mv2-breadcrumb-item-box" v-for="(item, index) in list">
+			<div v-if="type === 'value'" class="mv2-breadcrumb-value-box" :style="item.style">
+				<span :id="`breadcrumb_${index}`">{{ item.text }}</span>
 			</div>
 			<div v-if="type === 'separator'" class="mv2-breadcrumb-separator-box">{{ item.text }}</div>
 		</div>
@@ -30,6 +27,9 @@ export default {
 	},
 	created () {
 		this.getDatas();
+		this.$nextTick(() => {
+			this.bindEvent();
+		});
 	},
 	methods: {
 		getDatas () {
@@ -39,6 +39,19 @@ export default {
 				list.push({ text: this.separator, type: "separator" });
 			}
 			this.list = list.slice(0, list.length - 1);
+		},
+		bindEvent () {
+			for (let i = 0, len = this.list.length; i < len; i++) {
+				const item = this.list[i];
+				if (item.type === "separator") {
+					const node = document.getElementById(`breadcrumb__${i}`);
+					if (item.event) {
+						node.onclick = () => {
+							item.event(this.$parent, item);
+						}
+					}
+				}
+			}
 		}
 	}
 }

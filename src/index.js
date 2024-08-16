@@ -19,6 +19,7 @@ import Select from "./lib/select";
 import Empty from "./lib/empty";
 
 import $message from "./lib/message";
+import Breadcrumb from "./lib/breadcrumb";
 
 const PAGE_COMPONENTS = [
 	Form,
@@ -39,7 +40,8 @@ const PAGE_COMPONENTS = [
 	TabItem,
 	Album,
 	Select,
-	Empty
+	Empty,
+	Breadcrumb
 ];
 const PROTOTYPE_COMPONENTS = [
     $message
@@ -79,5 +81,6 @@ export default {
 	TabGroup,
 	TabItem,
 	Select,
-	Empty
+	Empty,
+	Breadcrumb
 }
