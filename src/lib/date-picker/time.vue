@@ -4,9 +4,9 @@
 			<div class="arrow-icon-box">
 				<div class="arrow-up-icon" @click="onSubHour">&lt;</div>
 			</div>
-			<div>{{ hour - 1 }}</div>
+			<div>{{ ((hour - 1) === (-1)) ? 23 : hour - 1 }}</div>
 			<div class="selected-time-box">{{ hour }}</div>
-			<div>{{ hour + 1 }}</div>
+			<div>{{ ((hour + 1) === 24) ? 0: hour + 1 }}</div>
 			<div class="arrow-icon-box">
 				<div class="arrow-down-icon" @click="onAddHour">&lt;</div>
 			</div>
@@ -15,9 +15,9 @@
 			<div class="arrow-icon-box">
 				<div class="arrow-up-icon" @click="onSubMinuter">&lt;</div>
 			</div>
-			<div>{{ minuter - 1 }}</div>
+			<div>{{ ((minuter - 1) === (-1)) ? 59 : minuter - 1 }}</div>
 			<div class="selected-time-box">{{ minuter }}</div>
-			<div>{{ minuter + 1 }}</div>
+			<div>{{ ((minuter + 1) === 60) ? 0: minuter + 1 }}</div>
 			<div class="arrow-icon-box">
 				<div class="arrow-down-icon" @click="onAddMinuter">&lt;</div>
 			</div>
@@ -26,9 +26,9 @@
 			<div class="arrow-icon-box">
 				<div class="arrow-up-icon" @click="onSubSecond">&lt;</div>
 			</div>
-			<div>{{ second - 1 }}</div>
+			<div>{{ ((second - 1) === (-1)) ? 59 : second - 1 }}</div>
 			<div class="selected-time-box">{{ second }}</div>
-			<div>{{ second + 1 }}</div>
+			<div>{{ ((second + 1) === 60) ? 0: second + 1 }}</div>
 			<div class="arrow-icon-box">
 				<div class="arrow-down-icon" @click="onAddSecond">&lt;</div>
 			</div>
@@ -124,6 +124,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-time-picker-box {
+	padding: 10px;
+	width: 197px;
+	border: 1px solid #CCCCCC;
+	border-radius: 6px;
 	>div {
 		display: inline-block;
 		font-size: 10px;
@@ -133,13 +137,16 @@ export default {
 			margin-right: 0px;
 		}
 		>div {
-			width: 20px;
+			width: 25px;
 			height: 20px;
-			padding: 5px;
+			padding: 9px 20px 5px 20px;
+			background: #F7F7F7;
+			margin-bottom: 1px;
 		}
 	}
 	.arrow-icon-box {
 		cursor: pointer;
+		font-weight: bold;
 		.arrow-up-icon {
 			transform: rotate(90deg);
 			margin-left: 2px;
@@ -147,6 +154,9 @@ export default {
 		.arrow-down-icon {
 			transform: rotate(270deg);
 			margin-left: -3.4px;
+		}
+		&:hover {
+			color: #3271AE;
 		}
 	}
 	.selected-time-box {
