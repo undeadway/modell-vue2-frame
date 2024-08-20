@@ -1,36 +1,36 @@
 <template>
-	<div>
+	<div class="mv2-time-picker-box">
 		<div>
 			<div class="arrow-icon-box">
-				<div class="arrow-up-icon">&lt;</div>
+				<div class="arrow-up-icon" @click="onSubHour">&lt;</div>
 			</div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div>{{ hour - 1 }}</div>
+			<div class="selected-time-box">{{ hour }}</div>
+			<div>{{ hour + 1 }}</div>
 			<div class="arrow-icon-box">
-				<div class="arrow-down-icon">&lt;</div>
+				<div class="arrow-down-icon" @click="onAddHour">&lt;</div>
 			</div>
 		</div>
 		<div>
 			<div class="arrow-icon-box">
-				<div class="arrow-up-icon">&lt;</div>
+				<div class="arrow-up-icon" @click="onSubMinuter">&lt;</div>
 			</div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div>{{ minuter - 1 }}</div>
+			<div class="selected-time-box">{{ minuter }}</div>
+			<div>{{ minuter + 1 }}</div>
 			<div class="arrow-icon-box">
-				<div class="arrow-down-icon">&lt;</div>
+				<div class="arrow-down-icon" @click="onAddMinuter">&lt;</div>
 			</div>
 		</div>
 		<div>
 			<div class="arrow-icon-box">
-				<div class="arrow-up-icon">&lt;</div>
+				<div class="arrow-up-icon" @click="onSubSecond">&lt;</div>
 			</div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div>{{ second - 1 }}</div>
+			<div class="selected-time-box">{{ second }}</div>
+			<div>{{ second + 1 }}</div>
 			<div class="arrow-icon-box">
-				<div class="arrow-down-icon">&lt;</div>
+				<div class="arrow-down-icon" @click="onAddSecond">&lt;</div>
 			</div>
 		</div>
 	</div>
@@ -47,27 +47,111 @@ export default {
 			default: ""
 		}
 	},
+	watch: {
+		second: function(v1, v2) {
+			// 向后
+			if (v1 === 0 && v2 === 59) {
+				this.minuter++;
+			}
+			// 向前
+			if (v1 === 59 && v2 === 0) {
+				this.minuter--;
+			}
+		},
+		minuter: function (v1, v2) {
+			// 向后
+			if (v1 === 0 && v2 === 59) {
+				this.hour++;
+			}
+			// 向前
+			if (v1 === 59 && v2 === 0) {
+				this.hour--;
+			}
+		}
+	},
 	data () {
 		return {
 			hour: 0,
 			minuter: 0,
 			second: 0
 		}
+	},
+	created () {
+		const dt = new Date();
+		this.hour = dt.getHours();
+		this.minuter = dt.getMinutes();
+		this.second = dt.getSeconds();
+	},
+	methods: {
+		onSubHour () {
+			this.hour--;
+			if (this.hour < 0) {
+				this.hour = 23;
+			}
+		},
+		onAddHour () {
+			this.hour++;
+			if (this.hour > 23) {
+				this.hour = 0;
+			}
+		},
+		onSubMinuter () {
+			this.minuter--;
+			if (this.minuter < 0) {
+				this.minuter = 59;
+			}
+		},
+		onAddMinuter () {
+			this.minuter++;
+			if (this.minuter > 59) {
+				this.minuter = 0;
+			}
+		},
+		onSubSecond () {
+			this.second--;
+			if (this.second < 0) {
+				this.second = 59;
+			}
+		},
+		onAddSecond () {
+			this.second++;
+			if (this.second > 59) {
+				this.second = 0;
+			}
+		}
 	}
 }
 </script>
 <style lang="scss" scoped>
-.arrow-icon-box {
-	width: 20px;
-	height: 20px;
-	padding: 5px;
-	font-size: 10px;
-
-	.arrow-up-icon {
-		transform: rotate(270deg);
+.mv2-time-picker-box {
+	>div {
+		display: inline-block;
+		font-size: 10px;
+		text-align: center;
+		margin-right: 1px;
+		&:last-child {
+			margin-right: 0px;
+		}
+		>div {
+			width: 20px;
+			height: 20px;
+			padding: 5px;
+		}
 	}
-	.arrow-down-icon {
-		transform: rotate(90deg);
+	.arrow-icon-box {
+		cursor: pointer;
+		.arrow-up-icon {
+			transform: rotate(90deg);
+			margin-left: 2px;
+		}
+		.arrow-down-icon {
+			transform: rotate(270deg);
+			margin-left: -3.4px;
+		}
+	}
+	.selected-time-box {
+		background: #EEEEEE;
 	}
 }
+
 </style>
