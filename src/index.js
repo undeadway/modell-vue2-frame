@@ -17,9 +17,10 @@ import Percent from "./lib/percent";
 import Album from "./lib/album";
 import Select from "./lib/select";
 import Empty from "./lib/empty";
+import Breadcrumb from "./lib/breadcrumb";
+import DatePicker from "./lib/date-picker";
 
 import $message from "./lib/message";
-import Breadcrumb from "./lib/breadcrumb";
 
 const PAGE_COMPONENTS = [
 	Form,
@@ -41,7 +42,8 @@ const PAGE_COMPONENTS = [
 	Album,
 	Select,
 	Empty,
-	Breadcrumb
+	Breadcrumb,
+	DatePicker
 ];
 const PROTOTYPE_COMPONENTS = [
     $message
@@ -82,5 +84,6 @@ export default {
 	TabItem,
 	Select,
 	Empty,
-	Breadcrumb
+	Breadcrumb,
+	DatePicker
 }

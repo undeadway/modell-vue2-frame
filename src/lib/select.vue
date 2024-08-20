@@ -1,10 +1,8 @@
 <template>
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
-			<div class="mv2-select-value-box mv2-input-object" @click="showOptionList">
-				<div>{{ label }}</div>
-			</div>
-			<div class="mv2-select-options-box" v-show="visible" :style="`width:calc(${width} - 2px);`">
+			<select-value :label="label" @click="showOptionList" />
+			<div class="mv2-select-options-box" v-show="visible" :style="`width:calc(${width} - 10px);`">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(index)">
 					<div>{{ option.label }}</div>
 				</div>
@@ -16,9 +14,14 @@
 import StyleMixin from "./../mixins/style-mixin";
 import FormItemMixin from "../mixins/form-item-mixin";
 
+import SelectValue from "../components/select-value";
+
 export default {
-	mixins: [ StyleMixin, FormItemMixin ],
 	name: "Mv2Select",
+	mixins: [ StyleMixin, FormItemMixin ],
+	components: {
+		SelectValue
+	},
 	props: {
 		options: {
 			type: Array,
@@ -78,13 +81,6 @@ export default {
 <style lang="scss" scoped>
 .mv2-select-box {
 	position: relative;
-	.mv2-select-value-box {
-		cursor: pointer;
-		>div {
-			overflow-x: hidden;
-			white-space:nowrap;
-		}
-	}
 	.mv2-select-options-box {
 		position: absolute;
 		margin-top: 0px;
@@ -92,7 +88,9 @@ export default {
 		max-height: 156px;
 		border-radius: 6px;
 		overflow: auto;
-		width: 100%;
+		width: 100px;
+		padding: 5px;
+		background: #FFFFFF;
 		>div {
 			padding: 6px 8px;
 			cursor: pointer;
