@@ -38,6 +38,7 @@ export default {
 		display: inline-block;
 		&:hover {
 			color: #3271AE;
+			font-weight: bold;
 		}
 	}
 }
