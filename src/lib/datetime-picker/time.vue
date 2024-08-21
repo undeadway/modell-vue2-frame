@@ -87,8 +87,9 @@ export default {
 			minuter: 0,
 			second: 0,
 			styles: {
-				width: "80px",
-				"margin-left": "10px"
+				width: "60px",
+				"margin-left": "10px",
+				padding: "4px !important"
 			}
 		}
 	},
