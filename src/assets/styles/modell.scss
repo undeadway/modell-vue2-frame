@@ -98,3 +98,10 @@
 		border: 1px solid $c_dark-blue;
 	}
 }
+
+.mv2-foot-btn {
+	text-align: right;
+	>div {
+		display: inline-block;
+	};
+}

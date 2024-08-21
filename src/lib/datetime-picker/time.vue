@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="text-align: right;">
+		<div class="mv2-foot-btn">
 			<mv2-button type="button" @click="onClose" :styles="styles">取消</mv2-button>
 			<mv2-button type="button" @click="onSubmit" :styles="styles">确定</mv2-button>
 		</div>
