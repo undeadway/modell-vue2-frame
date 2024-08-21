@@ -39,6 +39,7 @@ export default {
 		&:hover {
 			color: #3271AE;
 			font-weight: bold;
+			cursor: pointer;
 		}
 	}
 }
