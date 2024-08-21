@@ -50,7 +50,6 @@ export default {
 		},
 		hidePickBox () {
 			this.visible = false;
-			console.log(this.visible);
 		},
 		onChangeTime (hour, minuter, second) {
 			if (hour < 10) {

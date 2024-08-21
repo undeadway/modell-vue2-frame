@@ -20,6 +20,7 @@ export default {
 			const dt = new Date();
 			const year = dt.getFullYear();
 			this.$emit("change", `${year}-${month}`);
+			this.$emit("close");
 		}
 	}
 }
