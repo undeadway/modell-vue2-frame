@@ -83,7 +83,7 @@ export default {
 			second: 0,
 			styles: {
 				width: "60px",
-				"margin-left": "10px",
+				"margin-left": "6px",
 				padding: "4px !important"
 			}
 		}
