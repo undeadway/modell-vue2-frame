@@ -5,6 +5,9 @@
 			<div v-if="type === 'time'">
 				<mv2-time @change="onChangeTime" @close="hidePickBox" />
 			</div>
+			<div v-if="type === 'month'">
+				<mv2-time @change="onChangeTime" @close="hidePickBox" />
+			</div>
 		</div>
 	</div>
 </template>

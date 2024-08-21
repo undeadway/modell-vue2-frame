@@ -35,7 +35,10 @@
 				</div>
 			</div>
 		</div>
-		<mv2-button type="button" @click="onClose">确定</mv2-button>
+		<div style="text-align: right;">
+			<mv2-button type="button" @click="onClose" :styles="styles">取消</mv2-button>
+			<mv2-button type="button" @click="onSubmit" :styles="styles">确定</mv2-button>
+		</div>
 	</div>
 
 </template>
@@ -82,7 +85,11 @@ export default {
 		return {
 			hour: 0,
 			minuter: 0,
-			second: 0
+			second: 0,
+			styles: {
+				width: "80px",
+				"margin-left": "10px"
+			}
 		}
 	},
 	created () {
