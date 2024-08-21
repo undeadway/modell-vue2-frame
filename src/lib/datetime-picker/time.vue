@@ -132,14 +132,11 @@ export default {
 			}
 		},
 		onSubmit () {
-			this.emit();
+			this.$emit("change", this.hour, this.minuter, this.second);
 			this.close();
 		},
 		onClose () {
 			this.$emit("close");
-		},
-		onChange () {
-			this.$emit("change", this.hour, this.minuter, this.second);
 		}
 	}
 }
