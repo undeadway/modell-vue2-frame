@@ -64,7 +64,6 @@ export default {
 			if (v1 === 59 && v2 === 0) {
 				this.minuter--;
 			}
-			this.onChange();
 		},
 		minuter: function (v1, v2) {
 			// 向后
@@ -75,10 +74,6 @@ export default {
 			if (v1 === 59 && v2 === 0) {
 				this.hour--;
 			}
-			this.onChange();
-		},
-		hour: function () {
-			this.onChange();
 		}
 	},
 	data () {
