@@ -18,7 +18,7 @@ import Album from "./lib/album";
 import Select from "./lib/select";
 import Empty from "./lib/empty";
 import Breadcrumb from "./lib/breadcrumb";
-import DatePicker from "./lib/date-picker";
+import DatetimePicker from "./lib/datetime-picker";
 
 import $message from "./lib/message";
 
@@ -43,10 +43,10 @@ const PAGE_COMPONENTS = [
 	Select,
 	Empty,
 	Breadcrumb,
-	DatePicker
+	DatetimePicker
 ];
 const PROTOTYPE_COMPONENTS = [
-    $message
+	$message
 ];
 
 const install =  (Vue) => {
@@ -54,9 +54,9 @@ const install =  (Vue) => {
 		Vue.component(component.name, component);
 	});
 
-    PROTOTYPE_COMPONENTS.forEach(component => {
-        Vue.prototype[`$${component.name}`] = component;
-    })
+	PROTOTYPE_COMPONENTS.forEach(component => {
+		Vue.prototype[`$${component.name}`] = component;
+	})
 	
 }
 
@@ -85,5 +85,5 @@ export default {
 	Select,
 	Empty,
 	Breadcrumb,
-	DatePicker
+	DatetimePicker
 }
