@@ -1,5 +1,5 @@
 <template>
-	<div class="mv2-time-picker-box">
+	<div class="mv2-datetime-picker-box">
 		<div>
 			<div>
 				<div class="arrow-icon-box">
@@ -142,12 +142,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mv2-time-picker-box {
-	padding: 10px;
-	width: 167px;
-	border: 1px solid #CCCCCC;
-	border-radius: 6px;
-	background: #F7F7F7;
+.mv2-datetime-picker-box {
 	>div {
 		>div {
 			display: inline-block;

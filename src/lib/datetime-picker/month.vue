@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="mv2-month-select-box">
+		<div class="mv2-datetime-picker-box mv2-month-select-box">
 			<div v-for="index in 12" @click="onSelect(index)">{{ monthList[index - 1] }}</div>
 		</div>
 	</div>
@@ -26,9 +26,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-month-select-box {
+	width: 240px;
+    padding: 10px;
 	>div {
-		width: 50px;
-		padding: 8px 0px;
+		width: 60px;
+		padding: 6px 0px;
 		text-align: center;
 		margin: 4px;
 		background: #CCCCCC;
