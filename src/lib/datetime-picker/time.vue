@@ -133,7 +133,7 @@ export default {
 		},
 		onSubmit () {
 			this.$emit("change", this.hour, this.minuter, this.second);
-			this.close();
+			this.onClose();
 		},
 		onClose () {
 			this.$emit("close");
