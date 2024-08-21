@@ -12,7 +12,7 @@
 import Mv2Time from "./time";
 import SelectValue from "../../components/select-value";
 export default {
-	name: "Mv2DatePicker",
+	name: "Mv2DatetimePicker",
 	components: {
 		Mv2Time,
 		SelectValue
