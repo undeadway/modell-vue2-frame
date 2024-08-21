@@ -6,18 +6,21 @@
 				<mv2-time @change="onChangeTime" @close="hidePickBox" />
 			</div>
 			<div v-if="type === 'month'">
-				<mv2-time @change="onChangeTime" @close="hidePickBox" />
+				<mv2-month @change="onChangeMonth" @close="hidePickBox" />
 			</div>
 		</div>
 	</div>
 </template>
 <script>
 import Mv2Time from "./time";
+import Mv2Month from "./month";
+
 import SelectValue from "../../components/select-value";
 export default {
 	name: "Mv2DatetimePicker",
 	components: {
 		Mv2Time,
+		Mv2Month,
 		SelectValue
 	},
 	props: {
@@ -60,6 +63,9 @@ export default {
 				second = `0${second}`;
 			}
 			this.value = `${hour}:${minuter}:${second}`;
+		},
+		onChangeMonth (value) {
+			this.value = value;
 		}
 	}
 }
