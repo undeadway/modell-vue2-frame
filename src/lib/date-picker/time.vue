@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<mv2-button type="button" @click="onSubmit">确定</mv2-button>
+		<mv2-button type="button" @click="onClose">确定</mv2-button>
 	</div>
 
 </template>
@@ -61,7 +61,7 @@ export default {
 			if (v1 === 59 && v2 === 0) {
 				this.minuter--;
 			}
-			this.emit();
+			this.onChange();
 		},
 		minuter: function (v1, v2) {
 			// 向后
@@ -72,10 +72,10 @@ export default {
 			if (v1 === 59 && v2 === 0) {
 				this.hour--;
 			}
-			this.emit();
+			this.onChange();
 		},
 		hour: function () {
-			this.emit();
+			this.onChange();
 		}
 	},
 	data () {
@@ -129,9 +129,13 @@ export default {
 			}
 		},
 		onSubmit () {
-			
+			this.emit();
+			this.close();
 		},
-		emit () {
+		onClose () {
+			this.$emit("close");
+		},
+		onChange () {
 			this.$emit("change", this.hour, this.minuter, this.second);
 		}
 	}

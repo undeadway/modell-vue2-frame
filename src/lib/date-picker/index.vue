@@ -3,7 +3,7 @@
 		<select-value :label="value" @click="onClick" :styles="styles" />
 		<div v-show="visible" class="mv2-date-picker-select-box">
 			<div v-if="type === 'time'">
-				<mv2-time @change="onChangeTime" />
+				<mv2-time @change="onChangeTime" @close="hidePickBox" />
 			</div>
 		</div>
 	</div>
@@ -44,6 +44,7 @@ export default {
 		},
 		hidePickBox () {
 			this.visible = false;
+			console.log(this.visible);
 		},
 		onChangeTime (hour, minuter, second) {
 			if (hour < 10) {
