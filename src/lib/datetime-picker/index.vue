@@ -46,6 +46,7 @@ export default {
 	},
 	methods: {
 		onClick () {
+			this.hidePickBox();
 			this.visible = !this.visible;
 		},
 		hidePickBox () {
@@ -75,6 +76,10 @@ export default {
 	.mv2-date-picker-select-box {
 		position: absolute;
 		z-index: 11111;
+		margin-top: 2px;
+		border: 1px solid #CCCCCC;
+		border-radius: 6px;
+		background: #F7F7F7;
 	}
 }
 
