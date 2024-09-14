@@ -1,8 +1,6 @@
 <template>
-	<div>
-		<div class="mv2-month-select-box">
-			<div v-for="index in 12" @click="onSelect(index)">{{ monthList[index - 1] }}</div>
-		</div>
+	<div class="mv2-month-select-box">
+		<div v-for="index in 12" @click="onSelect(index)">{{ monthList[index - 1] }}</div>
 	</div>
 </template>
 <script>
