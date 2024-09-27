@@ -37,7 +37,6 @@ export default {
 			this.init();
 		},
 		value: async function (v1) {
-			this.$emit("change", v1);
 			this.formItemsetValue(v1);
 			this.formItemValidte();
 		}
@@ -77,6 +76,7 @@ export default {
 			// this.value = option.value; // 这里不用处理，交给 v-model 语法去解决
 			this.label = option.label;
 			this.hideOptionList();
+			this.$emit("change", v1);
 		},
 		hideOptionList () {
 			this.visible = false;
