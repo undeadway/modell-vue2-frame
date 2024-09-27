@@ -27,6 +27,10 @@ export default {
 			type: Array,
 			default: []
 		},
+		value: {
+			type: String,
+			default: ""
+		}
 	},
 	watch: {
 		options: function (v1) {
@@ -40,7 +44,6 @@ export default {
 	},
 	data () {
 		return {
-			value: "",
 			label: "",
 			width: "",
 			visible: false
@@ -71,7 +74,7 @@ export default {
 		},
 		onClick (index) {
 			const option = this.options[index];
-			this.value = option.value;
+			// this.value = option.value; // 这里不用处理，交给 v-model 语法去解决
 			this.label = option.label;
 			this.hideOptionList();
 		},

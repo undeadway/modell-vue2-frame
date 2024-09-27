@@ -43,10 +43,13 @@ export default {
 			type: Boolean,
 			default: false
 		},
+		value: {
+			type: String,
+			default: ""
+		}
 	},
 	data () {
 		return {
-			value: "",
 			placeHolder: "",
 			beforeStyles: "",
 			inputStyles : "",

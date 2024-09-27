@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<mv2-input :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :styles="styles">
+		<mv2-input v-model="value" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :styles="styles">
 			<template #after>
 				<div :class="`mv2-input-append-btn ${mv2InputPasswordBtnEyeStatus}`" @click="changeEyeStatus"></div>
 			</template>
@@ -23,6 +23,10 @@ export default {
 		readonly: {
 			type: Boolean,
 			default: false
+		},
+		value: {
+			type: String,
+			default: ""
 		}
 	},
 	data () {
