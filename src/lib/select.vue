@@ -62,6 +62,12 @@ export default {
 			if (this.styles && this.styles.width) {
 				this.width = this.styles.width;
 			}
+
+			for (const option of this.options) {
+				if (this.value === option.value) {
+					this.label = option.label;
+				}
+			}
 		},
 		onClick (index) {
 			const option = this.options[index];
