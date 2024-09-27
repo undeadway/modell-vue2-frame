@@ -85,5 +85,6 @@ export default {
 	Select,
 	Empty,
 	Breadcrumb,
-	DatetimePicker
+	DatetimePicker,
+	Message
 }
