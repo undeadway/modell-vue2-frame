@@ -86,5 +86,5 @@ export default {
 	Empty,
 	Breadcrumb,
 	DatetimePicker,
-	Message
+	Message: $message
 }
