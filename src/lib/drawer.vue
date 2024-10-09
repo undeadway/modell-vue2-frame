@@ -1,9 +1,9 @@
 <template>
-    <transition>
+    <div v-if="drawerVisible">
 		<dialog-body :title="title" :style="style" :z-index="zIndex" :left="modalLeft" :top="modalTop" @close="onClose">
 			<slot></slot>
 		</dialog-body>
-	</transition>
+	</div>
 </template>
 <script>
 import StyleMixin from '../mixins/style-mixin';
@@ -31,17 +31,18 @@ export default {
 	},
 	data () {
 		return {
+			drawerVisible: false,
 			left: undefined,
 			top: undefined
 		}
 	},
 	watch: {
 		"visible": function(v1, v2) {
-			this.modalVisible = v1;
+			this.drawerVisible = v1;
 		}
 	},
 	created () {
-		this.modalVisible = this.visible;
+		this.drawerVisible = this.visible;
 		this.styles[this.position] = "0px";
 		switch (this.position) {
 			case "left":
@@ -56,7 +57,7 @@ export default {
 	},
 	methods: {
 		onClose () {
-			this.modalVisible = false;
+			this.drawerVisible = false;
 			this.$emit("close");
 		}
 	}
