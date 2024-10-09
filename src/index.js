@@ -19,6 +19,7 @@ import Select from "./lib/select";
 import Empty from "./lib/empty";
 import Breadcrumb from "./lib/breadcrumb";
 import DatetimePicker from "./lib/datetime-picker";
+import Drawer from "./lib/drawer";
 
 import $message from "./lib/message";
 
@@ -43,7 +44,8 @@ const PAGE_COMPONENTS = [
 	Select,
 	Empty,
 	Breadcrumb,
-	DatetimePicker
+	DatetimePicker,
+	Drawer
 ];
 const PROTOTYPE_COMPONENTS = [
 	$message
@@ -86,5 +88,6 @@ export default {
 	Empty,
 	Breadcrumb,
 	DatetimePicker,
+	Drawer,
 	Message: $message
 }
