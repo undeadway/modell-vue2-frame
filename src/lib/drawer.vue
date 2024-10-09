@@ -39,10 +39,20 @@ export default {
 	watch: {
 		"visible": function(v1, v2) {
 			this.drawerVisible = v1;
+
+			if (this.appendToBody) {
+				document.body.appendChild(this.$el);
+			}
+		}
+	},
+	destroyed() {
+		if (this.appendToBody && this.$el && this.$el.parentNode) {
+			this.$el.parentNode.removeChild(this.$el);
 		}
 	},
 	created () {
 		this.drawerVisible = this.visible;
+
 		this.styles[this.position] = "0px";
 		switch (this.position) {
 			case "left":
@@ -56,8 +66,6 @@ export default {
 				this.styles.width = "100%";
 				break;
 		}
-
-		console.log(this.styles);
 
 		this.initStyle();
 	},
