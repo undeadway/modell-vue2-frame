@@ -2,11 +2,14 @@
 	<div>
 		<div class="mv2-tree-value-box" :style="`padding-left:${20 + 15 * depth}px;`">
 			<div v-if="children.length === 0"><div></div></div>
-			<div v-else @click="onClickIcon" ><div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">&gt;</div></div>
+			<div v-else @click="onClickIcon" >
+				<div :class="`mv2-tree-value-icon ${visible ? 'mv2-tree-value-is-open' : 'mv2-tree-value-is-closed'}`">&gt;</div>
+			</div>
 			<div @click="onClickVal(data)">{{ data.value }}</div>
 		</div>
 		<div class="mv2-tree-children-box" v-show="visible">
-			<mv2-tree-node v-for="(item, index) in children" :data="item" :key="index" :index="index" :children="item.children" :depth="depth + 1" @click="data => onClickVal(data)" />
+			<mv2-tree-node v-for="(item, index) in children" :data="item" :key="index" :index="index"
+				:children="item.children" :depth="depth + 1" @click="data => onClickVal(data)" />
 		</div>
 	</div>
 </template>
