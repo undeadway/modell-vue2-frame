@@ -41,6 +41,9 @@ export default {
 			if (this.appendToBody) {
 				document.body.appendChild(this.$el);
 			}
+		},
+		"position": function (v1, v2) {
+			this.init();
 		}
 	},
 	destroyed() {
@@ -49,6 +52,10 @@ export default {
 		}
 	},
 	created () {
+		this.init();
+	},
+	methods: {
+		init () {
 		this.drawerVisible = this.visible;
 
 		const styles = Object.assign({}, this.styles);
@@ -70,8 +77,7 @@ export default {
 		this.styles = styles;
 
 		this.initStyle();
-	},
-	methods: {
+		},
 		onClose () {
 			this.drawerVisible = false;
 			this.$emit("close");
