@@ -53,19 +53,23 @@ export default {
 	created () {
 		this.drawerVisible = this.visible;
 
-		this.styles[this.position] = "0px";
+		const styles = Object.assign({}, this.styles);
+
+		styles[this.position] = "0px";
 		switch (this.position) {
 			case "left":
 			case "right":
-				this.styles.top = "0px";
-				this.styles.height = "100%";
+				styles.top = "0px";
+				styles.height = "100%";
 				break;
 			case "top":
 			case "bottom":
-				this.styles.left = "0px";
-				this.styles.width = "100%";
+				styles.left = "0px";
+				styles.width = "100%";
 				break;
 		}
+
+		this.styles = styles;
 
 		this.initStyle();
 	},
