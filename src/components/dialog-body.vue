@@ -19,6 +19,10 @@ export default {
 		style: {
 			type: String,
 			default: ""
+		},
+		title: {
+			type: String,
+			default: ""
 		}
 	},
 	methods: {
