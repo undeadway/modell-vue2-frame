@@ -42,21 +42,14 @@ export default {
 	},
 	created () {
 		this.modalVisible = this.visible;
+		this.styles[this.position] = "0px";
 		switch (this.position) {
 			case "left":
-				this.styles.height = "100%";
-				break;
 			case "right":
-				this.left = document.body.scrollWidth - parseInt(this.styles.width);
-				this.left = `${this.left}px`;
 				this.styles.height = "100%";
 				break;
 			case "top":
-				this.styles.width = "100%";
-				break;
 			case "bottom":
-				this.left = document.body.scrollWidth - parseInt(this.styles.width);
-				this.top = `${this.left}px`;
 				this.styles.width = "100%";
 				break;
 		}
