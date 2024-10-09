@@ -55,7 +55,7 @@ export default {
 	created () {
 		this.modalVisible = this.visible;
 
-		const tmp = this.styles;
+		const tmp = Object.assign({}, this.styles);
 		
 		const modalWidth = (tmp.width) ? parseInt(tmp.width) : 800;
 		let modalHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
