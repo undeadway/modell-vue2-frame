@@ -31,9 +31,7 @@ export default {
 	},
 	data () {
 		return {
-			drawerVisible: false,
-			left: undefined,
-			top: undefined
+			drawerVisible: false
 		}
 	},
 	watch: {
