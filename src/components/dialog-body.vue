@@ -19,18 +19,6 @@ export default {
 		style: {
 			type: String,
 			default: ""
-		},
-		left: {
-			type: String,
-			default: ""
-		},
-		top: {
-			type: String,
-			default: ""
-		},
-		title: {
-			type: String,
-			default: ""
 		}
 	},
 	methods: {

@@ -2,7 +2,7 @@
 	<div v-if="modalVisible">
 		<div class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<dialog-body :title="title" :style="style" :z-index="zIndex" :position="position" @close="onClose">
+		<dialog-body :title="title" :style="style" @close="onClose">
 			<slot></slot>
 		</dialog-body>
 	</div>
@@ -33,7 +33,8 @@ export default {
 	},
 	data () {
 		return {
-			modalVisible: false
+			modalVisible: false,
+			zIndex: 1000
 		}
 	},
 	watch: {
@@ -61,7 +62,6 @@ export default {
 
 		let modalTop = modalHeight ? ((document.body.scrollHeight - modalHeight ) / 2) : (document.body.scrollHeight / 3);
 		let modalLeft = (document.body.scrollWidth - modalWidth ) / 2;
-		let zIndex = 1000;
 
 		if (modalHeight > document.body.scrollHeight * 0.9) {
 			modalHeight = document.body.scrollHeight * 0.9;
@@ -88,10 +88,10 @@ export default {
 		tmpStyle.top = modalTop;
 
 		if (this.appendToBody) {
-			zIndex += 2;
+			this.zIndex += 2;
 		}
 
-		tmpStyle["z-index"] = zIndex;
+		tmpStyle["z-index"] = this.zIndex;
 
 		this.styles = tmpStyle;
 

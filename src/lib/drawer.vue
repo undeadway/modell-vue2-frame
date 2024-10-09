@@ -1,6 +1,6 @@
 <template>
     <div v-if="drawerVisible">
-		<dialog-body :title="title" :style="style" :z-index="zIndex" :left="modalLeft" :top="modalTop" @close="onClose">
+		<dialog-body :title="title" :style="style" @close="onClose">
 			<slot></slot>
 		</dialog-body>
 	</div>
@@ -58,6 +58,8 @@ export default {
 		}
 
 		console.log(this.styles);
+
+		this.initStyle();
 	},
 	methods: {
 		onClose () {
