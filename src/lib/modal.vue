@@ -2,26 +2,20 @@
 	<div v-if="modalVisible">
 		<div class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<div class="mv2-modal-box" :style="`${style} z-index: ${zIndex + 1}; left: ${modalLeft}; top: ${modalTop};`">
-			<div class="mv2-modal-title-box">{{title}}</div>
-			<div class="mv2-close-box mv2-modal-close-box" @click="onClose">
-				<close-box />
-			</div>
-			<div class="mv2-modal-content-box">
-				<slot></slot>
-			</div>
-		</div>
+		<dialog-body :title="title" :style="style" :z-index="zIndex" :position="position" @close="onClose">
+			<slot></slot>
+		</dialog-body>
 	</div>
 </template>
 <script>
 import StyleMixin from '../mixins/style-mixin';
-import CloseBox from "../components/close-box";
+import DialogBody from '../components/dialog-body';
 
 export default {
 	name: "Mv2Modal",
 	mixins: [ StyleMixin ],
 	components: {
-		CloseBox
+		DialogBody
 	},
 	props: {
 		title: {
@@ -39,10 +33,7 @@ export default {
 	},
 	data () {
 		return {
-			zIndex: 100,
-			modalVisible: false,
-			modalLeft: "0px",
-			modalTop: "0px"
+			modalVisible: false
 		}
 	},
 	watch: {
@@ -62,42 +53,43 @@ export default {
 		const modalWidth = (tmp.width) ? parseInt(tmp.width) : 800;
 		let modalHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
 
-		if (modalHeight) {
-			this.modalTop = (document.body.scrollHeight - modalHeight ) / 2;
-		} else {
-			this.modalTop = document.body.scrollHeight / 3;
-		}
-
-		this.modalLeft = (document.body.scrollWidth - modalWidth ) / 2;
+		let modalTop = modalHeight ? ((document.body.scrollHeight - modalHeight ) / 2) : (document.body.scrollHeight / 3);
+		let modalLeft = (document.body.scrollWidth - modalWidth ) / 2;
+		let zIndex = 1000;
 
 		if (modalHeight > document.body.scrollHeight * 0.9) {
 			modalHeight = document.body.scrollHeight * 0.9;
-			this.modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
+			modalTop = (document.body.scrollHeight - this.modalHeight ) / 2;
 		}
 
 		if (modalWidth > document.body.scrollWidth * 0.9) {
-			this.modalLeft = (document.body.scrollWidth - modalWidth )/ 2;
+			modalLeft = (document.body.scrollWidth - modalWidth )/ 2;
 			modalWidth = document.body.scrollWidth * 0.9;
 		}
 
-		this.modalLeft = `${this.modalLeft}px`;
-		this.modalTop = `${this.modalTop}px`;
+		modalLeft = `${modalLeft}px`;
+		modalTop = `${modalTop}px`;
 
-		const newStyle = {};
+		const tmpStyle = {};
 		if (modalWidth) {
-			newStyle.width =  `${modalWidth}px`;
+			tmpStyle.width =  `${modalWidth}px`;
 		}
 		if (modalHeight) {
-			newStyle.height =  `${modalHeight}px`;
+			tmpStyle.height =  `${modalHeight}px`;
 		}
 
-		this.styles = newStyle;
-
-		this.initStyle();
+		tmpStyle.left = modalLeft;
+		tmpStyle.top = modalTop;
 
 		if (this.appendToBody) {
-			this.zIndex += 2;
+			zIndex += 2;
 		}
+
+		tmpStyle["z-index"] = zIndex;
+
+		this.styles = tmpStyle;
+
+		this.initStyle();
 	},
 	methods: {
 		onClose () {
@@ -115,25 +107,5 @@ export default {
 	width: 100vw;
 	height: 100vh;
 	background: rgba($color: $c_pure_black, $alpha: $v_golden_ratio);
-}
-
-.mv2-modal-box {
-	position: absolute;
-	background: $c_bgcolor;
-	border: 1px solid $c_border;
-	padding-bottom: 20px;
-	.mv2-modal-title-box {
-		margin: 20px;
-		font-size: 20px;
-		font-weight: bold;
-	}
-	.mv2-modal-content-box {
-		margin: 10px 20px;
-	}
-	.mv2-modal-close-box {
-		position: absolute;
-		right: 10px;
-		top: 0px;
-	}
 }
 </style>
