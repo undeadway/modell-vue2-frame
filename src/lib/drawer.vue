@@ -47,13 +47,17 @@ export default {
 		switch (this.position) {
 			case "left":
 			case "right":
+				this.styles.top = "0px";
 				this.styles.height = "100%";
 				break;
 			case "top":
 			case "bottom":
+				this.styles.left = "0px";
 				this.styles.width = "100%";
 				break;
 		}
+
+		console.log(this.styles);
 	},
 	methods: {
 		onClose () {
