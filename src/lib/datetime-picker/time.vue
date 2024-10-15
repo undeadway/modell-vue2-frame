@@ -40,7 +40,6 @@
 			<mv2-button type="button" @click="onSubmit" :styles="styles">确定</mv2-button>
 		</div>
 	</div>
-
 </template>
 <script>
 export default {
@@ -181,5 +180,4 @@ export default {
 		background: #EEEEEE;
 	}
 }
-
 </style>

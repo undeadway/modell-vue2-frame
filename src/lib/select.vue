@@ -13,7 +13,6 @@
 <script>
 import StyleMixin from "./mixins/style-mixin";
 import FormItemMixin from "./mixins/form-item-mixin";
-
 import SelectValue from "./components/select-value";
 
 export default {
