@@ -130,18 +130,18 @@ export default {
 		},
 		bindEvent () {
 			for (let i = 0, len = this._data.length; i < len; i++) {
-			const data = this._data[i];
-			for (const column of this._columns) {
-				const node = document.getElementById(`${column.name}_${i}`);
-				if (column.event) {
-					for (const event of column.event) {
-						node[`on${event.name}`] = () => {
-							event.method(this.$parent, data);
+				const data = this._data[i];
+				for (const column of this._columns) {
+					const node = document.getElementById(`${column.name}_${i}`);
+					if (column.event) {
+						for (const event of column.event) {
+							node[`on${event.name}`] = () => {
+								event.method(this.$parent, data);
+							}
 						}
 					}
 				}
 			}
-		}
 		},
 		updateStyle () {
 			const headStyle = [];

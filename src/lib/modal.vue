@@ -92,7 +92,6 @@ export default {
 		}
 
 		tmpStyle["z-index"] = this.zIndex;
-
 		this.styles = tmpStyle;
 
 		this.initStyle();

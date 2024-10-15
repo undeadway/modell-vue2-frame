@@ -1,7 +1,6 @@
 <template>
 	<div :class="`mv2-alert-box mv2-text-align__${align} mv2-effect__${effect} 
-	mv2-effect__${type}-${effect} mv2-border_${type}
-	`"><slot></slot></div>
+	mv2-effect__${type}-${effect} mv2-border_${type}`"><slot></slot></div>
 </template>
 <script>
 export default {

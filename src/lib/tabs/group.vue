@@ -69,15 +69,12 @@ export default {
 			cursor: pointer;
 			padding: 5px 20px;
 		}
-
 		.active-name-box {
 			background: #00acfe;
 		}
-
 		background: #D5EBE1;
 	}
 }
-
 .mv2-tabs-group-positon-left {
 	>div {
 		height: 100%;
@@ -85,7 +82,6 @@ export default {
 		vertical-align: top;
 	}
 }
-
 .mv2-tabs-group-positon-top {
 	.mv2-tab-label-list {
 		>div {

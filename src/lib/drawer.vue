@@ -56,27 +56,27 @@ export default {
 	},
 	methods: {
 		init () {
-		this.drawerVisible = this.visible;
+			this.drawerVisible = this.visible;
 
-		const styles = Object.assign({}, this.styles);
+			const styles = Object.assign({}, this.styles);
 
-		styles[this.position] = "0px";
-		switch (this.position) {
-			case "left":
-			case "right":
-				styles.top = "0px";
-				styles.height = "100%";
-				break;
-			case "top":
-			case "bottom":
-				styles.left = "0px";
-				styles.width = "100%";
-				break;
-		}
+			styles[this.position] = "0px";
+			switch (this.position) {
+				case "left":
+				case "right":
+					styles.top = "0px";
+					styles.height = "100%";
+					break;
+				case "top":
+				case "bottom":
+					styles.left = "0px";
+					styles.width = "100%";
+					break;
+			}
 
-		this.styles = styles;
+			this.styles = styles;
 
-		this.initStyle();
+			this.initStyle();
 		},
 		onClose () {
 			this.drawerVisible = false;

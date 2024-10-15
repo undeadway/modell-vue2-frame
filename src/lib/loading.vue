@@ -54,7 +54,6 @@ export default {
 	}
 }
 </script>
-
 <style lang="scss" scoped>
 .mv2-loading-box {
 	width: calc(100% - 25px);
@@ -70,7 +69,6 @@ export default {
 		}
 	}
 }
-
 .mv2-loading {
 	position: relative;
 	width: 150px;
@@ -80,10 +78,8 @@ export default {
 	border-right-color: rgba(0, 0, 0, 0.2);
 	border-bottom-color: rgba(0, 0, 0, 0.2);
 	border-radius: 100%;
-
 	animation: mv2-circle infinite 0.75s linear;
 }
-
 @keyframes mv2-circle {
 	0% {
 		transform: rotate(0);
@@ -92,7 +88,6 @@ export default {
 		transform: rotate(360deg);
 	}
 }
-
 .mv2-error-box {
 	width: 200px;
 	margin: auto;

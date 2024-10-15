@@ -160,7 +160,6 @@ export default {
 			}
 		}
 	}
-
 	.arrow-icon-box {
 		cursor: pointer;
 		font-weight: bold;

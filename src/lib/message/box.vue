@@ -55,30 +55,24 @@ export default {
 	min-width: 800px;
 	z-index: 2000;
 	margin-left: calc(50% - 400px);
-
 	.mv2-message-box {
 		padding: 0px 10px;
 		margin-top: 16px;
 	}
-
 	.mv2-message-box__round {
 		border-radius: 8px;
 	}
-
 	.mv2-message-box>div {
 		display: inline-block;
 		vertical-align: middle;
 	}
-
 	.mv2-message-value-box {
 		width: calc(100% - 30px);
 	}
-
 	.mv2-message-close-box {
 		width: 30px;
 		text-align: right;
 	}
-
 	.mv2-message-box__warning {
 		background: $c_warning;
 	}

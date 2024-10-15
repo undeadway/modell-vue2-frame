@@ -32,7 +32,6 @@ export default {
 		padding: 6px 0px;
 		text-align: center;
 		margin: 4px;
-		// background: #CCCCCC;
 		display: inline-block;
 		&:hover {
 			color: #3271AE;
