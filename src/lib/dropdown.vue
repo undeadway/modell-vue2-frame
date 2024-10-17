@@ -4,14 +4,19 @@
 			<div @click.stop="showOptionList">
 				<slot></slot>
 			</div>
-			<ul v-if="visible" :class="`mv2-dropdown-menu mv2-dropdown-align__${align}`">
-				<li v-for="d in data" @click.stop="onClickItem(d.command)"  :divided="d.divided">{{ d.label }}</li>
-			</ul>
+			<div v-if="visible" :class="`mv2-dropdown-menu mv2-dropdown-align__${align}`">
+				<div v-for="d in data">
+					<div v-if="d.divider" class="mv2-dropdown-menu-divider"></div>
+					<div class="mv2-dropdown-item" @click.stop="onClickItem(d.command)">{{ d.label }}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 <script>
 import StyleMixin from './mixins/style-mixin';
+
+const DROPDOWN_LIST = [];
 
 export default {
 	name: "Mv2Dropdown",
@@ -31,6 +36,9 @@ export default {
 			visible: false
 		}
 	},
+	created () {
+		this.hideOthersList();
+	},
 	mounted() {
 		// 监听点击事件，用于关闭下拉框
 		window.addEventListener('click', this.hideOptionList);
@@ -48,7 +56,14 @@ export default {
 			this.visible = false;
 		},
 		showOptionList () {
+			this.hideOthersList();
 			this.visible = true;
+		},
+		hideOthersList () {
+			for (const dropDown of DROPDOWN_LIST) {
+				dropDown.hideOptionList();
+			}
+			DROPDOWN_LIST.push(this);
 		}
 	}
 }
@@ -59,7 +74,28 @@ export default {
 	display: inline-block;
 	.mv2-dropdown-menu {
 		position: absolute;
-		top: 20px;
+		padding: 5px;
+		top: 36px;
+		border: 1px solid #CCCCCC;
+		border-radius: 6px;
+		background: #FFFFFF;
+
+		>div {
+			.mv2-dropdown-item {
+				padding: 6px 8px;
+				border-radius: 6px;
+				cursor: pointer;
+				white-space:nowrap;
+				&:hover {
+					background: #DDDDDD;
+				}
+			}
+		}
+
+		.mv2-dropdown-menu-divider {
+			border-bottom: 1px solid #CCCCCC;
+			margin: 4px;
+		}
 	}
 
 	.mv2-dropdown-align__right {
