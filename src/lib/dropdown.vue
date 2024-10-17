@@ -4,8 +4,8 @@
 			<div @click.stop="showOptionList">
 				<slot></slot>
 			</div>
-			<ul v-if="visible" class="mv2-dropdown-menu">
-				<li v-for="d in data" @click.stop="onClickItem(d.command)"  :divided="d.divided">{{ d.name }}</li>
+			<ul v-if="visible" :class="`mv2-dropdown-menu mv2-dropdown-align__${align}`">
+				<li v-for="d in data" @click.stop="onClickItem(d.command)"  :divided="d.divided">{{ d.label }}</li>
 			</ul>
 		</div>
 	</div>
@@ -20,6 +20,10 @@ export default {
 		data: {
 			type: Array,
 			default: []
+		},
+		align: {
+			type: String,
+			default: "left"
 		}
 	},
 	data () {
@@ -49,3 +53,20 @@ export default {
 	}
 }
 </script>
+<style lang="scss" scoped>
+.mv2-dropdown-box {
+	position: relative;
+	display: inline-block;
+	.mv2-dropdown-menu {
+		position: absolute;
+		top: 20px;
+	}
+
+	.mv2-dropdown-align__right {
+		right: 0px;
+	}
+	.mv2-dropdown-align__left {
+		left: 0px;
+	}
+}
+</style>
