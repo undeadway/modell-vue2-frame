@@ -48,7 +48,7 @@ export default {
 				document.body.appendChild(this.$el);
 			}
 		},
-		"position": function (v1, v2) {
+		"position": function () {
 			this.init();
 		}
 	},
