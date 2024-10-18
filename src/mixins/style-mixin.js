@@ -17,22 +17,27 @@ export default {
 	},
 	methods: {
 		initStyle () {
-
-			if (!this.styles.width) {
-				this.styles.width = "100%";
-			}
-
-			this.style = utils.initStyles(this.styles);
+			const tmp = Object.assign({}, this.styles);
+			tmp.width = tmp.width || "100%";
+			this.style = utils.initStyles(tmp);
 		},
-		getOffsetPositon () {
-			const { offsetLeft, offsetTop, offsetHeight, offsetWidth } = this.$el;
+		getElemetSize (name) {
+			const {  clietnWidth, clientHeight } = this.$refs[name];
+
+			return {
+				width: clietnWidth,
+				height: clientHeight
+			}
+		},
+		getAbsolutePositon (name) {
+			const { offsetLeft, offsetTop, clietnWidth, clientHeight } = this.$refs[name];
 			const { scrollWidth, scrollHeight } = document.body;
 
 			const offsetPosition = {
 				left: offsetLeft,
 				top: offsetTop,
-				right: scrollWidth - offsetLeft - offsetWidth,
-				bottom: scrollHeight - offsetTop - offsetHeight,
+				right: scrollWidth - offsetLeft - clietnWidth,
+				bottom: scrollHeight - offsetTop - clientHeight,
 			};
 
 			return offsetPosition;
