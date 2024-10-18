@@ -9,7 +9,7 @@
 	</div>
 </template>
 <script>
-import CloseBox from "./../components/close-box";
+import CloseBox from "./../../components/close-box";
 
 export default {
 	name: "Mv2Message",

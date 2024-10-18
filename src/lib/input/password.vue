@@ -57,9 +57,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-input-password-apend-btn-eye-on {
-	background-image: url(../../assets/icons/eye-on.svg);
+	background-image: url(./../../assets/icons/eye-on.svg);
 }
 .mv2-input-password-apend-btn-eye-hide {
-	background-image: url(../../assets/icons/eye-hide.svg);
+	background-image: url(./../../assets/icons/eye-hide.svg);
 }
 </style>

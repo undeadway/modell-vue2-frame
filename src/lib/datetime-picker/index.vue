@@ -15,7 +15,7 @@
 import Mv2Time from "./time";
 import Mv2Month from "./month";
 
-import SelectValue from ".././components/select-value";
+import SelectValue from "./../../components/select-value";
 export default {
 	name: "Mv2DatetimePicker",
 	components: {
