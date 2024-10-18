@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<mv2input :placeholder="placeholder" type="text" append="after" :styles="styles">
+		<mv2input v-model="value" :placeholder="placeholder" type="text" append="after" :styles="styles">
 			<template #after>
 				<div class="mv2-input-append-btn mv2-input-append-btn-search-bg" @click="onSearch"></div>
 			</template>
@@ -19,7 +19,11 @@ export default {
 			type: String,
 			default: "请输入搜索内容"
 		},
-		styles: undefined
+		styles: undefined,
+		value: {
+			type: String,
+			default: ""
+		}
 	},
 	methods: {
 		onSearch() {
@@ -30,6 +34,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-input-append-btn-search-bg {
-	background-image: url(../../assets/icons/search.svg);
+	background-image: url(./../../assets/icons/search.svg);
 }
 </style>

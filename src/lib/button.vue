@@ -4,7 +4,7 @@
 	</button>
 </template>
 <script>
-import StyleMixin from '../mixins/style-mixin';
+import StyleMixin from './../mixins/style-mixin';
 
 export default {
 	name: "Mv2Button",
@@ -42,7 +42,6 @@ export default {
 	margin: 0px 4px;
 	font-weight: bold;
 }
-
 .mv2-button__button {
 	border: 1px solid $c_dark_blue;
 	background:  $c_blue;

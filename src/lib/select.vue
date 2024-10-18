@@ -12,9 +12,8 @@
 </template>
 <script>
 import StyleMixin from "./../mixins/style-mixin";
-import FormItemMixin from "../mixins/form-item-mixin";
-
-import SelectValue from "../components/select-value";
+import FormItemMixin from "./../mixins/form-item-mixin";
+import SelectValue from "./../components/select-value";
 
 export default {
 	name: "Mv2Select",
@@ -27,20 +26,22 @@ export default {
 			type: Array,
 			default: []
 		},
+		value: {
+			type: String,
+			default: ""
+		}
 	},
 	watch: {
 		options: function (v1) {
 			this.init();
 		},
 		value: async function (v1) {
-			this.$emit("change", v1);
 			this.formItemsetValue(v1);
 			this.formItemValidte();
 		}
 	},
 	data () {
 		return {
-			value: "",
 			label: "",
 			width: "",
 			visible: false
@@ -62,12 +63,19 @@ export default {
 			if (this.styles && this.styles.width) {
 				this.width = this.styles.width;
 			}
+
+			for (const option of this.options) {
+				if (this.value === option.value) {
+					this.label = option.label;
+				}
+			}
 		},
 		onClick (index) {
 			const option = this.options[index];
-			this.value = option.value;
+			// this.value = option.value; // 这里不用处理，交给 v-model 语法去解决
 			this.label = option.label;
 			this.hideOptionList();
+			this.$emit("change", v1);
 		},
 		hideOptionList () {
 			this.visible = false;

@@ -25,7 +25,7 @@
 	</div>
 </template>
 <script>
-import StyleMixin from '../mixins/style-mixin';
+import StyleMixin from './../mixins/style-mixin';
 
 export default {
 	name: "Mv2Album",
@@ -35,10 +35,7 @@ export default {
 			type: Number,
 			default: 0
 		},
-		autoPlay: {
-			type: Boolean,
-			default: false
-		},
+		autoPlay: Boolean,
 		duration: {
 			type: Boolean,
 			default: 1500
@@ -179,14 +176,12 @@ export default {
 					this.leftDisabled = true;
 				}
 				return;
-
 			}
 
 			this.position--;
 			if (this.position < 0) {
 				// □ □ □ [ ○ □ □ ]
 				this.position = 0;
-
 				// 向左移动的时候，一般情况下只要 first-- 即可，直到 first 为 0
 				this.first--;
 				if (this.first < 0) {
@@ -215,11 +210,9 @@ export default {
 		display: inline-block;
 		vertical-align: middle;
 	}
-
 	.mv2-album-btn-box {
 		width: 40px;
 		text-align: center;
-
 		.btn-box {
 			display: block;
 			height: 40px;
@@ -227,7 +220,6 @@ export default {
 			background: rgba($color: #CCCCCC, $alpha: 0.5);
 			border-radius: 50%;
 		}
-
 		.active-btn-box {
 			cursor: pointer;
 		}
@@ -241,7 +233,6 @@ export default {
 			cursor: not-allowed;
 		}
 	}
-
 	.mv2-album-data-box {
 		width: calc(100% - 80px);
 		height: 100%;
@@ -261,7 +252,6 @@ export default {
 					}
 				}
 			}
-
 			.empty-master-box {
 				>div {
 					cursor: default !important;
@@ -270,7 +260,6 @@ export default {
 			}
 		}
 	}
-
 	.is-active {
 		background: rgba($color: #17579e, $alpha: 0.4);
 	}

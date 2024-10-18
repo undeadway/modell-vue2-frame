@@ -63,7 +63,6 @@ export default {
 	vertical-align: middle;
 	font-weight: bold;
 	padding: 2px 4px;
-
 	.mv2-breadcrumb-value-box {
 		text-align: left;
 		&:hover {

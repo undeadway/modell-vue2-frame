@@ -118,26 +118,21 @@ export default {
 			width: 12px;
 		}
 	}
-
 	.mv2-form-item-required-mark {
 		color: $c_red;
 		font-weight: bold;
 		margin-right: 5px;
 	}
-
 	.mv2-form-item-label {
 		margin-right: 10px;
 	}
-
 	.mv2-text-align_left {
 		text-align: left;
 	}
 }
-
 .mv2-form-item-check-result-box {
 	height: 20px;
 	color: $c_danger;
 	padding: 2px 0px 4px 0px;
 }
-
 </style>

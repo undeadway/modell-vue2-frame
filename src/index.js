@@ -19,6 +19,8 @@ import Select from "./lib/select";
 import Empty from "./lib/empty";
 import Breadcrumb from "./lib/breadcrumb";
 import DatetimePicker from "./lib/datetime-picker";
+import Drawer from "./lib/drawer";
+import Dropdown from "./lib/dropdown.vue";
 
 import $message from "./lib/message";
 
@@ -43,7 +45,9 @@ const PAGE_COMPONENTS = [
 	Select,
 	Empty,
 	Breadcrumb,
-	DatetimePicker
+	DatetimePicker,
+	Drawer,
+	Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
 	$message
@@ -85,5 +89,8 @@ export default {
 	Select,
 	Empty,
 	Breadcrumb,
-	DatetimePicker
+	DatetimePicker,
+	Drawer,
+	Dropdown,
+	Message: $message
 }

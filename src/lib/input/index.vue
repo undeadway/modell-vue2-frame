@@ -16,8 +16,8 @@
 	</div>
 </template>
 <script>
-import StyleMixin from '../../mixins/style-mixin';
-import FormItemMixin from "../../mixins/form-item-mixin";
+import StyleMixin from './../../mixins/style-mixin';
+import FormItemMixin from "./../../mixins/form-item-mixin";
 
 export default {
 	mixins: [ StyleMixin, FormItemMixin ],
@@ -43,10 +43,13 @@ export default {
 			type: Boolean,
 			default: false
 		},
+		value: {
+			type: String,
+			default: ""
+		}
 	},
 	data () {
 		return {
-			value: "",
 			placeHolder: "",
 			beforeStyles: "",
 			inputStyles : "",

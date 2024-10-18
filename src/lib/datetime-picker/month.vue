@@ -1,6 +1,6 @@
 <template>
 	<div class="mv2-month-select-box">
-		<div v-for="index in 12" :key="index" @click="onSelect(index)">{{ monthList[index - 1] }}</div>
+		<div v-for="index in 12" @click="onSelect(index)">{{ monthList[index - 1] }}</div>
 	</div>
 </template>
 <script>
@@ -32,7 +32,6 @@ export default {
 		padding: 6px 0px;
 		text-align: center;
 		margin: 4px;
-		// background: #CCCCCC;
 		display: inline-block;
 		&:hover {
 			color: #3271AE;

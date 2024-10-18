@@ -48,11 +48,9 @@ export default {
 		background-size: 100%;
 		background-image: url(../assets/icons/empty-box.svg);
 	}
-
 	.mv2-empty-text-box {
 		margin-top: 10px;
 		font-weight: bold;
 	}
 }
-
 </style>
