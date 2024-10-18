@@ -36,7 +36,8 @@ export default {
 	},
 	data () {
 		return {
-			drawerVisible: false
+			drawerVisible: false,
+			zIndex: 1000
 		}
 	},
 	watch: {
