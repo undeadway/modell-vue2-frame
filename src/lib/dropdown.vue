@@ -50,7 +50,7 @@ export default {
 
 		const menuStyle = {
 			[this.align]: `${offsetPosition[this.align]}px`,
-			top: `${offsetPosition.top + size.height + 2}px`
+			top: `${offsetPosition.top + size.height + 2}px` // 2是用来和上面的按钮空开一小段距离
 		};
 
 		this.menuStyle = utils.initStyles(menuStyle);
