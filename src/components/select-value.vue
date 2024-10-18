@@ -4,7 +4,7 @@
 	</div>
 </template>
 <script>
-import { initStyles } from "./../../utils/utils";
+import { initStyles } from "./../utils/utils";
 
 export default {
 	props: {
