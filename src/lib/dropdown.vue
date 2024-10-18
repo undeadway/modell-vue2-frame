@@ -1,10 +1,10 @@
 <template>
 	<div :style="style" class="mv2-dropdown-box" @click="hideOptionList">
-		<div  @click.stop="">
+		<div @click.stop="" ref="dropdown">
 			<div @click.stop="showOptionList">
 				<slot></slot>
 			</div>
-			<div v-if="visible" :class="`mv2-dropdown-menu mv2-dropdown-align__${align}`">
+			<div v-if="visible" :style="menuStyle" class="mv2-dropdown-menu">
 				<div v-for="d in data">
 					<div v-if="d.divider" class="mv2-dropdown-menu-divider"></div>
 					<div class="mv2-dropdown-item" @click.stop="onClickItem(d.command)">{{ d.label }}</div>
@@ -15,6 +15,7 @@
 </template>
 <script>
 import StyleMixin from './../mixins/style-mixin';
+import utils from "./../utils/utils";
 
 const DROPDOWN_LIST = [];
 
@@ -26,14 +27,15 @@ export default {
 			type: Array,
 			default: []
 		},
-		align: {
+		position: {
 			type: String,
 			default: "left"
 		}
 	},
 	data () {
 		return {
-			visible: false
+			visible: false,
+			menuStyle: ""
 		}
 	},
 	created () {
@@ -42,6 +44,16 @@ export default {
 	mounted() {
 		// 监听点击事件，用于关闭下拉框
 		window.addEventListener('click', this.hideOptionList);
+
+		const offsetPosition = this.getAbsolutePositon("dropdown");
+		const size = this.getElementtSize("dropdown");
+
+		const menuStyle = {
+			[this.align]: `${offsetPosition[this.align]}px`,
+			top: `${offsetPosition.top + size.height + 2}px`
+		};
+
+		this.menuStyle = utils.initStyles(menuStyle);
 	},
 	beforeUnmount() {
 		// 移除点击事件监听器
@@ -70,12 +82,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-dropdown-box {
-	position: relative;
 	display: inline-block;
 	.mv2-dropdown-menu {
-		position: absolute;
+		position: absolute; // 绑定到 body
 		padding: 5px;
-		top: 36px;
 		border: 1px solid #CCCCCC;
 		border-radius: 6px;
 		background: #FFFFFF;
@@ -96,13 +106,6 @@ export default {
 			border-bottom: 1px solid #CCCCCC;
 			margin: 4px;
 		}
-	}
-
-	.mv2-dropdown-align__right {
-		right: 0px;
-	}
-	.mv2-dropdown-align__left {
-		left: 0px;
 	}
 }
 </style>

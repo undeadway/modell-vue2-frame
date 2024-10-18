@@ -23,6 +23,19 @@ export default {
 			}
 
 			this.style = utils.initStyles(this.styles);
+		},
+		getOffsetPositon () {
+			const { offsetLeft, offsetTop, offsetHeight, offsetWidth } = this.$el;
+			const { scrollWidth, scrollHeight } = document.body;
+
+			const offsetPosition = {
+				left: offsetLeft,
+				top: offsetTop,
+				right: scrollWidth - offsetLeft - offsetWidth,
+				bottom: scrollHeight - offsetTop - offsetHeight,
+			};
+
+			return offsetPosition;
 		}
 	}
 }
