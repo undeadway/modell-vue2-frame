@@ -49,7 +49,7 @@ export default {
 		const size = this.getElementtSize("dropdown");
 
 		const menuStyle = {
-			[this.align]: `${offsetPosition[this.align]}px`,
+			[this.position]: `${offsetPosition[this.position]}px`,
 			top: `${offsetPosition.top + size.height + 2}px` // 2是用来和上面的按钮空开一小段距离
 		};
 
