@@ -14,7 +14,7 @@
 	</div>
 </template>
 <script>
-import StyleMixin from './mixins/style-mixin';
+import StyleMixin from './../mixins/style-mixin';
 
 const DROPDOWN_LIST = [];
 

@@ -4,7 +4,7 @@
 	</button>
 </template>
 <script>
-import StyleMixin from './mixins/style-mixin';
+import StyleMixin from './../mixins/style-mixin';
 
 export default {
 	name: "Mv2Button",

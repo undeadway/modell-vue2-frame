@@ -7,8 +7,8 @@
 	</div>
 </template>
 <script>
-import StyleMixin from './mixins/style-mixin';
-import DialogBody from './components/dialog-body';
+import StyleMixin from './../mixins/style-mixin';
+import DialogBody from './../components/dialog-body';
 
 export default {
 	name: "Mv2Drawer",
@@ -29,10 +29,7 @@ export default {
 			type: String,
 			default: "left"
 		},
-		maskLayer: {
-			type: Boolean,
-			default: false
-		}
+		maskLayer: Boolean
 	},
 	data () {
 		return {
