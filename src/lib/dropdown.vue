@@ -30,6 +30,10 @@ export default {
 		position: {
 			type: String,
 			default: "left"
+		},
+		align: {
+			type: String,
+			default: "left"
 		}
 	},
 	data () {
@@ -49,6 +53,7 @@ export default {
 		const size = this.getElementtSize("dropdown");
 
 		const menuStyle = {
+			"text-align": this.align,
 			[this.position]: `${offsetPosition[this.position]}px`,
 			top: `${offsetPosition.top + size.height + 2}px` // 2是用来和上面的按钮空开一小段距离
 		};
