@@ -104,13 +104,3 @@ export default {
 	}
 }
 </script>
-<style lang="scss" scoped>
-.mv2-mask-layer-box {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100vw;
-	height: 100vh;
-	background: rgba($color: $c_pure_black, $alpha: $v_golden_ratio);
-}
-</style>
