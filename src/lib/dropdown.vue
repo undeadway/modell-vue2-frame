@@ -27,11 +27,11 @@ export default {
 			type: Array,
 			default: []
 		},
-		position: {
+		position: { // 位置，下拉列表的对齐方式
 			type: String,
 			default: "left"
 		},
-		align: {
+		align: { // 列表中文字的对齐方式
 			type: String,
 			default: "left"
 		}
@@ -94,7 +94,6 @@ export default {
 		border: 1px solid #CCCCCC;
 		border-radius: 6px;
 		background: #FFFFFF;
-
 		>div {
 			.mv2-dropdown-item {
 				padding: 6px 8px;
@@ -106,7 +105,6 @@ export default {
 				}
 			}
 		}
-
 		.mv2-dropdown-menu-divider {
 			border-bottom: 1px solid #CCCCCC;
 			margin: 4px;
