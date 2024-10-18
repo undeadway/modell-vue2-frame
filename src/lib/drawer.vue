@@ -1,5 +1,6 @@
 <template>
     <div v-if="drawerVisible">
+		<div v-if="maskLayer" class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<dialog-body :title="title" :style="style" @close="onClose">
 			<slot></slot>
 		</dialog-body>
@@ -27,6 +28,10 @@ export default {
 		position: {
 			type: String,
 			default: "left"
+		},
+		maskLayer: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data () {
