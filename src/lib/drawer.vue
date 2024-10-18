@@ -77,6 +77,8 @@ export default {
 					break;
 			}
 
+			styles["z-index"] = this.zIndex + 1;
+
 			this.styles = styles;
 
 			this.initStyle();
