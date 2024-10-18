@@ -47,6 +47,9 @@ export default {
 	},
 	created () {
 		this.$on("tabs-item-created", this.appendTabList);
+		if (this.tabPosition === "top") {
+			this.styles.height = this.styles.height || "31px;"
+		}
 	},
 	methods: {
 		appendTabList (tab) {
