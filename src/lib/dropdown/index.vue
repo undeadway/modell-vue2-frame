@@ -10,7 +10,6 @@
 <script>
 import Vue from "vue";
 import StyleMixin from './../../mixins/style-mixin';
-import utils from "./../../utils/utils";
 import Mv2DropdownMenu from "./menu";
 
 const MenuConstructor = Vue.extend(Mv2DropdownMenu);
@@ -80,6 +79,7 @@ export default {
 			const mv2DropdownMenu = new MenuConstructor();
 			mv2DropdownMenu.styles = menuStyle;
 			mv2DropdownMenu.data = this.data;
+			mv2DropdownMenu.onClickItem = this.onClickItem;
 
 			mv2DropdownMenu.$mount();
 			document.body.appendChild(mv2DropdownMenu.$el);
