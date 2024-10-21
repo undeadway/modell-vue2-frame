@@ -22,7 +22,7 @@ export default {
 			this.style = utils.initStyles(tmp);
 		},
 		getElementtSize (name) {
-			const {  clientWidth, clientHeight } = this.$refs[name];
+			const {  clientWidth, clientHeight } = name ? this.$refs[name] : this.$el;
 
 			return {
 				width: clientWidth,
@@ -30,7 +30,15 @@ export default {
 			}
 		},
 		getAbsolutePositon (name) {
-			const { offsetLeft, offsetTop, clientWidth, clientHeight } = this.$refs[name];
+			let el = this.$refs[name], parentElement = null;
+			let { offsetLeft, offsetTop, clientWidth, clientHeight } = el;
+
+			while ((parentElement = el.parentElement) !== null) {
+				offsetLeft += parentElement.offsetLeft;
+				offsetTop += parentElement.offsetTop;
+				el = parentElement;
+			}
+
 			const { scrollWidth, scrollHeight } = document.body;
 
 			const offsetPosition = {

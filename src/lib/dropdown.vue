@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-dropdown-box" @click="hideOptionList">
 		<div @click.stop="" ref="dropdown">
-			<div @click.stop="showOptionList">
+			<div @click.stop="showOptionList" ref="slot">
 				<slot></slot>
 			</div>
 			<div v-if="visible" :style="menuStyle" class="mv2-dropdown-menu">
@@ -48,17 +48,6 @@ export default {
 	mounted() {
 		// 监听点击事件，用于关闭下拉框
 		window.addEventListener('click', this.hideOptionList);
-
-		const offsetPosition = this.getAbsolutePositon("dropdown");
-		const size = this.getElementtSize("dropdown");
-
-		const menuStyle = {
-			"text-align": this.align,
-			[this.position]: `${offsetPosition[this.position]}px`,
-			top: `${offsetPosition.top + size.height + 2}px` // 2是用来和上面的按钮空开一小段距离
-		};
-
-		this.menuStyle = utils.initStyles(menuStyle);
 	},
 	beforeUnmount() {
 		// 移除点击事件监听器
@@ -73,6 +62,18 @@ export default {
 			this.visible = false;
 		},
 		showOptionList () {
+
+			const offsetPosition = this.getAbsolutePositon("dropdown");
+			const size = this.getElementtSize("slot");
+
+			const menuStyle = {
+				"text-align": this.align,
+				[this.position]: `${offsetPosition[this.position]}px`,
+				top: `${offsetPosition.top + size.height + 2}px` // 2是用来和上面的按钮空开一小段距离
+			};
+
+			this.menuStyle = utils.initStyles(menuStyle);
+
 			this.hideOthersList();
 			this.visible = true;
 		},
@@ -89,7 +90,6 @@ export default {
 .mv2-dropdown-box {
 	display: inline-block;
 	.mv2-dropdown-menu {
-		position: absolute; // 绑定到 body
 		padding: 5px;
 		border: 1px solid #CCCCCC;
 		border-radius: 6px;
