@@ -35,13 +35,13 @@ export default {
 
 			while ((parentElement = el.parentElement) !== null) {
 				// 这里这么做的原因是 如果不是 absolute 的形式，offsetLeft 都会指向最浏览器的侧边
-				// 导致数据会累加，所以只计算 absolute 类型的数据
-				const elStyle = window.getComputedStyle(el);
+				// 导致数据会累加，所以只计算 absolute 类型的数据;
 				el = parentElement;
+				const elStyle = window.getComputedStyle(el)
 				if (elStyle.position !== "absolute") continue;
 
-				offsetLeft += parentElement.offsetLeft;
-				offsetTop += parentElement.offsetTop;
+				offsetLeft += el.offsetLeft;
+				offsetTop += el.offsetTop;
 			}
 
 			const { scrollWidth, scrollHeight } = document.body;
