@@ -34,8 +34,15 @@ export default {
 			let { offsetLeft, offsetTop, clientWidth, clientHeight } = el;
 
 			while ((parentElement = el.parentElement) !== null) {
-				// 这里这么做的原因是 如果不是 absolute 的形式，offsetLeft 都会指向最浏览器的侧边
-				// 导致数据会累加，所以只计算 absolute 类型的数据;
+				/**
+				 * 这里这么做的原因是遇到了多重 absolute 定位造成的定位偏差问题
+				 * 如果不是 absolute 的形式（relative、static）【fixed、sticky 未测试】，
+				 * offsetLeft 都会指向上一层 absolute 或者到浏览器的边框
+				 * 如果每次都加算，数据则会被累加，而造成错误
+				 *
+				 * 基于上面所说， offsetLeft 遇到 absolute 则会停止，也就是说
+				 * offsetLet 是从 absolute 定位开始算的，所以这里留下的 absolute 定位
+				 */
 				el = parentElement;
 				const elStyle = window.getComputedStyle(el)
 				if (elStyle.position !== "absolute") continue;
