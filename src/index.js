@@ -20,7 +20,7 @@ import Empty from "./lib/empty";
 import Breadcrumb from "./lib/breadcrumb";
 import DatetimePicker from "./lib/datetime-picker";
 import Drawer from "./lib/drawer";
-import Dropdown from "./lib/dropdown.vue";
+import Dropdown from "./lib/dropdown";
 
 import $message from "./lib/message";
 
