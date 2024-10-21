@@ -44,7 +44,7 @@ export default {
 				 * offsetLet 是从 absolute 定位开始算的，所以这里留下的 absolute 定位
 				 */
 				el = parentElement;
-				const elStyle = window.getComputedStyle(el)
+				const elStyle = window.getComputedStyle(el);
 				if (elStyle.position !== "absolute") continue;
 
 				offsetLeft += el.offsetLeft;
