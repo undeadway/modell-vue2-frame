@@ -1,8 +1,8 @@
 <template>
 	<div :style="style" class="mv2-dropdown-menu">
-		<div v-for="d in data">
-			<div v-if="d.divider" class="mv2-dropdown-menu-divider"></div>
-			<div class="mv2-dropdown-item" @click.stop="onClickItem(d.command)">{{ d.label }}</div>
+		<div v-for="_d in data">
+			<div v-if="_d.divider" class="mv2-dropdown-menu-divider"></div>
+			<div class="mv2-dropdown-item" @click.stop="onClickItem(_d.command)">{{ _d.label }}</div>
 		</div>
 	</div>
 </template>
@@ -15,14 +15,6 @@ export default {
 		data: {
 			type: Array,
 			default: []
-		},
-		position: { // 位置，下拉列表的对齐方式
-			type: String,
-			default: "left"
-		},
-		align: { // 列表中文字的对齐方式
-			type: String,
-			default: "left"
 		}
 	}
 }

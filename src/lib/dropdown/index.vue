@@ -71,7 +71,7 @@ export default {
 			const menuStyle = {
 				display: "block",
 				"text-align": this.align,
-				width: "xxx", // 这里是故意写错值，避免下面被 100% 覆盖
+				width: "xxx", // 这里是故意写错值，避免被下面 100% 覆盖
 				[this.position]: `${offsetPosition[this.position]}px`,
 				top: `${offsetPosition.top + size.height + 2}px`, // 2是用来和上面的按钮空开一小段距离
 			};
