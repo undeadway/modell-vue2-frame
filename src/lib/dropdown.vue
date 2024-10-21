@@ -90,6 +90,7 @@ export default {
 .mv2-dropdown-box {
 	display: inline-block;
 	.mv2-dropdown-menu {
+		position: absolute; // 绑定到 body
 		padding: 5px;
 		border: 1px solid #CCCCCC;
 		border-radius: 6px;
