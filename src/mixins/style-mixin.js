@@ -12,7 +12,7 @@ export default {
 			style: ""
 		}
 	},
-	created () {
+	mounted () {
 		this.initStyle();
 	},
 	methods: {
@@ -34,9 +34,14 @@ export default {
 			let { offsetLeft, offsetTop, clientWidth, clientHeight } = el;
 
 			while ((parentElement = el.parentElement) !== null) {
+				// 这里这么做的原因是 如果不是 absolute 的形式，offsetLeft 都会指向最浏览器的侧边
+				// 导致数据会累加，所以只计算 absolute 类型的数据
+				const elStyle = window.getComputedStyle(el);
+				el = parentElement;
+				if (elStyle.position !== "absolute") continue;
+
 				offsetLeft += parentElement.offsetLeft;
 				offsetTop += parentElement.offsetTop;
-				el = parentElement;
 			}
 
 			const { scrollWidth, scrollHeight } = document.body;
