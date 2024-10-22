@@ -7,7 +7,7 @@ const instance = new MessageConstructor();
 instance.$mount();
 document.body.appendChild(instance.$el);
 
-const Message = function (params) {
+const nonation = function (params) {
 	const options = typeof params === "string" ? {
 		message: params
 	} :  params;
@@ -20,4 +20,4 @@ const Message = function (params) {
 	instance.add(options);
 }
 
-export default Message;
+export default nonation;

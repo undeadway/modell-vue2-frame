@@ -22,7 +22,7 @@ import DatetimePicker from "./lib/datetime-picker";
 import Drawer from "./lib/drawer";
 import Dropdown from "./lib/dropdown";
 
-import $message from "./lib/message";
+import $nonation from "./lib/nonation";
 
 const PAGE_COMPONENTS = [
 	Form,
@@ -50,7 +50,7 @@ const PAGE_COMPONENTS = [
 	Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
-	$message
+	$nonation
 ];
 
 const install =  (Vue) => {
@@ -59,7 +59,9 @@ const install =  (Vue) => {
 	});
 
 	PROTOTYPE_COMPONENTS.forEach(component => {
-		Vue.prototype[`$${component.name}`] = component;
+		const name = component.name.toLowerCase();
+		console.log(name);
+		Vue.prototype[`$${name}`] = component;
 	})
 	
 }
@@ -92,5 +94,5 @@ export default {
 	DatetimePicker,
 	Drawer,
 	Dropdown,
-	Message: $message
+	Nonation: $nonation
 }

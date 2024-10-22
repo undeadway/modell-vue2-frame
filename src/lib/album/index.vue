@@ -113,7 +113,7 @@ export default {
 					console.log(1);
 					this.onChangeShow(0);
 				} else {
-					this.$Message({
+					this.$nonation({
 						message: "后面没有了",
 						type: "info"
 					});
@@ -135,7 +135,7 @@ export default {
 					} else {
 						this.first = this.total - 3;
 						this.rightDisabled = true;
-						this.$Message({
+						this.$nonation({
 							message: "后面没有了",
 							type: "info"
 						});
@@ -169,7 +169,7 @@ export default {
 					this.position = 3;
 					this.onChangeShow(this.total - 1);
 				} else {
-					this.$Message({
+					this.$nonation({
 						message: "前面没有了",
 						type: "info"
 					});
@@ -191,7 +191,7 @@ export default {
 						this.position = 3;
 						this.onChangeShow(this.total - 1);
 					} else {
-						this.$Message({
+						this.$nonation({
 							message: "前面没有了",
 							type: "info"
 						});
