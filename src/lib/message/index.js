@@ -1,5 +1,5 @@
 import Vue from "vue";
-import messageList from "./box";
+import messageList from "./list";
 
 const MessageConstructor = Vue.extend(messageList);
 
