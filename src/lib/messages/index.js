@@ -1,20 +1,22 @@
 import Vue from "vue";
 import messageList from "./message-list";
-import _confirm from "./confirm";
-import _alert from "./alert";
-import _prompt from "./prompt";
+import confirmVue from "./confirm";
+import alertVue from "./alert";
+import promptVue from "./prompt";
 
-const ConfirmConstructor = Vue.extend(_confirm);
-const AlertConstructor = Vue.extend(_alert);
-const PromptConstructor = Vue.extend(_prompt);
+import { initStyles } from "./../../utils/utils";
+
 const MessageConstructor = Vue.extend(messageList);
+const ConfirmConstructor = Vue.extend(confirmVue);
+const AlertConstructor = Vue.extend(alertVue);
+const PromptConstructor = Vue.extend(promptVue);
 
 // 消息提示框
 const instance = new MessageConstructor();
 instance.$mount();
 document.body.appendChild(instance.$el);
 
-const $message = function (params) {
+export const $message = function (params) {
 	const options = typeof params === "string" ? {
 		message: params
 	} :  params;
@@ -23,39 +25,110 @@ const $message = function (params) {
 	options.duration = options.duration || 5000;
 	options.closeable = options.closeable === undefined ?  true : options.closeable;
 
-
 	instance.add(options);
 }
 
 // 下面三个是模拟 html原生的三个组件
-const $confirm = function (params) {
+export const $confirm = function (params) {
 
 	const instance = new ConfirmConstructor();
-	instance.$mount();
-	document.body.appendChild(instance.$el);
-	instance.$destory = () => {
+	instance.title = params.title;
+	instance.text = params.text;
+	instance.styles = {
+		width: "400px"
+	};
+	instance.okTxt = params.okTxt;
+	instance.cancelTxt = params.cancelText;
+	instance.okText = params.okText;
+	instance.styles = params.styles;
+	instance.titleStyle = initStyles(params.style.title);
+	instance.footStyle = params.style.foot;
+
+	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
 	}
+
+	const promise = new Promise((resolve, reject) => {
+		instance.okEvent = () => {
+			instance.onClose();
+			resolve();
+		};
+		instance.cancelEvent = () => {
+			instance.onClose();
+			reject();
+		};
+	});
+	
+	instance.$mount();
+	document.body.appendChild(instance.$el);
+
+	return promise;
 }
 
-const $alert = function (params) {
+export const $alert = function (params) {
 
 	const instance = new AlertConstructor();
-	instance.$mount();
-	document.body.appendChild(instance.$el);
-	instance.$destory = () => {
+
+	instance.title = params.title;
+	instance.text = params.text;
+	instance.okTxt = params.okTxt;
+	instance.cancelTxt = params.cancelText;
+	instance.styles = params.styles;
+	instance.titleStyle = initStyles(params.style.title);
+	instance.footStyle = params.style.foot;
+
+	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
 	}
+
+	const promise = new Promise((resolve, reject) => {
+		instance.okEvent = () => {
+			instance.onClose();
+			resolve();
+		};
+		instance.cancelEvent = () => {
+			instance.onClose();
+			reject();
+		};
+	});
+
+	instance.$mount();
+	document.body.appendChild(instance.$el);
+
+	return promise;
 }
 
-const $prompt = function (params) {
+export const $prompt = function (params) {
 
 	const instance = new PromptConstructor();
-	instance.$mount();
-	document.body.appendChild(instance.$el);
-	instance.$destory = () => {
+
+	instance.title = params.title;
+	instance.text = params.text;
+	instance.okTxt = params.okTxt;
+	instance.cancelTxt = params.cancelText;
+	instance.styles = params.styles;
+	instance.titleStyle = initStyles(params.style.title);
+	instance.footStyle = params.style.foot;
+
+	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
 	}
+
+	const promise = new Promise((resolve, reject) => {
+		instance.okEvent = () => {
+			instance.onClose();
+			resolve();
+		};
+		instance.cancelEvent = () => {
+			instance.onClose();
+			reject();
+		};
+	});
+	
+	instance.$mount();
+	document.body.appendChild(instance.$el);
+
+	return promise;
 }
 
 export default {

@@ -22,7 +22,7 @@ import Mv2DatetimePicker from "./lib/datetime-picker";
 import Mv2Drawer from "./lib/drawer";
 import Mv2Dropdown from "./lib/dropdown";
 
-import { $message, $confirm, $alert, $prompt } from "./lib/messages";
+import messages from "./lib/messages";
 
 const PAGE_COMPONENTS = [
 	Mv2Form,
@@ -50,7 +50,10 @@ const PAGE_COMPONENTS = [
 	Mv2Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
-	$message, $confirm, $alert, $prompt
+	messages.$message,
+	messages.$confirm,
+	messages.$alert,
+	messages.$prompt
 ];
 
 const install =  (Vue) => {
@@ -94,8 +97,8 @@ export default {
 	Mv2DatetimePicker,
 	Mv2Drawer,
 	Mv2Dropdown,
-	Mv2Message: $message,
-	Mv2Confirm: $confirm,
-	Mv2Alert: $alert,
-	Mv2Prompt: $prompt
+	Mv2Message: messages.$message,
+	Mv2Confirm: messages.$confirm,
+	Mv2Alert: messages.$alert,
+	Mv2Prompt: messages.$prompt
 }
