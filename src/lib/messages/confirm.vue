@@ -2,7 +2,7 @@
 	<div>
 		<div class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
 		<!-- 主体 -->
-		<dialog-body :title="title" :style="style" :title-style="titleStyle" @close="onClose">
+		<dialog-body :title="title" :styles="styles" :title-style="titleStyle" @close="onClose">
 			<div>{{ text }}</div>
 			<dialog-foot-two-btns :style="footStyles" :ok-text="okText" :ok-event="okEvent"
 				:cancel-text="cancelText" :cancel-event="cancelEvent"
@@ -50,6 +50,10 @@ export default {
 			titleStyle: {
 				type: String,
 				default: ""
+			},
+			styles: {
+				type: Object,
+				default: {}
 			},
 			footStyle: {
 				type: Object,

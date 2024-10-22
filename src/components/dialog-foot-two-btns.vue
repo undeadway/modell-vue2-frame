@@ -1,5 +1,5 @@
 <template>
-    <div :style="style">
+    <div :style="style" class="mv2-dialog-foot-box">
         <mv2-button ref="cancelBtn" class="cancel-btn" @click="cancelEvent">{{ cancelText }}</mv2-button>
         <mv2-button ref="okBtn" class="ok-btn" @click="okEvent">{{ okText }}</mv2-button>
     </div>
@@ -36,9 +36,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.mv2-dialog-foot-box {
+    margin-top: 15px;
+}
 .ok-btn, .cancel-btn {
-    max-width: 20%;
-    min-width: 10%;
-    margin: auto 15px;
+    max-width: 30%;
+    min-width: 50px;
+    margin: auto 5px;
 }
 </style>

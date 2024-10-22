@@ -34,9 +34,9 @@ export const $confirm = function (params) {
 	const instance = new ConfirmConstructor();
 	instance.title = params.title;
 	instance.text = params.text;
-	instance.styles = {
-		width: "400px"
-	};
+	instance.styles = Object.assign({
+		"min-width": "200px"
+	}, params.styles);
 	instance.okTxt = params.okTxt;
 	instance.cancelTxt = params.cancelText;
 	instance.okText = params.okText;
