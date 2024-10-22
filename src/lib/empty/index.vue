@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-import utils from "./../utils/utils";
+import utils from "./../../utils/utils";
 
 export default {
 	name: "Mv2Empty",
@@ -46,7 +46,7 @@ export default {
 		background-position-y: center;
 		background-repeat: no-repeat;
 		background-size: 100%;
-		background-image: url(../assets/icons/empty-box.svg);
+		background-image: url(./../../assets/icons/empty-box.svg);
 	}
 	.mv2-empty-text-box {
 		margin-top: 10px;

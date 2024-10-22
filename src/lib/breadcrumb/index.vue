@@ -26,11 +26,16 @@ export default {
 			list: []
 		}
 	},
+	watch: {
+		list: function () {
+			this.bindEvent(); // 在数据更新后重新绑定一次 event
+		}
+	},
 	created () {
 		this.getDatas();
-		this.$nextTick(() => {
-			this.bindEvent();
-		});
+	},
+	mounted () {
+		this.bindEvent();
 	},
 	methods: {
 		getDatas () {
@@ -48,7 +53,9 @@ export default {
 					if (item.event) {
 						const node = document.getElementById(`mv2-breadcrumb__${i}`);
 						node.onclick = () => {
-							item.event(this.$parent, item);
+							const data = Object.assign({}, item);
+							delete data.event;
+							item.event(this.$parent, data);
 						}
 					}
 				}

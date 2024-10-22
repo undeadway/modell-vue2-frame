@@ -7,8 +7,8 @@
 	</div>
 </template>
 <script>
-import StyleMixin from './../mixins/style-mixin';
-import DialogBody from './../components/dialog-body';
+import StyleMixin from './../../mixins/style-mixin';
+import DialogBody from './../../components/dialog-body';
 
 export default {
 	name: "Mv2Drawer",

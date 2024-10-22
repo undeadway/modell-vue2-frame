@@ -11,9 +11,9 @@
 	</div>
 </template>
 <script>
-import StyleMixin from "./../mixins/style-mixin";
-import FormItemMixin from "./../mixins/form-item-mixin";
-import SelectValue from "./../components/select-value";
+import StyleMixin from "./../../mixins/style-mixin";
+import FormItemMixin from "./../../mixins/form-item-mixin";
+import SelectValue from "./../../components/select-value";
 
 export default {
 	name: "Mv2Select",
