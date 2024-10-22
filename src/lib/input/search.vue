@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<mv2input v-model="value" :placeholder="placeholder" type="text" append="after" :styles="styles">
+		<mv2-input v-model="value" :placeholder="placeholder" type="text" append="after" :styles="styles">
 			<template #after>
 				<div class="mv2-input-append-btn mv2-input-append-btn-search-bg" @click="onSearch"></div>
 			</template>
-		</mv2input>
+		</mv2-input>
 	</div>
 </template>
 <script>
