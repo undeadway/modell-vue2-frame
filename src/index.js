@@ -22,7 +22,7 @@ import DatetimePicker from "./lib/datetime-picker";
 import Drawer from "./lib/drawer";
 import Dropdown from "./lib/dropdown";
 
-import $nonation from "./lib/nonation";
+import $message from "./lib/message";
 
 const PAGE_COMPONENTS = [
 	Form,
@@ -50,7 +50,7 @@ const PAGE_COMPONENTS = [
 	Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
-	$nonation
+	$message
 ];
 
 const install =  (Vue) => {
@@ -94,5 +94,5 @@ export default {
 	DatetimePicker,
 	Drawer,
 	Dropdown,
-	Nonation: $nonation
+	Message: $message
 }
