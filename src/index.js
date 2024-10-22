@@ -1,53 +1,53 @@
-import Loading from "./lib/loading";
-import Table from "./lib/table";
-import Paging from "./lib/paging";
-import Tree from "./lib/tree";
-import Modal from "./lib/modal";
-import Form from "./lib/form/index";
-import FormItem from "./lib/form/item";
-import Input from "./lib/input/index";
-import Search from "./lib/input/search";
-import Password from "./lib/input/password";
-import Button from "./lib/button";
-import Alert from "./lib/alert";
-import Tag from "./lib/tag";
-import TabGroup from "./lib/tabs/group";
-import TabItem from "./lib/tabs/item";
-import Percent from "./lib/percent";
-import Album from "./lib/album";
-import Select from "./lib/select";
-import Empty from "./lib/empty";
-import Breadcrumb from "./lib/breadcrumb";
-import DatetimePicker from "./lib/datetime-picker";
-import Drawer from "./lib/drawer";
-import Dropdown from "./lib/dropdown";
+import Mv2Loading from "./lib/loading";
+import Mv2Table from "./lib/table";
+import Mv2Paging from "./lib/paging";
+import Mv2Tree from "./lib/tree";
+import Mv2Modal from "./lib/modal";
+import Mv2Form from "./lib/form/index";
+import Mv2FormItem from "./lib/form/item";
+import Mv2Input from "./lib/input/index";
+import Mv2Search from "./lib/input/search";
+import Mv2Password from "./lib/input/password";
+import Mv2Button from "./lib/button";
+import Mv2Notice from "./lib/notice";
+import Mv2Tag from "./lib/tag";
+import Mv2TabGroup from "./lib/tabs/group";
+import Mv2TabItem from "./lib/tabs/item";
+import Mv2Percent from "./lib/percent";
+import Mv2Album from "./lib/album";
+import Mv2Select from "./lib/select";
+import Mv2Empty from "./lib/empty";
+import Mv2Breadcrumb from "./lib/breadcrumb";
+import Mv2DatetimePicker from "./lib/datetime-picker";
+import Mv2Drawer from "./lib/drawer";
+import Mv2Dropdown from "./lib/dropdown";
 
 import $message from "./lib/message";
 
 const PAGE_COMPONENTS = [
-	Form,
-	FormItem,
-	Input,
-	Password,
-	Search,
-	Alert,
-	Button,
-	Modal,
-	Loading,
-	Paging,
-	Percent,
-	Table,
-	Tag,
-	Tree,
-	TabGroup,
-	TabItem,
-	Album,
-	Select,
-	Empty,
-	Breadcrumb,
-	DatetimePicker,
-	Drawer,
-	Dropdown
+	Mv2Form,
+	Mv2FormItem,
+	Mv2Input,
+	Mv2Password,
+	Mv2Search,
+	Mv2Notice,
+	Mv2Button,
+	Mv2Modal,
+	Mv2Loading,
+	Mv2Paging,
+	Mv2Percent,
+	Mv2Table,
+	Mv2Tag,
+	Mv2Tree,
+	Mv2TabGroup,
+	Mv2TabItem,
+	Mv2Album,
+	Mv2Select,
+	Mv2Empty,
+	Mv2Breadcrumb,
+	Mv2DatetimePicker,
+	Mv2Drawer,
+	Mv2Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
 	$message
@@ -72,27 +72,28 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
 	install,
-	Form,
-	FormItem,
-	Input,
-	Password,
-	Search,
-	Alert,
-	Button,
-	Modal,
-	Loading,
-	Paging,
-	Percent,
-	Table,
-	Tag,
-	Tree,
-	TabGroup,
-	TabItem,
-	Select,
-	Empty,
-	Breadcrumb,
-	DatetimePicker,
-	Drawer,
-	Dropdown,
-	Message: $message
+	Mv2Form,
+	Mv2FormItem,
+	Mv2Input,
+	Mv2Password,
+	Mv2Search,
+	Mv2Notice,
+	Mv2Button,
+	Mv2Modal,
+	Mv2Loading,
+	Mv2Paging,
+	Mv2Percent,
+	Mv2Table,
+	Mv2Tag,
+	Mv2Tree,
+	Mv2TabGroup,
+	Mv2TabItem,
+	Mv2Album,
+	Mv2Select,
+	Mv2Empty,
+	Mv2Breadcrumb,
+	Mv2DatetimePicker,
+	Mv2Drawer,
+	Mv2Dropdown,
+	Mv2Message: $message
 }

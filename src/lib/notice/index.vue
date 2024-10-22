@@ -1,11 +1,11 @@
 <template>
-	<div :class="`mv2-alert-box mv2-text-align__${align} mv2-effect__${effect} mv2-effect__${type}-${effect} mv2-border_${type}`">
+	<div :class="`mv2-notice-box mv2-text-align__${align} mv2-effect__${effect} mv2-effect__${type}-${effect} mv2-border_${type}`">
 		<slot></slot>
 	</div>
 </template>
 <script>
 export default {
-	name: "Mv2Alert",
+	name: "Mv2Notice",
 	props: {
 		effect: {
 			type: String,
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mv2-alert-box {
+.mv2-notice-box {
 	padding:5px;
 	margin: 5px 10px;
 	font-size: 18px;
