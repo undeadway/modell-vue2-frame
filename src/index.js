@@ -22,7 +22,7 @@ import Mv2DatetimePicker from "./lib/datetime-picker";
 import Mv2Drawer from "./lib/drawer";
 import Mv2Dropdown from "./lib/dropdown";
 
-import $message from "./lib/message";
+import { $message, $confirm, $alert, $prompt } from "./lib/messages";
 
 const PAGE_COMPONENTS = [
 	Mv2Form,
@@ -50,7 +50,7 @@ const PAGE_COMPONENTS = [
 	Mv2Dropdown
 ];
 const PROTOTYPE_COMPONENTS = [
-	$message
+	$message, $confirm, $alert, $prompt
 ];
 
 const install =  (Vue) => {
@@ -60,8 +60,7 @@ const install =  (Vue) => {
 
 	PROTOTYPE_COMPONENTS.forEach(component => {
 		const name = component.name.toLowerCase();
-		console.log(name);
-		Vue.prototype[`$${name}`] = component;
+		Vue.prototype[name] = component;
 	})
 	
 }
@@ -95,5 +94,8 @@ export default {
 	Mv2DatetimePicker,
 	Mv2Drawer,
 	Mv2Dropdown,
-	Mv2Message: $message
+	Mv2Message: $message,
+	Mv2Confirm: $confirm,
+	Mv2Alert: $alert,
+	Mv2Prompt: $prompt
 }
