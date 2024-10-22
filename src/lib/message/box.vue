@@ -12,7 +12,7 @@
 import CloseBox from "./../../components/close-box";
 
 export default {
-	name: "Mv2Nonation",
+	name: "Mv2MessageBox",
 	components: {
 		CloseBox
 	},
