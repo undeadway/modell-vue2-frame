@@ -3,11 +3,11 @@
 		<table>
 			<thead v-if="showHead">
 				<tr>
-					<td v-for="(column, index) in _columns" :key="index"
+					<th v-for="(column, index) in _columns" :key="index"
 						:style="column.style + headStyleStr"
 					>
 						{{ column.text }}
-					</td>
+					</th>
 				</tr>
 			</thead>
 			<tbody class="mv2-table-body" :style="'overflow:auto;' + (height ? `height: ${height}px;` : '')">
