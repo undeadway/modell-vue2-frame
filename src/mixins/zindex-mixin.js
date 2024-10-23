@@ -4,11 +4,12 @@ let layerCount = 0;
 export default {
     data () {
         return {
-            zIndex: zIndex + layerCount
+            zIndex: 0
         }
         
     },
     created () {
+        this.zIndex = zIndex + layerCount;
         layerCount += 10;
     },
     destroyed () {
@@ -16,7 +17,7 @@ export default {
     },
     methods: {
         getLayer () {
-            return zIndex + layerCount + 2;
+            return this.zIndex + 2;
         }
     }
 }
