@@ -11,7 +11,7 @@
 	</div>
 </template>
 <script>
-import DialogFootTwoBtns from './../../components/dialog-foot-two-btns';
+import DialogFootTwoBtns from './../../components/dialog-foot-two-btns/ok-cancel';
 import MsgDialogMixin from './msg-dialog-mixin';
 
 export default {
