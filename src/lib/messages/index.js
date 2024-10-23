@@ -32,7 +32,7 @@ export const $alert = function (params) {
 
 	const instance = new AlertConstructor();
 
-	instance.title = params.title || "Alert";
+	instance.title = params.title || "示警提示";
 	instance.text = params.text;
 	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.buttonText || "确定";
@@ -61,7 +61,7 @@ export const $alert = function (params) {
 export const $confirm = function (params) {
 
 	const instance = new ConfirmConstructor();
-	instance.title = params.title || "Confirm";
+	instance.title = params.title || "确认提示";
 	instance.text = params.text;
 	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.okText;
@@ -92,7 +92,7 @@ export const $prompt = function (params) {
 
 	const instance = new PromptConstructor();
 
-	instance.title = params.title || "Prompt";
+	instance.title = params.title || "输入提示";
 	instance.text = params.text;
 	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.okText;
