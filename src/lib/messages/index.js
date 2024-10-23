@@ -4,8 +4,6 @@ import confirmVue from "./confirm";
 import alertVue from "./alert";
 import promptVue from "./prompt";
 
-import { initStyles } from "./../../utils/utils";
-
 const MessageConstructor = Vue.extend(messageList);
 const ConfirmConstructor = Vue.extend(confirmVue);
 const AlertConstructor = Vue.extend(alertVue);
@@ -39,10 +37,6 @@ export const $confirm = function (params) {
 	}, params.styles);
 	instance.okTxt = params.okTxt;
 	instance.cancelTxt = params.cancelText;
-	instance.okText = params.okText;
-	instance.styles = params.styles;
-	instance.titleStyle = initStyles(params.style.title);
-	instance.footStyle = params.style.foot;
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
@@ -71,11 +65,10 @@ export const $alert = function (params) {
 
 	instance.title = params.title;
 	instance.text = params.text;
-	instance.okTxt = params.okTxt;
-	instance.cancelTxt = params.cancelText;
-	instance.styles = params.styles;
-	instance.titleStyle = initStyles(params.style.title);
-	instance.footStyle = params.style.foot;
+	instance.styles = Object.assign({
+		"min-width": "200px"
+	}, params.styles);
+	instance.okTxt = params.btnTxt;
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
@@ -91,7 +84,7 @@ export const $alert = function (params) {
 			reject();
 		};
 	});
-
+	
 	instance.$mount();
 	document.body.appendChild(instance.$el);
 
@@ -104,20 +97,21 @@ export const $prompt = function (params) {
 
 	instance.title = params.title;
 	instance.text = params.text;
+	instance.styles = Object.assign({
+		"min-width": "200px"
+	}, params.styles);
 	instance.okTxt = params.okTxt;
 	instance.cancelTxt = params.cancelText;
-	instance.styles = params.styles;
-	instance.titleStyle = initStyles(params.style.title);
-	instance.footStyle = params.style.foot;
+	instance.defaultValue = params.defaultValue;
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
 	}
 
 	const promise = new Promise((resolve, reject) => {
-		instance.okEvent = () => {
+		instance.okEvent = (message) => {
 			instance.onClose();
-			resolve();
+			resolve(message);
 		};
 		instance.cancelEvent = () => {
 			instance.onClose();
