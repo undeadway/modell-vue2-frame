@@ -41,4 +41,10 @@ export default {
     min-width: 50px;
     margin: auto 5px;
 }
+
+.cancel-btn {
+    color: #003D74 !important;
+    background: #CCCCCC !important;
+    border: 1px solid #666666;
+}
 </style>
