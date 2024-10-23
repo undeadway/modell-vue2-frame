@@ -36,9 +36,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.mv2-dialog-foot-box {
-    margin-top: 15px;
-}
 .ok-btn, .cancel-btn {
     max-width: 30%;
     min-width: 50px;
