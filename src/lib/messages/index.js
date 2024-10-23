@@ -27,10 +27,43 @@ export const $message = function (params) {
 }
 
 // 下面三个是模拟 html原生的三个组件
+
+export const $alert = function (params) {
+
+	const instance = new AlertConstructor();
+
+	instance.title = params.title || "Alert";
+	instance.text = params.text;
+	instance.styles = Object.assign({
+		"min-width": "200px"
+	}, params.styles);
+	instance.okTxt = params.btnTxt;
+
+	instance.onClose = instance.$destory = () => {
+		document.body.removeChild(instance.$el);
+	}
+
+	const promise = new Promise((resolve, reject) => {
+		instance.okEvent = () => {
+			instance.onClose();
+			resolve();
+		};
+		instance.cancelEvent = () => {
+			instance.onClose();
+			reject();
+		};
+	});
+	
+	instance.$mount();
+	document.body.appendChild(instance.$el);
+
+	return promise;
+}
+
 export const $confirm = function (params) {
 
 	const instance = new ConfirmConstructor();
-	instance.title = params.title;
+	instance.title = params.title || "Confirm";
 	instance.text = params.text;
 	instance.styles = Object.assign({
 		"min-width": "200px"
@@ -59,43 +92,11 @@ export const $confirm = function (params) {
 	return promise;
 }
 
-export const $alert = function (params) {
-
-	const instance = new AlertConstructor();
-
-	instance.title = params.title;
-	instance.text = params.text;
-	instance.styles = Object.assign({
-		"min-width": "200px"
-	}, params.styles);
-	instance.okTxt = params.btnTxt;
-
-	instance.onClose = instance.$destory = () => {
-		document.body.removeChild(instance.$el);
-	}
-
-	const promise = new Promise((resolve, reject) => {
-		instance.okEvent = () => {
-			instance.onClose();
-			resolve();
-		};
-		instance.cancelEvent = () => {
-			instance.onClose();
-			reject();
-		};
-	});
-	
-	instance.$mount();
-	document.body.appendChild(instance.$el);
-
-	return promise;
-}
-
 export const $prompt = function (params) {
 
 	const instance = new PromptConstructor();
 
-	instance.title = params.title;
+	instance.title = params.title || "Prompt";
 	instance.text = params.text;
 	instance.styles = Object.assign({
 		"min-width": "200px"
