@@ -51,7 +51,6 @@ export default {
 	},
 	methods: {
 		onClose () {
-			this.modalVisible = false;
 			this.$emit("close-modal");
 		}
 	}
