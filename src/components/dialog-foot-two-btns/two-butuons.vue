@@ -9,6 +9,7 @@
 import Mv2Button from "./../../lib/button";
 
 export default {
+    name: "Mv2TwoButtons",
     components: {
         Mv2Button
     },

@@ -22,7 +22,12 @@ import Mv2DatetimePicker from "./lib/datetime-picker";
 import Mv2Drawer from "./lib/drawer";
 import Mv2Dropdown from "./lib/dropdown";
 
+// 不可实例化组件
 import messages from "./lib/messages";
+
+// 非独立组件
+import Mv2OkCancelButtons from "./components/dialog-foot-two-btns/ok-cancel";
+import Mv2TwoButtons from "./components/dialog-foot-two-btns/two-butuons";
 
 const install =  (Vue) => {
 
@@ -49,7 +54,9 @@ const install =  (Vue) => {
 		Mv2Breadcrumb,
 		Mv2DatetimePicker,
 		Mv2Drawer,
-		Mv2Dropdown
+		Mv2Dropdown,
+		Mv2OkCancelButtons,
+		Mv2TwoButtons
 	];
 
 	PAGE_COMPONENTS.forEach(component => {

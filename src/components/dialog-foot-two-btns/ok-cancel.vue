@@ -8,6 +8,7 @@
 import Mv2Button from "./../../lib/button";
 
 export default {
+    name: "Mv2OkCancelButtons",
     components: {
         Mv2Button
     },
