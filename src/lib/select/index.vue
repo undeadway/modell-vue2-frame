@@ -36,7 +36,7 @@ export default {
 			this.init();
 		},
 		value: async function (v1) {
-			this.formItemsetValue(v1);
+			this.formItemSetValue(v1);
 			this.formItemValidte();
 		}
 	},

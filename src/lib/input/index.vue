@@ -59,7 +59,7 @@ export default {
 	},
 	watch: {
 		"value": function(v1, v2) {
-			this.formItemsetValue(v1);
+			this.formItemSetValue(v1);
 		}
 	},
 	created () {
@@ -96,6 +96,9 @@ export default {
 		async onBlur () {
 			this.placeHolder = this.placeholder;
 			this.formItemValidte();
+		},
+		getValue () {
+			return this.value;
 		}
 	}
 }

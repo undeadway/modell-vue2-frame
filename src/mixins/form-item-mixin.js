@@ -23,7 +23,7 @@ export default {
                 }
             }
         },
-        formItemsetValue (value) {
+        formItemSetValue (value) {
             if (this.hasFormItem) {
                 this.mv2FormItem.setValue(value);
             }
