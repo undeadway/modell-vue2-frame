@@ -37,7 +37,7 @@ export const $alert = function (params) {
 	instance.styles = Object.assign({
 		"min-width": "200px"
 	}, params.styles);
-	instance.okTxt = params.btnTxt;
+	instance.okTxt = params.btnTxt || "确定";
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);

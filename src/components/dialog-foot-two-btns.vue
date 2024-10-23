@@ -18,7 +18,7 @@ export default {
         },
         okText: {
             type: String,
-            default: "确认"
+            default: "确定"
         },
         okEvent: {
             type: Function,
