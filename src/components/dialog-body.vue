@@ -41,7 +41,7 @@ export default {
 		const tmp = Object.assign({}, this.styles);
 		
 		const dialogWidth = (tmp.width) ? parseInt(tmp.width) : 800;
-		let dialogHeight = (tmp.height) ? parseInt(tmp.height) : this.$el.clientHeight;
+		let dialogHeight = (tmp.height) ? parseInt(tmp.height) : this.$el.parentElement.clientHeight;
 
 		let dialogTop = dialogHeight ? ((document.body.scrollHeight - dialogHeight ) / 2) : (document.body.scrollHeight / 3);
 		let dialogLeft = (document.body.scrollWidth - dialogWidth ) / 2;
