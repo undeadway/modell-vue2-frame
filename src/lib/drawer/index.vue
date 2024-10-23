@@ -7,12 +7,13 @@
 	</div>
 </template>
 <script>
-import StyleMixin from './../../mixins/style-mixin';
 import DialogBody from './../../components/dialog-body';
+import StyleMixin from './../../mixins/style-mixin';
+import ZindexMixin from './../../mixins/zindex-mixin';
 
 export default {
 	name: "Mv2Drawer",
-	mixins: [ StyleMixin ],
+	mixins: [ StyleMixin, ZindexMixin ],
 	components: {
 		DialogBody
 	},
@@ -33,8 +34,7 @@ export default {
 	},
 	data () {
 		return {
-			drawerVisible: false,
-			zIndex: 1000
+			drawerVisible: false
 		}
 	},
 	watch: {
@@ -61,7 +61,9 @@ export default {
 		init () {
 			this.drawerVisible = this.visible;
 
-			const styles = Object.assign({}, this.styles);
+			const styles = Object.assign({
+				"z-index": this.getLayer()
+			}, this.styles);
 
 			styles[this.position] = "0px";
 			switch (this.position) {
@@ -76,8 +78,6 @@ export default {
 					styles.width = "100%";
 					break;
 			}
-
-			styles["z-index"] = this.zIndex + 1;
 
 			this.styles = styles;
 
