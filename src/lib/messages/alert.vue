@@ -5,7 +5,7 @@
 		<dialog-body :title="title" :styles="styles" :title-style="titleStyle" @close="onClose">
 			<div>{{ text }}</div>
 			<div :style="footStyle" class="mv2-dialog-foot-box">
-				<mv2-button @click="okEvent" >{{ okTxt }}</mv2-button>
+				<mv2-button @click="okEvent" >{{ okText }}</mv2-button>
 			</div>
 		</dialog-body>
 	</div>

@@ -37,7 +37,7 @@ export const $alert = function (params) {
 	instance.styles = Object.assign({
 		"min-width": "200px"
 	}, params.styles);
-	instance.okTxt = params.btnTxt || "确定";
+	instance.okText = params.buttonText || "确定";
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
@@ -68,8 +68,8 @@ export const $confirm = function (params) {
 	instance.styles = Object.assign({
 		"min-width": "200px"
 	}, params.styles);
-	instance.okTxt = params.okTxt;
-	instance.cancelTxt = params.cancelText;
+	instance.okText = params.okText;
+	instance.cancelText = params.cancelText;
 
 	instance.onClose = instance.$destory = () => {
 		document.body.removeChild(instance.$el);
@@ -101,8 +101,8 @@ export const $prompt = function (params) {
 	instance.styles = Object.assign({
 		"min-width": "200px"
 	}, params.styles);
-	instance.okTxt = params.okTxt;
-	instance.cancelTxt = params.cancelText;
+	instance.okText = params.okText;
+	instance.cancelText = params.cancelText;
 	instance.defaultValue = params.defaultValue;
 
 	instance.onClose = instance.$destory = () => {
