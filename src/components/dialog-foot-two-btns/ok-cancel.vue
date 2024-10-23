@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import Mv2Button from "./../lib/button";
+import Mv2Button from "./../../lib/button";
 
 export default {
     components: {
