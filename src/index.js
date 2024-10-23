@@ -24,48 +24,42 @@ import Mv2Dropdown from "./lib/dropdown";
 
 import messages from "./lib/messages";
 
-const PAGE_COMPONENTS = [
-	Mv2Form,
-	Mv2FormItem,
-	Mv2Input,
-	Mv2Password,
-	Mv2Search,
-	Mv2Notice,
-	Mv2Button,
-	Mv2Modal,
-	Mv2Loading,
-	Mv2Paging,
-	Mv2Percent,
-	Mv2Table,
-	Mv2Tag,
-	Mv2Tree,
-	Mv2TabGroup,
-	Mv2TabItem,
-	Mv2Album,
-	Mv2Select,
-	Mv2Empty,
-	Mv2Breadcrumb,
-	Mv2DatetimePicker,
-	Mv2Drawer,
-	Mv2Dropdown
-];
-const PROTOTYPE_COMPONENTS = [
-	messages.$message,
-	messages.$confirm,
-	messages.$alert,
-	messages.$prompt
-];
-
 const install =  (Vue) => {
+
+	const PAGE_COMPONENTS = [
+		Mv2Form,
+		Mv2FormItem,
+		Mv2Input,
+		Mv2Password,
+		Mv2Search,
+		Mv2Notice,
+		Mv2Button,
+		Mv2Modal,
+		Mv2Loading,
+		Mv2Paging,
+		Mv2Percent,
+		Mv2Table,
+		Mv2Tag,
+		Mv2Tree,
+		Mv2TabGroup,
+		Mv2TabItem,
+		Mv2Album,
+		Mv2Select,
+		Mv2Empty,
+		Mv2Breadcrumb,
+		Mv2DatetimePicker,
+		Mv2Drawer,
+		Mv2Dropdown
+	];
+
 	PAGE_COMPONENTS.forEach(component => {
 		Vue.component(component.name, component);
 	});
 
-	PROTOTYPE_COMPONENTS.forEach(component => {
-		const name = component.name.toLowerCase();
+	for (const name in messages) {
+		const component = messages[name];
 		Vue.prototype[name] = component;
-	})
-	
+	}
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -96,9 +90,5 @@ export default {
 	Mv2Breadcrumb,
 	Mv2DatetimePicker,
 	Mv2Drawer,
-	Mv2Dropdown,
-	Mv2Message: messages.$message,
-	Mv2Confirm: messages.$confirm,
-	Mv2Alert: messages.$alert,
-	Mv2Prompt: messages.$prompt
+	Mv2Dropdown
 }
