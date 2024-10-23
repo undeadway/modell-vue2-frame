@@ -45,7 +45,9 @@ export default {
 	data () {
 		return {
 			titleStyle: "text-align: center;",
-			footStyle: "text-align: right;"
+			footStyle: {
+				"text-align": "right;"
+			}
 		}
 	},
 	created () {

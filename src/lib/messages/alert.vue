@@ -22,3 +22,8 @@ export default {
 	}
 }
 </script>
+<style lang="scss" scoped>
+.mv2-dialog-foot-box {
+	margin-top: 15px !important;
+}
+</style>

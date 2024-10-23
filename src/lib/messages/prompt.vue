@@ -4,14 +4,14 @@
 		<!-- 主体 -->
 		<dialog-body :title="title" :styles="styles" :title-style="titleStyle" @close="onClose">
 			<mv2-input v-model="value" ref="input"></mv2-input>
-			<dialog-foot-two-btns :style="footStyle" :ok-text="okText" :ok-event="onOk"
-				:cancel-text="cancelText" :cancel-event="cancelEvent"
-			></dialog-foot-two-btns>
+			<div class="mv2-dialog-foot-box">
+				<mv2-ok-cancel-buttons :styles="footStyle" :ok-text="okText" :ok-event="onOk" :cancel-text="cancelText" :cancel-event="cancelEvent" />
+			</div>
 		</dialog-body>
 	</div>
 </template>
 <script>
-import DialogFootTwoBtns from './../../components/dialog-foot-two-btns/ok-cancel';
+import Mv2OkCancelButtons from './../buttons/ok-cancel';
 import MesgDialogMixin from './msg-dialog-mixin';
 import Mv2Input from "./../input/index";
 
@@ -20,7 +20,7 @@ export default {
 	mixins: [ MesgDialogMixin ],
 	components: {
 		Mv2Input,
-		DialogFootTwoBtns
+		Mv2OkCancelButtons
 	},
 	props: {
 		defaultValue: {

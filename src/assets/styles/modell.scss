@@ -120,6 +120,16 @@
 	background: rgba($color: $c_pure_black, $alpha: $v_golden_ratio);
 }
 
+.mv2-buttons-box {
+	padding: 5px;
+	margin: 5px;
+
+	.mv2-buttons {
+		min-width: 50px;
+		margin: auto 5px;
+	}
+}
+
 .mv2-dialog-foot-box {
-    margin-top: 15px;
+	margin-top: 10px;
 }

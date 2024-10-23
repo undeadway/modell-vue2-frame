@@ -86,7 +86,6 @@ export default {
 	position: absolute;
 	background: $c_bgcolor;
 	border: 1px solid $c_border;
-	padding-bottom: 20px;
 	.mv2-dialog-title-box {
 		margin: 20px;
 		font-size: 20px;

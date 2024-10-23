@@ -4,21 +4,21 @@
 		<!-- 主体 -->
 		<dialog-body :title="title" :styles="styles" :title-style="titleStyle" @close="okEvent">
 			<div>{{ text }}</div>
-			<dialog-foot-two-btns :style="footStyle" :ok-text="okText" :ok-event="okEvent"
-				:cancel-text="cancelText" :cancel-event="cancelEvent"
-			></dialog-foot-two-btns>
+			<div class="mv2-dialog-foot-box">
+				<mv2-ok-cancel-buttons :styles="footStyle" :ok-text="okText" :ok-event="okEvent" :cancel-text="cancelText" :cancel-event="cancelEvent" />
+			</div>
 		</dialog-body>
 	</div>
 </template>
 <script>
-import DialogFootTwoBtns from './../../components/dialog-foot-two-btns/ok-cancel';
+import Mv2OkCancelButtons from './../buttons/ok-cancel';
 import MsgDialogMixin from './msg-dialog-mixin';
 
 export default {
 	name: "Mv2Confirm",
 	mixins: [ MsgDialogMixin ],
 	components: {
-		DialogFootTwoBtns
+		Mv2OkCancelButtons
 	},
 	created () {
 		console.log(this.styles);
