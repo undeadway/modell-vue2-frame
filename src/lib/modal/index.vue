@@ -10,8 +10,11 @@
 <script>
 import DialogBody from './../../components/dialog-body';
 
+import ZindexMixin from "./../../mixins/zindex-mixin";
+
 export default {
 	name: "Mv2Modal",
+	mixins: [ ZindexMixin ],
 	components: {
 		DialogBody
 	},
@@ -23,6 +26,10 @@ export default {
 		visible: {
 			type: Boolean,
 			default: false
+		},
+		styles: {
+			type: Object,
+			default: {}
 		},
 		appendToBody: Boolean
 	},
@@ -40,14 +47,15 @@ export default {
 			}
 		}
 	},
+	mounted () {
+		this.modalVisible = this.visible;
+		this.styles["z-index"] = this.getLayer();
+	},
 	destroyed() {
 		// if appendToBody is true, remove DOM node after destroy
 		if (this.appendToBody && this.$el && this.$el.parentNode) {
 			this.$el.parentNode.removeChild(this.$el);
 		}
-	},
-	created () {
-		this.modalVisible = this.visible;
 	},
 	methods: {
 		onClose () {

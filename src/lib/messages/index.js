@@ -34,9 +34,7 @@ export const $alert = function (params) {
 
 	instance.title = params.title || "Alert";
 	instance.text = params.text;
-	instance.styles = Object.assign({
-		"min-width": "200px"
-	}, params.styles);
+	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.buttonText || "确定";
 
 	instance.onClose = instance.$destory = () => {
@@ -65,9 +63,7 @@ export const $confirm = function (params) {
 	const instance = new ConfirmConstructor();
 	instance.title = params.title || "Confirm";
 	instance.text = params.text;
-	instance.styles = Object.assign({
-		"min-width": "200px"
-	}, params.styles);
+	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.okText;
 	instance.cancelText = params.cancelText;
 
@@ -98,9 +94,7 @@ export const $prompt = function (params) {
 
 	instance.title = params.title || "Prompt";
 	instance.text = params.text;
-	instance.styles = Object.assign({
-		"min-width": "200px"
-	}, params.styles);
+	instance.styles = Object.assign(instance.styles, params.styles);
 	instance.okText = params.okText;
 	instance.cancelText = params.cancelText;
 	instance.defaultValue = params.defaultValue;

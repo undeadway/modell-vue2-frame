@@ -32,54 +32,49 @@ export default {
 			default: ""
 		}
 	},
-	data () {
-		return {
-			zIndex: 10101,
-		}
-	},
-	created () {
-		const tmp = Object.assign({}, this.styles);
-		
-		const dialogWidth = (tmp.width) ? parseInt(tmp.width) : 800;
-		let dialogHeight = (tmp.height) ? parseInt(tmp.height) : this.$el.parentElement.clientHeight;
-
-		let dialogTop = dialogHeight ? ((document.body.scrollHeight - dialogHeight ) / 2) : (document.body.scrollHeight / 3);
-		let dialogLeft = (document.body.scrollWidth - dialogWidth ) / 2;
-
-		if (dialogHeight > document.body.scrollHeight * 0.9) {
-			dialogHeight = document.body.scrollHeight * 0.9;
-			dialogTop = (document.body.scrollHeight - this.dialogHeight ) / 2;
-		}
-
-		if (dialogWidth > document.body.scrollWidth * 0.9) {
-			dialogLeft = (document.body.scrollWidth - dialogWidth )/ 2;
-			dialogWidth = document.body.scrollWidth * 0.9;
-		}
-
-		dialogLeft = `${dialogLeft}px`;
-		dialogTop = `${dialogTop}px`;
-
-		const tmpStyle = {};
-		if (dialogWidth) {
-			tmpStyle.width =  `${dialogWidth}px`;
-		}
-		if (dialogHeight) {
-			tmpStyle.height =  `${dialogHeight}px`;
-		}
-
-		tmpStyle.left = dialogLeft;
-		tmpStyle.top = dialogTop;
-
-		if (this.appendToBody) {
-			this.zIndex += 2;
-		}
-
-		tmpStyle["z-index"] = this.zIndex;
-		this.styles = tmpStyle;
-
-		this.initStyle();
+	mounted () {
+		this.$nextTick(() => {
+			this.init();
+		});
 	},
 	methods: {
+		init () {
+			const tmp = Object.assign({}, this.styles);
+		
+			const dialogWidth = (tmp.width) ? parseInt(tmp.width) : 800;
+			let dialogHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
+
+			let dialogTop = dialogHeight ? ((document.body.scrollHeight - dialogHeight ) / 2) : (document.body.scrollHeight / 3);
+			let dialogLeft = (document.body.scrollWidth - dialogWidth ) / 2;
+
+			if (dialogHeight > document.body.scrollHeight * 0.9) {
+				dialogHeight = document.body.scrollHeight * 0.9;
+				dialogTop = (document.body.scrollHeight - this.dialogHeight ) / 2;
+			}
+
+			if (dialogWidth > document.body.scrollWidth * 0.9) {
+				dialogLeft = (document.body.scrollWidth - dialogWidth )/ 2;
+				dialogWidth = document.body.scrollWidth * 0.9;
+			}
+
+			dialogLeft = `${dialogLeft}px`;
+			dialogTop = `${dialogTop}px`;
+
+			const tmpStyle = Object.assign({}, tmp);
+			if (dialogWidth) {
+				tmpStyle.width =  `${dialogWidth}px`;
+			}
+			if (dialogHeight) {
+				tmpStyle.height =  `${dialogHeight}px`;
+			}
+
+			tmpStyle.left = dialogLeft;
+			tmpStyle.top = dialogTop;
+
+			this.styles = tmpStyle;
+
+			this.initStyle();
+		},
 		onClose () {
 			this.$emit("close");
 		}
