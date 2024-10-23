@@ -45,6 +45,6 @@ export default {
 .cancel-btn {
     color: #003D74 !important;
     background: #CCCCCC !important;
-    border: 1px solid #666666;
+    border: 1px solid #666666 !important;
 }
 </style>
