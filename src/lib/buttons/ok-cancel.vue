@@ -49,4 +49,8 @@ export default {
 	background: #CCCCCC !important;
 	border: 1px solid #666666 !important;
 }
+
+.mv2-buttons {
+	text-align: right;
+}
 </style>
