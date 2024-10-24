@@ -30,7 +30,13 @@ export default {
 	},
 	methods: {
 		onClick(event) {
-			event.call(this.modalParent);
+			// TODO 这里的 parent 调用我目前能想到的只有在 modal 中加底部按钮，如果之后有其他形式，那到时候再加
+			let that = this.modalParent;
+			if (!that) {
+				that = this.$parent;
+			}
+			
+			event.call(that);
 		}
 	}
 }
