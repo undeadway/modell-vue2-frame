@@ -136,7 +136,7 @@ export default {
 					if (column.event) {
 						for (const event of column.event) {
 							node[`on${event.name}`] = () => {
-								event.method(this.$parent, data);
+								event.method.call(this.$parent, data);
 							}
 						}
 					}

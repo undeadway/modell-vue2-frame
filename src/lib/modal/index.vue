@@ -15,6 +15,11 @@ import ZindexMixin from "./../../mixins/zindex-mixin";
 export default {
 	name: "Mv2Modal",
 	mixins: [ ZindexMixin ],
+	provide: function () {
+		return {
+			modalParent: this.$parent
+		}
+	},
 	components: {
 		DialogBody
 	},
