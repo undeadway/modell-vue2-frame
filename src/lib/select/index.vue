@@ -102,9 +102,6 @@ export default {
 			});
 		},
 		delMenuList () {
-
-			console.log(SELECT_LIST);
-
 			let selectNode = null;
 			while (!!(selectNode = SELECT_LIST.shift())) {
 				selectNode.hideOptionList();

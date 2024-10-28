@@ -16,10 +16,7 @@ export default {
 			type: String,
 			default: ""
 		},
-		placeholder: {
-			type: String,
-			default: ""
-		},
+		placeholder: undefined,
 		styles: {
 			type: Object,
 			default: {}
