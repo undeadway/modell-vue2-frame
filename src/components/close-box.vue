@@ -1,5 +1,5 @@
 <template>
-	<div class="mv2-close-box" @click="onClick">×</div>
+	<div class="mv2-close-box" @click.stop="onClick">×</div>
 </template>
 <script>
 export default {

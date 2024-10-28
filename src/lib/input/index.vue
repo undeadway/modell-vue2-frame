@@ -4,12 +4,12 @@
 			<slot name="before"></slot>
 		</div>
 		<div style="width: 1px" />
-		<div class="mv2-input-obj" :style="inputBoxStyles">
-			<input class="mv2-input-object" autocomplete="off" v-model="value"
+		<div class="mv2-input-val-box" :style="inputBoxStyles">
+			<input class="mv2-input-input-box" autocomplete="off" v-model="value"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
-				<div class="mv2-input-clear-box" v-if="clearable">
-					<close-box @click="onClear"></close-box>
+				<div class="mv2-input-clear-box" v-if="clearable" @click="">
+					<close-box @close="onClear"></close-box>
 				</div>
 		</div>
 		<div style="width: 1px" />
@@ -115,6 +115,11 @@ export default {
 		},
 		getValue () {
 			return this.value;
+		},
+		onClear () {
+			this.value = "";
+			console.log(this.value);
+			this.$forceUpdate();
 		}
 	}
 }
@@ -125,10 +130,10 @@ export default {
 		display: table-cell;
 		vertical-align: middle;
 	}
-	.mv2-input-obj {
+	.mv2-input-val-box {
 		width: 100%;
 		position: relative;
-		.mv2-input-close-box {
+		.mv2-input-clear-box {
 			position: absolute;
 			right: 5px;
 			top: -2px;

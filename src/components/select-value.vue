@@ -45,7 +45,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-select-value-box {
-	::v-deep .mv2-input-obj>input {
+	::v-deep .mv2-input-val-box>input {
 		cursor: pointer;
 	}
 	>div {
