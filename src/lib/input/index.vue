@@ -8,6 +8,9 @@
 			<input class="mv2-input-object" autocomplete="off" v-model="value"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
+				<div class="mv2-input-close-box" v-if="closeable">
+					<close-box></close-box>
+				</div>
 		</div>
 		<div style="width: 1px" />
 		<div v-if="append === 'after'" class="mv2-slot-box" :style="afterStyles">
@@ -18,10 +21,16 @@
 <script>
 import StyleMixin from './../../mixins/style-mixin';
 import FormItemMixin from "./../../mixins/form-item-mixin";
+import CloseBox from "./../../components/close-box";
+
+import { initStyles } from '../../utils/utils';
 
 export default {
-	mixins: [ StyleMixin, FormItemMixin ],
 	name: "Mv2Input",
+	mixins: [ StyleMixin, FormItemMixin ],
+	components: {
+		CloseBox
+	},
 	props: {
 		placeholder: {
 			type: String,
@@ -46,7 +55,8 @@ export default {
 		value: {
 			type: String,
 			default: ""
-		}
+		},
+		closeable: Boolean
 	},
 	data () {
 		return {
@@ -66,12 +76,12 @@ export default {
 		this.placeHolder = this.placeholder;
 
 		const append = this.append === "" ? [] : this.append.split(",");
-		let inputStyles = "";
+		const inputStyles = {};
 		if (append.indexOf("before") >= 0) {
-			inputStyles += `border-top-left-radius: 0px; border-bottom-left-radius: 0px;`;
+			inputStyles["border-top-left-radius"] = inputStyles["border-bottom-left-radius"] = "0px";
 		}
 		if (append.indexOf("after") >= 0) {
-			inputStyles += `border-top-right-radius: 0px; border-bottom-right-radius: 0px;`;
+			inputStyles["border-top-right-radius"] = inputStyles["border-bottom-right-radius"] = "0px";
 		}
 
 		let width = 23;
@@ -85,9 +95,15 @@ export default {
 			length = 1;
 		}
 
-		const widthStyle = `width: calc(100% - ${width * length}px);`;
-		inputStyles += widthStyle;
-		this.inputStyles = inputStyles;
+		let widthStyle = width * length;
+
+		if (this.closeable) {
+			widthStyle += 20;
+			inputStyles["padding-right"] = "30px";
+		}
+
+		inputStyles.width = `calc(100% - ${widthStyle}px)`;
+		this.inputStyles = initStyles(inputStyles);
 	},
 	methods: {
 		onFocus () {
@@ -111,6 +127,12 @@ export default {
 	}
 	.mv2-input-obj {
 		width: 100%;
+		position: relative;
+		.mv2-input-close-box {
+			position: absolute;
+			right: 5px;
+			top: -2px;
+		}
 	}
 	.mv2-slot-box {
 		.mv2-input-append-btn {
