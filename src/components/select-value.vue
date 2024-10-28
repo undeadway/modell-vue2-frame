@@ -1,6 +1,6 @@
 <template>
 	<div class="mv2-select-value-box" @click="onClick" :style="style">
-		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :disabled="disabled"></mv2-input>
+		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :clearable="clearable" :disabled="disabled"></mv2-input>
 	</div>
 </template>
 <script>
@@ -24,7 +24,8 @@ export default {
 		disabled: {
 			type: Boolean,
 			default: false
-		}
+		},
+		clearable: Boolean
 	},
 	data () {
 		return {

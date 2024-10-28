@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
-			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" @click="showOptionList" />
+			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @click="showOptionList" />
 			<div ref="selectMenu" class="mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(index)">
 					<div>{{ option.label }}</div>
@@ -39,7 +39,8 @@ export default {
 		placeholder: {
 			type: String,
 			default: ""
-		}
+		},
+		clearable: Boolean
 	},
 	watch: {
 		options: function (v1) {

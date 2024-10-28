@@ -8,8 +8,8 @@
 			<input class="mv2-input-object" autocomplete="off" v-model="value"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
-				<div class="mv2-input-close-box" v-if="closeable">
-					<close-box></close-box>
+				<div class="mv2-input-clear-box" v-if="clearable">
+					<close-box @click="onClear"></close-box>
 				</div>
 		</div>
 		<div style="width: 1px" />
@@ -56,7 +56,7 @@ export default {
 			type: String,
 			default: ""
 		},
-		closeable: Boolean
+		clearable: Boolean
 	},
 	data () {
 		return {
@@ -97,7 +97,7 @@ export default {
 
 		let widthStyle = width * length;
 
-		if (this.closeable) {
+		if (this.clearable) {
 			widthStyle += 20;
 			inputStyles["padding-right"] = "30px";
 		}
