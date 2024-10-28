@@ -1,8 +1,8 @@
 <template>
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
-			<select-value :label="label" @click="showOptionList" />
-			<div class="mv2-select-options-box" v-show="visible" :style="`width:calc(${width} - 10px);`">
+			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" @click="showOptionList" />
+			<div ref="selectMenu" class="mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(index)">
 					<div>{{ option.label }}</div>
 				</div>
@@ -14,6 +14,8 @@
 import StyleMixin from "./../../mixins/style-mixin";
 import FormItemMixin from "./../../mixins/form-item-mixin";
 import SelectValue from "./../../components/select-value";
+
+const SELECT_LIST = [];
 
 export default {
 	name: "Mv2Select",
@@ -27,6 +29,14 @@ export default {
 			default: []
 		},
 		value: {
+			type: String,
+			default: ""
+		},
+		disabled: {
+			type: Boolean,
+			default: false
+		},
+		placeholder: {
 			type: String,
 			default: ""
 		}
@@ -48,6 +58,7 @@ export default {
 		}
 	},
 	created () {
+		console.log(this.value);
 		this.init();
 	},
 	mounted() {
@@ -72,22 +83,39 @@ export default {
 		},
 		onClick (index) {
 			const option = this.options[index];
-			// this.value = option.value; // 这里不用处理，交给 v-model 语法去解决
 			this.label = option.label;
 			this.hideOptionList();
-			this.$emit("change", index);
+			this.$emit("change", option.value);
 		},
 		hideOptionList () {
 			this.visible = false;
 		},
 		showOptionList () {
+			if (this.disabled) return;
+			this.delMenuList();
+
 			this.visible = true;
+			this.$forceUpdate();
+
+			this.$nextTick(() => {
+				SELECT_LIST.push(this);
+			});
+		},
+		delMenuList () {
+
+			console.log(SELECT_LIST);
+
+			let selectNode = null;
+			while (!!(selectNode = SELECT_LIST.shift())) {
+				selectNode.hideOptionList();
+			}
 		}
 	}
 }
 </script>
 <style lang="scss" scoped>
 .mv2-select-box {
+	display: inline-block;
 	position: relative;
 	.mv2-select-options-box {
 		position: absolute;

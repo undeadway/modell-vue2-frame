@@ -1,20 +1,32 @@
 <template>
-	<div class="mv2-select-value-box mv2-input-object" @click="onClick" :style="style">
-		<div>{{ label }}</div>
+	<div class="mv2-select-value-box" @click="onClick" :style="style">
+		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :disabled="disabled"></mv2-input>
 	</div>
 </template>
 <script>
 import { initStyles } from "./../utils/utils";
+import Mv2Input from "./../lib/input";
 
 export default {
+	components: {
+		Mv2Input
+	},
 	props: {
-		label: {
+		value: {
+			type: String,
+			default: ""
+		},
+		placeholder: {
 			type: String,
 			default: ""
 		},
 		styles: {
 			type: Object,
 			default: {}
+		},
+		disabled: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data () {
@@ -35,7 +47,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-select-value-box {
-	cursor: pointer;
+	::v-deep .mv2-input-obj>input {
+		cursor: pointer;
+	}
 	>div {
 		overflow-x: hidden;
 		white-space:nowrap;
