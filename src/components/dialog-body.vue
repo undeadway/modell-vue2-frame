@@ -1,7 +1,7 @@
 <template>
 	<div class="mv2-dialog-box" :style="`${style}`">
 		<div class="mv2-dialog-title-box" :style="titleStyle">{{title}}</div>
-		<div class="mv2-close-box mv2-dialog-close-box" @click="onClose">
+		<div class="mv2-dialog-close-box" @click="onClose">
 			<close-box />
 		</div>
 		<div class="mv2-dialog-content-box">
