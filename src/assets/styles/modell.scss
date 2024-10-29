@@ -1,20 +1,20 @@
 @import "./common-base.scss";
 
 .mv2-text-align__left {
-    text-align: left;
+	text-align: left;
 }
 
 .mv2-text-align__right {
-    text-align: right;
+	text-align: right;
 }
 
 .mv2-text-align__justify {
-    text-align: justify;
-    text-align-last: justify;
+	text-align: justify;
+	text-align-last: justify;
 }
 
 .mv2-text-align__center {
-    text-align: center;
+	text-align: center;
 }
 
 .mv2-background__info {
@@ -132,4 +132,16 @@
 
 .mv2-dialog-foot-box {
 	margin-top: 10px;
+}
+
+.mv2-input-clear-box>div {
+	font-size: 16px !important;
+	color: #909399 !important;
+	background: #FFFFFF;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	line-height: 16px;
+	border: 1px solid #909399;
 }

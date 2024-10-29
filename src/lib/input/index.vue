@@ -135,8 +135,8 @@ export default {
 		position: relative;
 		.mv2-input-clear-box {
 			position: absolute;
-			right: 5px;
-			top: -2px;
+			right: 8px;
+			top: 10px;
 		}
 	}
 	.mv2-slot-box {
