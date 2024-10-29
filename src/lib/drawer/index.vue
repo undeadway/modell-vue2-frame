@@ -1,7 +1,7 @@
 <template>
     <div v-if="drawerVisible">
 		<div v-if="maskLayer" class="mv2-mask-layer-box" :style="`z-index: ${zIndex};`" @click="onClose"></div><!-- 遮罩层 -->
-		<dialog-body :title="title" :style="style" @close="onClose">
+		<dialog-body :init-flag="false" :title="title" :style="style" @close="onClose">
 			<slot></slot>
 		</dialog-body>
 	</div>
@@ -79,7 +79,8 @@ export default {
 					break;
 			}
 
-			this.styles = styles;
+			this.styles = styles
+			console.log(this.styles);
 
 			this.initStyle();
 		},

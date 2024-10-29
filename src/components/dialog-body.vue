@@ -30,11 +30,17 @@ export default {
 		titleStyle: {
 			type: String,
 			default: ""
+		},
+		initFlag: {
+			type: Boolean,
+			default: true
 		}
 	},
 	mounted () {
 		this.$nextTick(() => {
-			this.init();
+			if (this.initFlag) {
+				this.init();
+			}
 		});
 	},
 	methods: {
