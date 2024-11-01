@@ -1,11 +1,12 @@
 <template>
 	<div class="mv2-empty-box" :style="style">
-		<div class="mv2-empty-img-box"></div>
+		<div class="mv2-empty-img-box" :style="imageStyle"></div>
 		<div class="mv2-empty-text-box">{{ text }}</div>
 	</div>
 </template>
 <script>
 import utils from "./../../utils/utils";
+import defaultImage from "./../../assets/icons/empty-box.svg";
 
 export default {
 	name: "Mv2Empty",
@@ -14,23 +15,37 @@ export default {
 			type: String,
 			default: "暂无数据"
 		},
+		image: {
+			type: String,
+			default: defaultImage
+		},
 		size: {
 			type: Number,
 			default: 400
+		},
+		styles: {
+			type: Object,
+			default: {}
 		}
 	},
 	data () {
 		return {
-			style: ""
+			style: "",
+			imageStyle: ""
 		}
 	},
 	created () {
-		const styles = {
+		const styles = Object.assign(this.styles, {
 			width: `${this.size + 20}px`,
 			height: `${this.size + 50}px`,
+		});
+
+		const imageStyle = {
+			"background-image": `url(${this.image});`
 		};
 
 		this.style = utils.initStyles(styles);
+		this.imageStyle = utils.initStyles(imageStyle);
 	}
 }
 </script>
@@ -46,7 +61,6 @@ export default {
 		background-position-y: center;
 		background-repeat: no-repeat;
 		background-size: 100%;
-		background-image: url(./../../assets/icons/empty-box.svg);
 	}
 	.mv2-empty-text-box {
 		margin-top: 10px;
