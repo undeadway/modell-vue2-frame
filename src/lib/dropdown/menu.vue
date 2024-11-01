@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-dropdown-menu">
 		<div v-for="_d in data">
-			<div v-if="_d.divider" class="mv2-dropdown-menu-divider"></div>
+			<div v-if="_d.divider" class="mv2-divider"></div>
 			<div class="mv2-dropdown-item" @click.stop="onClickItem(_d.command)">{{ _d.label }}</div>
 		</div>
 	</div>
@@ -36,10 +36,6 @@ export default {
 				background: #DDDDDD;
 			}
 		}
-	}
-	.mv2-dropdown-menu-divider {
-		border-bottom: 1px solid #CCCCCC;
-		margin: 4px;
 	}
 }
 </style>

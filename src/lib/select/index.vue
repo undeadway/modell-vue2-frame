@@ -4,7 +4,8 @@
 			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @click="showOptionList" />
 			<div ref="selectMenu" class="mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(option)" :class="{ 'is-disabled' : option.disabled }">
-					<div>{{ option.label }}</div>
+					<div v-if="option.divider" class="mv2-divider"></div>
+					<div class="mv2-select-options-val-box">{{ option.label }}</div>
 				</div>
 			</div>
 		</div>
@@ -125,7 +126,7 @@ export default {
 		width: 100px;
 		padding: 5px;
 		background: #FFFFFF;
-		>div {
+		.mv2-select-options-val-box {
 			padding: 6px 8px;
 			cursor: pointer;
 			background: #FFFFFF;
