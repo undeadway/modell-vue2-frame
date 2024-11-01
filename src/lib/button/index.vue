@@ -1,5 +1,5 @@
 <template>
-	<button @click="onClick" :type="nativeType" :disabled="disabled" :class="`mv2-button mv2-button__${type}`" :style="style">
+	<button @click="onClick" :type="nativeType" :disabled="disabled" :class="{ [`mv2-button mv2-button__${type}`]: true, 'mv2-button__disabled': this.disabled}" :style="style">
 		<slot></slot>
 	</button>
 </template>
@@ -48,5 +48,11 @@ export default {
 	color: $c_white;
 	padding:8px;
 	border-radius: 8px;
+}
+
+.mv2-button__disabled {
+	background: #acc3d1;
+    color: #333333;
+	cursor: not-allowed;
 }
 </style>

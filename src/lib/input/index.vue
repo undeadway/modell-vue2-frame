@@ -5,7 +5,7 @@
 		</div>
 		<div style="width: 1px" />
 		<div class="mv2-input-val-box" :style="inputBoxStyles">
-			<input class="mv2-input-input-box" autocomplete="off" v-model="value"
+			<input class="mv2-input-input-box" :class="{ 'is-disabled' : this.disabled }" autocomplete="off" v-model="value"
 				:disabled="disabled" :readonly="readonly" :style="inputStyles" :type="type" :placeholder="placeHolder" 
 				@focus="onFocus" @blur="onBlur" />
 				<div class="mv2-input-clear-box" v-if="clearable" @click="">
@@ -163,5 +163,9 @@ export default {
 		border-bottom-right-radius: 6px;
 		cursor: pointer;
 	}
+}
+
+.is-disabled {
+	background: #f0f0f0;
 }
 </style>

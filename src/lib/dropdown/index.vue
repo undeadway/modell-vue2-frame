@@ -1,5 +1,5 @@
 <template>
-	<div :style="style" class="mv2-dropdown-box" @click="delMenuList">
+	<div :style="style" class="mv2-dropdown-box" @click="delMenuList" :class="{  'is-disabled' : this.disabled }">
 		<div @click.stop="" ref="dropdown">
 			<div @click.stop="addMenuList" ref="slot">
 				<slot></slot>
@@ -30,7 +30,8 @@ export default {
 		align: { // 列表中文字的对齐方式
 			type: String,
 			default: "left"
-		}
+		},
+		disabled: Boolean
 	},
 	data () {
 		return {
@@ -55,6 +56,8 @@ export default {
 			this.$emit("command", command);
 		},
 		delMenuList () {
+			if (this.disabled) return;
+
 			let dropDown = null;
 			while (!!(dropDown = DROPDOWN_LIST.shift())) {
 				document.body.removeChild(dropDown.$el);
@@ -78,7 +81,7 @@ export default {
 
 			const mv2DropdownMenu = new MenuConstructor();
 			mv2DropdownMenu.styles = menuStyle;
-			mv2DropdownMenu.data = this.data;
+			mv2DropdownMenu.dataList = this.data;
 			mv2DropdownMenu.onClickItem = this.onClickItem;
 
 			mv2DropdownMenu.$mount();

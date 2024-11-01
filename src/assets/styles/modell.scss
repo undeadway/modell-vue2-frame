@@ -137,7 +137,6 @@
 .mv2-input-clear-box>div {
 	font-size: 16px !important;
 	color: #909399 !important;
-	background: #FFFFFF;
 	border-radius: 50%;
 	width: 16px;
 	height: 16px;
@@ -149,10 +148,30 @@
 .is-disabled {
     color: #C0C4CC;
     cursor: not-allowed !important;
-	background: #FFFFFF !important;
+	background: #FFFFFF;
 }
 
 .mv2-divider {
 	border-bottom: 1px solid #CCCCCC;
 	margin: 4px;
+}
+
+.mv2-menu-box {
+	position: absolute;
+	padding: 5px;
+	border: 1px solid #CCCCCC;
+	border-radius: 6px;
+	background: #FFFFFF;
+	.mv2-menu-item-box {
+		padding: 6px 8px;
+		cursor: pointer;
+		background: #FFFFFF;
+		overflow-x: hidden;
+		white-space:nowrap;
+	}
+	.mv2-menu-item-active-box {
+		&:hover{
+			background: #DDDDDD;
+		}
+	}
 }

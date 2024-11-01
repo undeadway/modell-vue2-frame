@@ -2,10 +2,10 @@
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
 			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @click="showOptionList" />
-			<div ref="selectMenu" class="mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
-				<div v-for="(option, index) in options" :key="index" @click="onClick(option)" :class="{ 'is-disabled' : option.disabled }">
+			<div ref="selectMenu" class="mv2-menu-box mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
+				<div v-for="(option, index) in options" :key="index" @click="onClick(option)">
 					<div v-if="option.divider" class="mv2-divider"></div>
-					<div class="mv2-select-options-val-box">{{ option.label }}</div>
+					<div class="mv2-menu-item-box" :class="{ 'mv2-menu-item-active-box' :!option.disabled, 'is-disabled' : option.disabled }">{{ option.label }}</div>
 				</div>
 			</div>
 		</div>
@@ -117,25 +117,10 @@ export default {
 	display: inline-block;
 	position: relative;
 	.mv2-select-options-box {
-		position: absolute;
 		margin-top: 0px;
-		border: 1px solid #CCCCCC;
-		max-height: 156px;
-		border-radius: 6px;
-		overflow: auto;
 		width: 100px;
-		padding: 5px;
-		background: #FFFFFF;
-		.mv2-select-options-val-box {
-			padding: 6px 8px;
-			cursor: pointer;
-			background: #FFFFFF;
-			&:hover {
-				background: #DDDDDD;
-			}
-			overflow-x: hidden;
-			white-space:nowrap;
-		}
+		max-height: 156px;
+		overflow: auto;
 	}
 }
 </style>
