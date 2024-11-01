@@ -1,7 +1,7 @@
 <template>
 	<div class="mv2-album-big-box" :style="style">
 		<!--
-		 * 循环的时候，把所有主控全部循环到
+		 * 循环的时候，把所有项目全部循环到
 		 * 但只展示 [first, first + 3) 之间的内容
 		-->
 		<div class="mv2-album-btn-box">
