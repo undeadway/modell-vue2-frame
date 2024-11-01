@@ -133,10 +133,8 @@ export default {
 			&:hover {
 				background: #DDDDDD;
 			}
-			>div {
-				overflow-x: hidden;
-				white-space:nowrap;
-			}
+			overflow-x: hidden;
+			white-space:nowrap;
 		}
 	}
 }
