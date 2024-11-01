@@ -108,10 +108,12 @@ export default {
 	methods: {
 		onFocus () {
 			this.placeHolder = "";
+			this.$emit("focus");
 		},
 		async onBlur () {
 			this.placeHolder = this.placeholder;
 			this.formItemValidte();
+			this.$emit("blur");
 		},
 		getValue () {
 			return this.value;
