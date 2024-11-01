@@ -27,12 +27,7 @@ export default {
 			type: String,
 			default: "left"
 		},
-		activeName: String,
-		value: String,
-		width: {
-			type: String,
-			default: ""
-		}
+		activeName: String
 	},
 	watch: {
 		activeName: function (v1) {
