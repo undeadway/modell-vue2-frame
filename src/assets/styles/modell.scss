@@ -145,3 +145,9 @@
 	line-height: 16px;
 	border: 1px solid #909399;
 }
+
+.is-disabled {
+    color: #C0C4CC;
+    cursor: not-allowed !important;
+	background: #FFFFFF !important;
+}
