@@ -2,7 +2,7 @@
 <template>
 	<div class="mv2-buttons-box">
 		<div class="mv2-buttons">
-			<mv2-button v-for="(btn, index) in list" :style="style" class="multiple-btn" :ref="`multipleBtn${index}`" :key="index"
+			<mv2-button v-for="(btn, index) in list" :style="style" class="multiple-btn" :ref="`multipleBtn${index}`" :key="index" :disabled="btn.disabled"
 				@click="onClick(btn.event)">{{ btn.text || `按钮${index + 1}` }}</mv2-button>
 		</div>
 	</div>
