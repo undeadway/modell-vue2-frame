@@ -55,7 +55,7 @@ export default {
 						node.onclick = () => {
 							const data = Object.assign({}, item);
 							delete data.event;
-							item.event(this.$parent, data);
+							item.event.call(this.$parent, data);
 						}
 					}
 				}
