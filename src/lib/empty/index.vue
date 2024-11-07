@@ -35,17 +35,24 @@ export default {
 		}
 	},
 	created () {
-		const styles = Object.assign(this.styles, {
-			width: `${this.size + 20}px`,
-			height: `${this.size + 50}px`,
-		});
+		this.setImageStyles()
+		this.setGlobalStyles();
+	},
+	methods: {
+		setGlobalStyles () {
+			const styles = Object.assign(this.styles, {
+				width: `${this.size + 20}px`,
+				height: `${this.size + 50}px`,
+			});
+			this.style = utils.initStyles(styles);
+		},
+		setImageStyles () {
+			const imageStyle = {
+				"background-image": `url(${this.image});`
+			};
 
-		const imageStyle = {
-			"background-image": `url(${this.image});`
-		};
-
-		this.style = utils.initStyles(styles);
-		this.imageStyle = utils.initStyles(imageStyle);
+			this.imageStyle = utils.initStyles(imageStyle);
+			}
 	}
 }
 </script>
