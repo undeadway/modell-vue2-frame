@@ -5,7 +5,8 @@
 		<dialog-body :title="title" :styles="styles" :title-style="titleStyle" @close="onClose">
 			<mv2-input v-model="value" ref="input"></mv2-input>
 			<div class="mv2-dialog-foot-box">
-				<mv2-ok-cancel-buttons :styles="footStyle" :ok-text="okText" :ok-event="onOk" :cancel-text="cancelText" :cancel-event="cancelEvent" />
+				<mv2-ok-cancel-buttons :styles="footStyle" :ok-text="okText" :ok-event="onOk"
+										:cancel-text="cancelText" :cancel-event="cancelEvent" />
 			</div>
 		</dialog-body>
 	</div>

@@ -3,18 +3,14 @@
 		<table>
 			<thead v-if="showHead">
 				<tr>
-					<th v-for="(column, index) in _columns" :key="index"
-						:style="column.style + headStyleStr"
-					>
+					<th v-for="(column, index) in _columns" :key="index" :style="column.style + headStyleStr">
 						{{ column.text }}
 					</th>
 				</tr>
 			</thead>
 			<tbody class="mv2-table-body" :style="'overflow:auto;' + (height ? `height: ${height}px;` : '')">
 				<tr v-for="(row, index) in _data" :key="index">
-					<td v-for="(column, ji) in _columns" :key="ji"
-						:style="column.style + styleStr"
-					>
+					<td v-for="(column, ji) in _columns" :key="ji" :style="column.style + styleStr">
 						<span :id="`${column.name}_${index}`" v-html="getVal(row, column)"></span>
 					</td>
 				</tr>

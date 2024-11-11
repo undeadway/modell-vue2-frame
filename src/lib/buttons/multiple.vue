@@ -9,7 +9,6 @@
 </template>
 <script>
 import Mv2Button from "./../button/index";
-
 import StyleMixin from "./../../mixins/style-mixin";
 
 export default {
