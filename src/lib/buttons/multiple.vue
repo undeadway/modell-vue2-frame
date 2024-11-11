@@ -15,7 +15,7 @@ import StyleMixin from "./../../mixins/style-mixin";
 export default {
 	name: "Mv2MultipleButtons",
 	mixins: [ StyleMixin ],
-	inject: [ "modalParent" ],
+	inject: [ "mv2ModalParent" ],
 	components: {
 		Mv2Button
 	},
@@ -31,7 +31,7 @@ export default {
 	methods: {
 		onClick(event) {
 			// TODO 这里的 parent 调用我目前能想到的只有在 modal 中加底部按钮，如果之后有其他形式，那到时候再加
-			let that = this.modalParent;
+			let that = this.mv2ModalParent;
 			if (!that) {
 				that = this.$parent;
 			}

@@ -17,7 +17,7 @@ export default {
 	mixins: [ ZindexMixin ],
 	provide: function () {
 		return {
-			modalParent: this.$parent
+			mv2ModalParent: this.$parent
 		}
 	},
 	components: {
