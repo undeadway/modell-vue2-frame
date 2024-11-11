@@ -3,14 +3,14 @@
 		<table>
 			<thead v-if="showHead">
 				<tr>
-					<th v-for="(column, index) in _columns" :key="index" :style="column.style + headStyleStr">
+					<th v-for="(column, index) in _columns" :key="index" :style="column.style + headStyle">
 						{{ column.text }}
 					</th>
 				</tr>
 			</thead>
 			<tbody class="mv2-table-body" :style="'overflow:auto;' + (height ? `height: ${height}px;` : '')">
 				<tr v-for="(row, index) in _data" :key="index">
-					<td v-for="(column, ji) in _columns" :key="ji" :style="column.style + styleStr">
+					<td v-for="(column, ji) in _columns" :key="ji" :style="column.style + style">
 						<span :id="`${column.name}_${index}`" v-html="getVal(row, column)"></span>
 					</td>
 				</tr>
@@ -19,6 +19,8 @@
 	</div>
 </template>
 <script>
+import { initStyles } from "./../../utils/utils";
+
 export default {
 	name: "Mv2Table",
 	props: {
@@ -48,8 +50,8 @@ export default {
 		return {
 			_columns: [],
 			_data: [],
-			headStyleStr: "",
-			styleStr: ""
+			headStyle: "",
+			style: ""
 		}
 	},
 	watch: {
@@ -94,25 +96,10 @@ export default {
 		for (const column of this._columns) {
 			const style = [];
 			if (column.style) {
-				for (let key in column.style) {
-					let value = column.style[key];
-					switch (key) {
-					case "align":
-						key = "text-align";
-						break;
-					case "width":
-						value += "px";
-						break;
-				}
-					style.push(`${key}: ${value}`);
-				}
-				if (!column.style.width) {
-					style.push(calced);
-				}
+				column.style = initStyles(column.style);
 			} else {
-				style.push(calced);
+				column.style = calced;
 			}
-			column.style = style.join(";") + ";";
 		}
 
 		this.init();
@@ -140,31 +127,8 @@ export default {
 			}
 		},
 		updateStyle () {
-			const headStyle = [];
-			for (const key in this.headStyles) {
-				let name = key;
-				let value = this.headStyles[key];
-				switch (key) {
-					case "align":
-						name = "text-align";
-						break;
-				}
-				headStyle.push(`${name}: ${value}`);
-			}
-			this.headStyleStr = headStyle.join(";") + ";";
-
-			const style = [];
-			for (const key in this.styles) {
-				let name = key;
-				let value = this.styles[key];
-				switch (key) {
-					case "align":
-						name = "text-align";
-						break;
-				}
-				style.push(`${name}: ${value}`);
-			}
-			this.styleStr = style.join(";") + ";";
+			this.headStyle = initStyles(this.headStyles);
+			this.style = initStyles(this.styles);
 
 			this.$forceUpdate();
 		},
