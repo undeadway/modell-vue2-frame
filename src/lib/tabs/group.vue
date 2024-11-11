@@ -19,7 +19,7 @@ export default {
 	mixins: [ StyleMixin ],
 	provide() {
 		return {
-			tabsGroup: this
+			mv2TabsGroup: this
 		};
     },
 	props: {

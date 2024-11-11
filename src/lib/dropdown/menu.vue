@@ -10,6 +10,7 @@
 </template>
 <script>
 import StyleMixin from './../../mixins/style-mixin';
+
 export default {
 	name: "Mv2DropdownMenu",
 	mixins: [ StyleMixin ],

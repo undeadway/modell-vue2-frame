@@ -1,26 +1,24 @@
 <template>
-	<div class="mv2-album-big-box" :style="style">
+	<div :style="style">
 		<!--
 		 * 循环的时候，把所有项目全部循环到
 		 * 但只展示 [first, first + 3) 之间的内容
 		-->
-		<div class="mv2-album-btn-box">
-			<div :class="'btn-box ' + (leftDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onPrev(true)">《&nbsp;&nbsp;</div>
-		</div>
-		<div class="mv2-album-data-box">
-			<div v-if="total > 0">
-			<div v-for="index in total" :key="index"  v-if="index - 1 >= first && index - 1 < first + 3">
-				<div :class="(now === (index - 1)) ? 'is-active' : 'not-active'" @click="onChangeShow(index - 1)">
-					<slot :index="index - 1"></slot>
+		<div class="mv2-album-big-box" v-if="total > 0">
+			<div class="mv2-album-btn-box">
+				<div :class="'btn-box ' + (leftDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onPrev(true)">《&nbsp;&nbsp;</div>
+			</div>
+			<div class="mv2-album-data-box">
+				<div>
+					<slot></slot>
 				</div>
 			</div>
-			</div>
-			<div v-else>
-				<mv2-empty />
+			<div class="mv2-album-btn-box right-btn">
+				<div :class="'btn-box ' + (rightDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onNext(true)">&nbsp;&nbsp;》</div>
 			</div>
 		</div>
-		<div class="mv2-album-btn-box right-btn">
-			<div :class="'btn-box ' + (rightDisabled ? 'disaebld-btn-box' : 'active-btn-box')" @click="onNext(true)">&nbsp;&nbsp;》</div>
+		<div class="mv2-album-big-box" v-else>
+			<mv2-empty class="mv2-album-empty-box" :size="emptySize" />
 		</div>
 	</div>
 </template>
@@ -30,11 +28,12 @@ import StyleMixin from './../../mixins/style-mixin';
 export default {
 	name: "Mv2Album",
 	mixins: [ StyleMixin ],
+	provide () {
+		return {
+			mv2Album: this
+		}
+	},
 	props: {
-		total: {
-			type: Number,
-			default: 0
-		},
 		autoPlay: Boolean,
 		duration: {
 			type: Boolean,
@@ -43,6 +42,10 @@ export default {
 		autoDirect: {
 			type: String,
 			default: "right"
+		},
+		total: {
+			type: Number,
+			default: 0
 		}
 	},
 	data () {
@@ -52,15 +55,41 @@ export default {
 			rightDisabled: false,
 			first: 0,
 			position: 0,
-			now: 0
+			now: 0,
+			itemList: [],
+			emptySize: undefined
+		}
+	},
+	watch: {
+		"now": function () {
+			this.onChangeItems();
+		},
+		"first": function () {
+			this.onChangeItems();
 		}
 	},
 	created () {
 		if (this.autoPlay) {
 			this.onAutoPlay();
 		}
+
+		if (this.styles.height) {
+			this.emptySize = parseInt(this.styles.height) - 50;
+		}
+
+		this.$on("album-item-created", this.appendAlbumList);
 	},
 	methods: {
+		onChangeItems () {
+			for (const item of this.itemList) {
+				item.setValues(this.first, this.now);
+			}
+		},
+		appendAlbumList (item) {
+			item.setIndex(this.itemList.length);
+			item.setValues(this.first, this.now);
+			this.itemList.push(item);
+		},
 		onAutoPlay () {
 			let method = null;
 			if (this.autoDirect === "right") {
@@ -206,62 +235,48 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mv2-album-big-box {
-	>div {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.mv2-album-btn-box {
-		width: 40px;
-		text-align: center;
-		.btn-box {
-			display: block;
-			height: 40px;
-			line-height: 40px;
-			background: rgba($color: #CCCCCC, $alpha: 0.5);
-			border-radius: 50%;
-		}
-		.active-btn-box {
-			cursor: pointer;
-		}
-		.active-btn-box:hover {
-			background: rgba($color: #CCCCCC, $alpha: 0.3);
-		}
-		.active-btn-box:active {
-			background: rgba($color: #fdff98, $alpha: 0.5);
-		}
-		.disaebld-btn-box {
-			cursor: not-allowed;
-		}
-	}
-	.mv2-album-data-box {
-		width: calc(100% - 80px);
-		height: 100%;
+	height: 100%;
+	width: 100%;
 		>div {
-			height: 100%;
-			>div {
-				width: 33.33%;
-				height: 100%;
-				display: inline-block;
-				vertical-align: top;
-				>div {
-					margin: 0px 10px;
-					height: 100%;
-					cursor: pointer;
-					>div {
-					height: 100%;
-					}
-				}
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.mv2-album-btn-box {
+			width: 40px;
+			text-align: center;
+			.btn-box {
+				display: block;
+				height: 40px;
+				line-height: 40px;
+				background: rgba($color: #CCCCCC, $alpha: 0.5);
+				border-radius: 50%;
 			}
-			.empty-master-box {
-				>div {
-					cursor: default !important;
-				}
-				width: 100% !important;
+			.active-btn-box {
+				cursor: pointer;
+			}
+			.active-btn-box:hover {
+				background: rgba($color: #CCCCCC, $alpha: 0.3);
+			}
+			.active-btn-box:active {
+				background: rgba($color: #fdff98, $alpha: 0.5);
+			}
+			.disaebld-btn-box {
+				cursor: not-allowed;
 			}
 		}
-	}
-	.is-active {
-		background: rgba($color: #17579e, $alpha: 0.4);
+
+		.mv2-album-data-box {
+			width: calc(100% - 80px);
+			height: 100%;
+			.mv2-album-slot-box {
+				display: none;
+			}
+			>div {
+				height: 100%;
+			}
+		}
+	.mv2-album-empty-box {
+		display: block;
 	}
 }
 </style>

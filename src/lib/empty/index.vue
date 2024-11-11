@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-import utils from "./../../utils/utils";
+import { initStyles } from "./../../utils/utils";
 import defaultImage from "./../../assets/icons/empty-box.svg";
 
 export default {
@@ -44,14 +44,14 @@ export default {
 				width: `${this.size + 20}px`,
 				height: `${this.size + 50}px`,
 			});
-			this.style = utils.initStyles(styles);
+			this.style = initStyles(styles);
 		},
 		setImageStyles () {
 			const imageStyle = {
 				"background-image": `url(${this.image});`
 			};
 
-			this.imageStyle = utils.initStyles(imageStyle);
+			this.imageStyle = initStyles(imageStyle);
 			}
 	}
 }

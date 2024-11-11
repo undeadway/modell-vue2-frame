@@ -15,6 +15,7 @@ import Mv2TabGroup from "./lib/tabs/group";
 import Mv2TabItem from "./lib/tabs/item";
 import Mv2Percent from "./lib/percent";
 import Mv2Album from "./lib/album";
+import Mv2AlbumItem from "./lib/album/item";
 import Mv2Select from "./lib/select";
 import Mv2Empty from "./lib/empty";
 import Mv2Breadcrumb from "./lib/breadcrumb";
@@ -47,6 +48,7 @@ const install =  (Vue) => {
 		Mv2TabGroup,
 		Mv2TabItem,
 		Mv2Album,
+		Mv2AlbumItem,
 		Mv2Select,
 		Mv2Empty,
 		Mv2Breadcrumb,
@@ -90,6 +92,7 @@ export default {
 	Mv2TabGroup,
 	Mv2TabItem,
 	Mv2Album,
+	Mv2AlbumItem,
 	Mv2Select,
 	Mv2Empty,
 	Mv2Breadcrumb,

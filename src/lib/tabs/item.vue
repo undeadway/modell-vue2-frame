@@ -8,7 +8,7 @@ import StyleMixin from "./../../mixins/style-mixin";
 
 export default {
 	name: "Mv2TabsItem",
-	inject: [ "tabsGroup" ],
+	inject: [ "mv2TabsGroup" ],
 	mixins: [ StyleMixin ],
 	props: {
 		label: {
@@ -30,7 +30,7 @@ export default {
 		}
 	},
 	created () {
-		this.activeName = this.tabsGroup.activeName;
+		this.activeName = this.mv2TabsGroup.activeName;
 		const object = {
 			name: this.name, label: this.label,
 			updateActiveName: this.updateActiveName
@@ -39,7 +39,6 @@ export default {
 	},
 	methods: {
 		onClick () {
-			console.log(this.name);
 			if (this.name) {
 				this.$parent.$emit("tab-click", this.name);
 			}
