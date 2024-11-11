@@ -27,11 +27,9 @@ export const $message = function (params) {
 }
 
 // 下面三个是模拟 html原生的三个组件
-
 export const $alert = function (params) {
 
 	const instance = new AlertConstructor();
-
 	instance.title = params.title || "示警提示";
 	instance.text = params.text;
 	instance.styles = Object.assign(instance.styles, params.styles);
@@ -91,7 +89,6 @@ export const $confirm = function (params) {
 export const $prompt = function (params) {
 
 	const instance = new PromptConstructor();
-
 	instance.title = params.title || "输入提示";
 	instance.text = params.text;
 	instance.styles = Object.assign(instance.styles, params.styles);

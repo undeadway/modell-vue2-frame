@@ -51,6 +51,6 @@ export default {
 		}
 	},
 	created () {
-		this.styles["z-index"] = this.getLayer();
+		this.styles["z-index"] = this.getZindexLayer();
 	}
 }

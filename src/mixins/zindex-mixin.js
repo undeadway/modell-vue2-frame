@@ -16,7 +16,7 @@ export default {
         layerCount -= 10;
     },
     methods: {
-        getLayer () {
+        getZindexLayer () {
             return this.zIndex + 2;
         }
     }

@@ -54,7 +54,7 @@ export default {
 	},
 	mounted () {
 		this.modalVisible = this.visible;
-		this.styles["z-index"] = this.getLayer();
+		this.styles["z-index"] = this.getZindexLayer();
 	},
 	destroyed() {
 		// if appendToBody is true, remove DOM node after destroy

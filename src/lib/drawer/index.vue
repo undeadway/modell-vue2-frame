@@ -62,7 +62,7 @@ export default {
 			this.drawerVisible = this.visible;
 
 			const styles = Object.assign({
-				"z-index": this.getLayer()
+				"z-index": this.getZindexLayer()
 			}, this.styles);
 
 			styles[this.position] = "0px";

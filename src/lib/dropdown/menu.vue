@@ -2,7 +2,9 @@
 	<div :style="style" class="mv2-menu-box">
 		<div v-for="data in dataList">
 			<div v-if="data.divider" class="mv2-divider"></div>
-			<div class="mv2-menu-item-box" :class="{ 'mv2-menu-item-active-box' :!data.disabled, 'is-disabled' : data.disabled }" @click.stop="onClickItem1(data)">{{ data.label }}</div>
+			<div :class="{ 'mv2-menu-item-active-box' :!data.disabled, 'is-disabled' : data.disabled }"
+				class="mv2-menu-item-box" @click.stop="onClickItem1(data)">{{ data.label }}
+			</div>
 		</div>
 	</div>
 </template>
