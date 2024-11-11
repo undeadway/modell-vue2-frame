@@ -46,7 +46,7 @@ export default {
 	methods: {
 		init () {
 			const tmp = Object.assign({}, this.styles);
-		
+
 			const dialogWidth = (tmp.width) ? parseInt(tmp.width) : 800;
 			let dialogHeight = (tmp.height) ? parseInt(tmp.height) : undefined;
 

@@ -102,7 +102,7 @@ export default {
 			if (this.rightDisabled) return;
 
 			this.leftDisabled = false;
-			if (this.total === 0)  return;
+			if (this.total === 0) return;
 
 			this.now++;
 			if (this.now === this.total) {
@@ -159,7 +159,7 @@ export default {
 			if (this.leftDisabled) return;
 
 			this.rightDisabled = false;
-			if (this.total === 0)  return;
+			if (this.total === 0) return;
 
 			this.now--;
 			if (this.now < 0) {
