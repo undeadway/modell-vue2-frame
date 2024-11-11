@@ -117,6 +117,8 @@ export default {
 		onChangeShow (index) {
 			this.now = index;
 			this.position = index - this.first;
+			this.leftDisabled = this.now === 0;
+			this.rightDisabled = this.now === this.total - 1;
 		},
 		/*
 		 * 点击下一步：
