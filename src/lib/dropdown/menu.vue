@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-menu-box">
-		<div v-for="data in dataList">
-			<div v-if="data.divider" class="mv2-divider"></div>
+		<div v-for="(data, index) in dataList">
+			<div v-if="index > 1 && data.divider" class="mv2-divider"></div>
 			<div :class="{ 'mv2-menu-item-active-box' :!data.disabled, 'is-disabled' : data.disabled }"
 				class="mv2-menu-item-box" @click.stop="onClickItem1(data)">{{ data.label }}
 			</div>
