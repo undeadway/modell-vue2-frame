@@ -45,10 +45,11 @@ export default {
 				 */
 				el = parentElement;
 				const elStyle = window.getComputedStyle(el);
-				if (elStyle.position !== "absolute") continue;
-
-				offsetLeft += el.offsetLeft;
-				offsetTop += el.offsetTop;
+				if (elStyle.position === "absolute") {
+					offsetLeft += el.offsetLeft;
+				} else {
+					offsetTop -= el.scrollTop;
+				}
 			}
 
 			const { scrollWidth, scrollHeight } = document.body;
