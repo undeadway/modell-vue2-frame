@@ -12,7 +12,7 @@
 </template>
 <script>
 import StyleMixin from "./../../mixins/style-mixin";
-import utils from "./../../utils/utils"
+import { initStyles } from "./../../utils/utils"
 
 export default {
 	name: "Mv2TabsGroup",
@@ -49,7 +49,7 @@ export default {
 		if (this.tabPosition === "top") {
 			tmp.height = tmp.height || "31px;"
 		}
-		this.groupStyle = utils.initStyles(tmp);
+		this.groupStyle = initStyles(tmp);
 	},
 	methods: {
 		appendTabList (tab) {
