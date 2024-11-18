@@ -19,7 +19,7 @@ export default {
 	name: "Mv2Dropdown",
 	mixins: [ StyleMixin ],
 	props: {
-		data: {
+		dataList: {
 			type: Array,
 			default: []
 		},
@@ -81,7 +81,7 @@ export default {
 
 			const mv2DropdownMenu = new MenuConstructor();
 			mv2DropdownMenu.styles = menuStyle;
-			mv2DropdownMenu.dataList = this.data;
+			mv2DropdownMenu.dataList = this.dataList;
 			mv2DropdownMenu.onClickItem = this.onClickItem;
 
 			mv2DropdownMenu.$mount();
