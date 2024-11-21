@@ -120,7 +120,6 @@ export default {
 		},
 		onClear () {
 			this.value = "";
-			console.log(this.value);
 			this.$forceUpdate();
 		}
 	}
