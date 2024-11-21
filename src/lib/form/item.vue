@@ -11,7 +11,7 @@
 				<slot ref="field"></slot>
 			</div>
 		</div>
-		<div class="mv2-form-item-check-result-box" :style="`margin-left:${Number(mv2Form.labelWidth) + 30}px;`">{{ errorMessage }}</div>
+		<div class="mv2-form-item-check-result-box" :style="`margin-left:${Number(mv2Form.labelWidth) + 5}px;`">{{ errorMessage }}</div>
 	</div>
 </template>
 <script>
@@ -76,6 +76,7 @@ export default {
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
 				const value = that.itemField !== null ? that.itemField.value : null;
+				let errMsg = null;
 				if (rule) {
 					if (rule.required && !value) {
 						const message = rule.message || `${that.label}是必填字段`;
@@ -84,19 +85,20 @@ export default {
 						return;
 					}
 					if (rule.validate) {
-						rule.validate(value, (message) => {
-							if (message) {
-								that.setMessage(message);
-								resolve(message);
-								return;
-							}
+						console.log(rule);
+						rule.validate.call(that.mv2Form.$parent, value, (message) => {
+							errMsg = message;
 						});
 					}
 				}
 
-				that.setMessage("");
-				resolve(null);
-				return;
+				if (errMsg) {
+					that.setMessage(errMsg);
+					resolve(errMsg);
+				} else {
+					that.setMessage("");
+					resolve(null);
+				}
 			});
 		},
 		setValue (value) {
@@ -125,6 +127,8 @@ export default {
 	}
 	.mv2-form-item-label {
 		margin-right: 10px;
+		user-select:none;
+		margin-bottom: 4px;
 	}
 	.mv2-text-align_left {
 		text-align: left;
