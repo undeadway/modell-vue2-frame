@@ -107,7 +107,7 @@ export default {
 	},
 	methods: {
 		onFocus () {
-			this.placeHolder = "";
+			// this.placeHolder = "";
 			this.$emit("focus");
 		},
 		async onBlur () {
@@ -120,6 +120,8 @@ export default {
 		},
 		onClear () {
 			this.value = "";
+			this.$emit("clear");
+			// this.placeHolder = this.placeholder;
 			this.$forceUpdate();
 		}
 	}

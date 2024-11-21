@@ -1,6 +1,8 @@
 <template>
 	<div class="mv2-select-value-box" @click="onClick" :style="style">
-		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :clearable="clearable" :disabled="disabled"></mv2-input>
+		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :clearable="clearable" :disabled="disabled"
+			@clear="onClearData"
+		></mv2-input>
 	</div>
 </template>
 <script>
@@ -34,11 +36,13 @@ export default {
 	},
 	created () {
 		this.style = initStyles(this.styles);
-		console.log(this.style);
 	},
 	methods: {
 		onClick () {
 			this.$emit("click");
+		},
+		onClearData () {
+			this.$emit("clear");
 		}
 	}
 }
