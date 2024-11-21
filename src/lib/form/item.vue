@@ -49,7 +49,7 @@ export default {
 		}
 	},
 	created () {
-		if (this.mv2Form.rules) {
+		if (this.mv2Form && this.mv2Form.rules) {
 			const item = this.mv2Form.rules[this.field];
 			this.required = !!item ? (item.required || false) : false;
 			this.mv2Form.setField(this.field, this);
@@ -85,7 +85,6 @@ export default {
 						return;
 					}
 					if (rule.validate) {
-						console.log(rule);
 						rule.validate.call(that.mv2Form.$parent, value, (message) => {
 							errMsg = message;
 						});
