@@ -1,5 +1,5 @@
 <template>
-	<mv2-modal ref="modal" :visible="visible" :title="title" :styles="styles" @close-modal="onCloseDialog">
+	<mv2-modal ref="modal" :visible="visible" :title="title" :styles="styles" @close-modal="onCancelEvent">
 		<confirm :message="message" :length="length" @cancel="onCancelEvent" @ok="onOkEvent" />
 	</mv2-modal>
 </template>
@@ -43,10 +43,6 @@ export default {
 		}
 	},
 	methods: {
-		onCloseDialog () {
-			this.visible = false;
-			this.$emit("close-modal");
-		},
 		onCancelEvent () {
 			this.visible = false;
 			this.$emit("cancel");
