@@ -1,7 +1,7 @@
 <template>
-    <div>
+	<div>
 		<h2 class="mv2-danger-event-confirm-title">
-			<div class="warning-icon-box"></div>
+			<div></div>
 			<div>这是一个危险的操作！</div>
 		</h2>
 		<div style="margin:10px 0px;">您真的要{{ message }}么？</div>
@@ -79,22 +79,19 @@ export default {
 <style lang="scss" scoped>
 .mv2-danger-event-confirm-title {
 	color:$c_danger;
-	font-weight: bold; 
-	.warning-icon-box {
+	font-weight: bold;
+	div {
+		display: inline-block;
+		vertical-align:middle;
+	}
+	div:first-child {
 		background-image: url(./../../../assets/icons/warning.svg);
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: 100%;
 		width: 36px;
 		height: 36px;
-	}
-	div {
-		display: inline-block;
-		vertical-align:middle;
-	}
-	div:first-child {
-		font-size: 28px;
-		margin-right: 5px;
+		margin-right: 10px;
 	}
 }
 </style>
