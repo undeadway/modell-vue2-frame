@@ -69,6 +69,7 @@ export default {
 	},
 	watch: {
 		"value": function(v1, v2) {
+			console.log(v1);
 			this.formItemSetValue(v1);
 		}
 	},
@@ -114,15 +115,16 @@ export default {
 			this.placeHolder = this.placeholder;
 			this.formItemValidte();
 			this.$emit("blur");
+			this.$emit("input", this.value);
 		},
 		getValue () {
 			return this.value;
 		},
 		onClear () {
 			this.value = "";
-			this.$emit("clear");
 			// this.placeHolder = this.placeholder;
 			this.$forceUpdate();
+			this.$emit("input", "");
 		}
 	}
 }

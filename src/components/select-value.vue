@@ -34,15 +34,19 @@ export default {
 			style: ""
 		}
 	},
+	watch: {
+		value: function (v1) {
+			if (!v1) {
+				this.$emit("clear");
+			}
+		}
+	},
 	created () {
 		this.style = initStyles(this.styles);
 	},
 	methods: {
 		onClick () {
 			this.$emit("click");
-		},
-		onClearData () {
-			this.$emit("clear");
 		}
 	}
 }

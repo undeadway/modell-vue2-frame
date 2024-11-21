@@ -48,8 +48,10 @@ export default {
 			this.init();
 		},
 		value: async function (v1) {
+			console.log(v1);
 			this.formItemSetValue(v1);
 			this.formItemValidte();
+			this.$emit("change", v1);
 		}
 	},
 	data () {
@@ -60,7 +62,7 @@ export default {
 		}
 	},
 	created () {
-		console.log(this.value);
+		console.log("mv2-select");
 		this.init();
 	},
 	mounted() {
@@ -110,7 +112,8 @@ export default {
 			}
 		},
 		onClearData () {
-			console.log("cleared");
+			this.label = "";
+			this.value = "";
 			this.$emit("change", "");
 		}
 	}

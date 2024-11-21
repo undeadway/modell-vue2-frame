@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<mv2-input v-model="value" :placeholder="placeholder" type="text" append="after" :styles="styles">
+		<mv2-input v-model="value" :clearable="clearable" :placeholder="placeholder" type="text" append="after" :styles="styles">
 			<template #after>
 				<div class="mv2-input-append-btn mv2-input-append-btn-search-bg" @click="onSearch"></div>
 			</template>
@@ -23,6 +23,15 @@ export default {
 		value: {
 			type: String,
 			default: ""
+		},
+		clearable: {
+			type: Boolean,
+			default: false
+		}
+	},
+	watch: {
+		value: function (v1, v2) {
+			this.$emit("input", this.value);
 		}
 	},
 	methods: {

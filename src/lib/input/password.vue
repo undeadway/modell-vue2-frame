@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<mv2-input v-model="value" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :type="inputType" append="after" :styles="styles">
+		<mv2-input ref="password" v-model="value" :clearable="clearable" :placeholder="placeholder" :disabled="disabled"
+			:readonly="readonly" :type="inputType" append="after" :styles="styles" @clear="onClearData"
+		>
 			<template #after>
 				<div :class="`mv2-input-append-btn ${mv2InputPasswordBtnEyeStatus}`" @click="changeEyeStatus"></div>
 			</template>
@@ -9,7 +11,7 @@
 </template>
 <script>
 export default {
-	name: "Mv2InputPassword",
+	name: "Mv2Password",
 	props: {
 		placeholder: {
 			type: String,
@@ -17,6 +19,10 @@ export default {
 		},
 		styles: undefined,
 		disabled: {
+			type: Boolean,
+			default: false
+		},
+		clearable: {
 			type: Boolean,
 			default: false
 		},
@@ -38,6 +44,11 @@ export default {
 				type: Boolean,
 				default: false
 			}
+		}
+	},
+	watch: {
+		value: function (v1, v2) {
+			this.$emit("input", this.value);
 		}
 	},
 	methods: {
