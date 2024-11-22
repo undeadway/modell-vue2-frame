@@ -1,6 +1,6 @@
 <template>
 	<div class="mv2-select-value-box" @click="onClick" :style="style">
-		<mv2-input v-model="value" :placeholder="placeholder" :readonly="true" :clearable="clearable" :disabled="disabled"
+		<mv2-input :name="name" v-model="value" :placeholder="placeholder" :readonly="true" :clearable="clearable" :disabled="disabled"
 			@clear="onClearData"
 		></mv2-input>
 	</div>
@@ -14,6 +14,7 @@ export default {
 		Mv2Input
 	},
 	props: {
+		name: undefined,
 		value: {
 			type: String,
 			default: ""
@@ -36,6 +37,7 @@ export default {
 	},
 	watch: {
 		value: function (v1) {
+			console.log(this.name, v1);
 			if (!v1) {
 				this.$emit("clear");
 			}
