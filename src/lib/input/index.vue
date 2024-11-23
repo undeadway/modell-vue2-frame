@@ -32,7 +32,6 @@ export default {
 		CloseBox
 	},
 	props: {
-		name: undefined,
 		placeholder: {
 			type: String,
 			default: "请输入"
@@ -70,7 +69,6 @@ export default {
 	},
 	watch: {
 		"value": function(v1, v2) {
-			console.log(this.name, v1);
 			this.formItemSetValue(v1);
 		}
 	},
