@@ -1,7 +1,7 @@
 <template>
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
-			<select-value :name="name" v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @clear="onClearData" @click="showOptionList" />
+			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @clear="onClearData" @click="showOptionList" />
 			<div ref="selectMenu" class="mv2-menu-box mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(option)">
 					<div v-if="index > 1 && option.divider" class="mv2-divider"></div>
@@ -25,7 +25,6 @@ export default {
 		SelectValue
 	},
 	props: {
-		name: undefined,
 		options: {
 			type: Array,
 			default: []
@@ -49,7 +48,6 @@ export default {
 			this.init();
 		},
 		value: async function (v1) {
-			console.log(this.name, v1);
 			if (!v1) {
 				this.label = "";
 			} else {
@@ -68,7 +66,6 @@ export default {
 		}
 	},
 	created () {
-		console.log("mv2-select");
 		this.init();
 	},
 	mounted() {

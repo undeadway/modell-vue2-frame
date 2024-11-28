@@ -80,7 +80,6 @@ export default {
 			}
 
 			this.styles = styles
-			console.log(this.styles);
 
 			this.initStyle();
 		},

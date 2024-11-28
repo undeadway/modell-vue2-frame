@@ -45,7 +45,6 @@ export default {
 	watch: {
 		"visible": function(v1, v2) {
 			this.modalVisible = v1;
-			console.log(this.modalVisible);
 
 			if (this.appendToBody) {
 				document.body.appendChild(this.$el);
@@ -54,7 +53,6 @@ export default {
 	},
 	mounted () {
 		this.modalVisible = this.visible;
-		console.log(this.modalVisible);
 		this.styles["z-index"] = this.getZindexLayer();
 	},
 	destroyed() {

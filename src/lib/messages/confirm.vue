@@ -19,9 +19,6 @@ export default {
 	mixins: [ MsgDialogMixin ],
 	components: {
 		Mv2OkCancelButtons
-	},
-	created () {
-		console.log(this.styles);
 	}
 }
 </script>
