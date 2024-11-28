@@ -61,6 +61,7 @@ export default {
 		}
 	},
 	created () {
+		console.log("table");
 		const newCols = [];
 		for (const column of this.columns) {
 			const newCol = JSON.parse(JSON.stringify(column));
@@ -78,7 +79,7 @@ export default {
 
 		for (const column of this._columns) {
 			if (column.style && column.style.width) {
-				paddingSize += column.style.width;
+				paddingSize += parseInt(column.style.width);
 			} else {
 				count++;
 			}
@@ -94,7 +95,6 @@ export default {
 		}
 
 		for (const column of this._columns) {
-			const style = [];
 			if (column.style) {
 				column.style = initStyles(column.style);
 			} else {
