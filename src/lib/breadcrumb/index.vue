@@ -27,8 +27,9 @@ export default {
 		}
 	},
 	watch: {
-		list: function () {
-			this.bindEvent(); // 在数据更新后重新绑定一次 event
+		data: function () {
+			this.getDatas();
+			this.$nextTick(this.bindEvent); // 在数据更新后重新绑定一次 event
 		}
 	},
 	created () {
