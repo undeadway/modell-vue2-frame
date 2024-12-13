@@ -15,12 +15,14 @@
 import StyleMixin from "./../../mixins/style-mixin";
 import FormItemMixin from "./../../mixins/form-item-mixin";
 import SelectValue from "./../../components/select-value";
+import ZindexMixin from './../../mixins/zindex-mixin';
+import utils from "./../../utils/utils";
 
 const SELECT_LIST = [];
 
 export default {
 	name: "Mv2Select",
-	mixins: [ StyleMixin, FormItemMixin ],
+	mixins: [ StyleMixin, FormItemMixin, ZindexMixin ],
 	components: {
 		SelectValue
 	},
@@ -56,13 +58,20 @@ export default {
 			this.formItemSetValue(v1);
 			this.formItemValidte();
 			this.$emit("input", v1);
+		},
+		width: function () {
+			this.style = utils.initStyles({
+				width: this.width,
+				"z-index": this.getZindexLayer()
+			});
 		}
 	},
 	data () {
 		return {
 			label: "",
 			width: "",
-			visible: false
+			visible: false,
+			style: ""
 		}
 	},
 	created () {
