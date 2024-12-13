@@ -75,10 +75,12 @@ export default {
 			const that = this;
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
-				let value = that.itemField !== null ? that.itemField.value : null;
-				if (!value) {
-					value = that.mv2Form.form[that.field];
-				}
+				// TODO 这里的处理有问题，还要再研究
+				// let value = that.itemField !== null ? that.itemField.value : null;
+				// if (!value) {
+				// 	
+				// }
+				const value = that.mv2Form.form[that.field];
 				let errMsg = null;
 				if (rule) {
 					if (rule.required && !value) {
