@@ -75,7 +75,10 @@ export default {
 			const that = this;
 			return new Promise((resolve, reject) => {
 				const rule = this.getRule();
-				const value = that.itemField !== null ? that.itemField.value : null;
+				let value = that.itemField !== null ? that.itemField.value : null;
+				if (!value) {
+					value = that.mv2Form.form[that.field];
+				}
 				let errMsg = null;
 				if (rule) {
 					if (rule.required && !value) {
