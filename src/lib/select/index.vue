@@ -80,6 +80,8 @@ export default {
 		init () {
 			if (this.styles && this.styles.width) {
 				this.width = this.styles.width;
+			} else {
+				this.width = "100%";
 			}
 
 			this.initOptions();
