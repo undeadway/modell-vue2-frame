@@ -50,3 +50,9 @@ export default {
 	}
 }
 </script>
+<style lang="scss" scoped>
+.mv2-input-text-box {
+	color: $c_primary;
+	font-size: 14px;
+}
+</style>
