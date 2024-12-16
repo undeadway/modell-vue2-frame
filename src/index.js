@@ -24,6 +24,7 @@ import Mv2Drawer from "./lib/drawer";
 import Mv2Dropdown from "./lib/dropdown";
 import Mv2OkCancelButtons from "./lib/buttons/ok-cancel";
 import Mv2MultipleButtons from "./lib/buttons/multiple";
+import Mv2Text from "./lib/text";
 import Mv2DangerEventConfirm from "./lib/modal/danger-event-confirm";
 
 // 不可实例化组件
@@ -58,7 +59,8 @@ const install =  (Vue) => {
 		Mv2Dropdown,
 		Mv2OkCancelButtons,
 		Mv2MultipleButtons,
-		Mv2DangerEventConfirm
+		Mv2DangerEventConfirm,
+		Mv2Text
 	];
 
 	PAGE_COMPONENTS.forEach(component => {
@@ -103,5 +105,6 @@ export default {
 	Mv2Dropdown,
 	Mv2OkCancelButtons,
 	Mv2MultipleButtons,
-	Mv2DangerEventConfirm
+	Mv2DangerEventConfirm,
+	Mv2Text
 }

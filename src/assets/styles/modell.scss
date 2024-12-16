@@ -87,13 +87,16 @@
 
 .mv2-input-input-box {
 	height: 24px;
+	&:focus {
+		border: 1px solid $c_dark-blue;
+	}
+}
+
+.mv2-input-input-box, .mv2-input-text-box {
 	padding:6px 10px;
 	border: 1px solid $c_dark-gray;
 	border-radius: 6px;
 	outline: none;
-	&:focus {
-		border: 1px solid $c_dark-blue;
-	}
 }
 
 .mv2-foot-btn {

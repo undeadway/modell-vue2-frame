@@ -119,7 +119,8 @@ export default {
 .mv2-form-item-box {
 	>div {
 		display: inline-table;
-		vertical-align: middle;
+		vertical-align: top;
+		padding-top: 4px;
 		&:first-child {
 			width: 12px;
 		}
@@ -136,6 +137,10 @@ export default {
 	}
 	.mv2-text-align_left {
 		text-align: left;
+	}
+
+	.mv2-form-item-required-mark, .mv2-form-item-label {
+		padding-top: 12px;
 	}
 }
 .mv2-form-item-check-result-box {
