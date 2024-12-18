@@ -2,7 +2,7 @@
 	<div :style="style" class="mv2-select-box" @click="hideOptionList">
 		<div @click.stop="">
 			<select-value v-model="label" :placeholder="placeholder" :disabled="disabled" :clearable="clearable" @clear="onClearData" @click="showOptionList" />
-			<div ref="selectMenu" class="mv2-menu-box mv2-select-options-box" v-if="visible" :style="`width:calc(${width} - 10px);`">
+			<div ref="selectMenu" class="mv2-menu-box mv2-select-options-box" v-if="visible" :style="selectMenuStyle">
 				<div v-for="(option, index) in options" :key="index" @click="onClick(option)">
 					<div v-if="index > 1 && option.divider" class="mv2-divider"></div>
 					<div class="mv2-menu-item-box" :class="{ 'mv2-menu-item-active-box' :!option.disabled, 'is-disabled' : option.disabled }">{{ option.label }}</div>
@@ -60,8 +60,8 @@ export default {
 			this.$emit("input", v1);
 		},
 		width: function () {
-			this.style = utils.initStyles({
-				width: this.width,
+			this.selectMenuStyle = utils.initStyles({
+				width: `calc(${this.width} - 10px);`,
 				"z-index": this.getZindexLayer()
 			});
 		}
@@ -71,7 +71,7 @@ export default {
 			label: "",
 			width: "",
 			visible: false,
-			style: ""
+			selectMenuStyle: ""
 		}
 	},
 	created () {
