@@ -7,6 +7,6 @@
 至于各种功能，则是我想到什么了加什么，我有什么新需求了加什么。
 
 因为是自我学习的框架，所以没有任何质保。  
-不然你顺着网线过来咬我啊！
+不爽你顺着网线过来咬我啊！
 
 功能和说明参见：[https://tech-demo.waygc.net/vue2-frame](https://tech-demo.waygc.net/vue2-frame)
