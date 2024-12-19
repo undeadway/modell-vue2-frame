@@ -61,10 +61,14 @@
 * [https://github.com/undeadway/modell-vue2-frame](https://github.com/undeadway/modell-vue2-frame)
 * [https://gitee.com/undeadway/modell-vue2-frame](https://gitee.com/undeadway/modell-vue2-frame)
 
+## 展示和说明
+
+* [https://tech-demo.waygc.net/vue2-frame](https://tech-demo.waygc.net/vue2-frame)
+
 ## 实例
 
 * [http://blog.waygc.net](http://blog.waygc.net)
-* [http://trails.waygc.net](http://trails.waygc.net)
+* [https://trails.waygc.net](https://trails.waygc.net)
 
 # 安装
 
